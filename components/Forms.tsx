@@ -1,0 +1,188 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { email, growerTypes, interestTypes } from "@/content/site";
+
+type Field =
+  | { name: string; label: string; type?: "text" | "email"; required?: boolean }
+  | { name: string; label: string; type: "textarea"; required?: boolean }
+  | {
+      name: string;
+      label: string;
+      type: "select";
+      options: string[];
+      required?: boolean;
+    };
+
+const baseInput =
+  "focus-ring min-h-11 w-full rounded-xl border border-borderwarm bg-white px-4 py-3 text-charcoal shadow-sm transition hover:border-garden/45";
+
+function FormField({ field }: { field: Field }) {
+  const id = field.name;
+  const requiredMark = field.required ? <span className="text-warning"> *</span> : null;
+
+  if (field.type === "textarea") {
+    return (
+      <label className="block text-sm font-bold text-charcoal" htmlFor={id}>
+        {field.label}
+        {requiredMark}
+        <textarea id={id} name={id} rows={4} className={`${baseInput} mt-2`} required={field.required} />
+      </label>
+    );
+  }
+
+  if (field.type === "select") {
+    return (
+      <label className="block text-sm font-bold text-charcoal" htmlFor={id}>
+        {field.label}
+        {requiredMark}
+        <select id={id} name={id} className={`${baseInput} mt-2`} required={field.required} defaultValue="">
+          <option value="" disabled>
+            Select one
+          </option>
+          {field.options.map((option) => (
+            <option key={option}>{option}</option>
+          ))}
+        </select>
+      </label>
+    );
+  }
+
+  return (
+    <label className="block text-sm font-bold text-charcoal" htmlFor={id}>
+      {field.label}
+      {requiredMark}
+      <input id={id} name={id} type={field.type ?? "text"} className={`${baseInput} mt-2`} required={field.required} />
+    </label>
+  );
+}
+
+function MailtoForm({
+  title,
+  subject,
+  fields,
+  button,
+  success,
+  note,
+}: {
+  title: string;
+  subject: string;
+  fields: Field[];
+  button: string;
+  success: string;
+  note: string;
+}) {
+  const [sent, setSent] = useState(false);
+
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const body = fields
+      .map((field) => `${field.label}: ${data.get(field.name) || ""}`)
+      .join("\n");
+
+    // TODO: Replace this mailto fallback with Formspree, Netlify Forms, Resend,
+    // or a Next.js API route when a production form backend is selected.
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+    event.currentTarget.reset();
+  }
+
+  return (
+    <form
+      className="rounded-[20px] border border-borderwarm bg-card p-5 shadow-soft sm:p-7"
+      onSubmit={submit}
+      aria-label={title}
+    >
+      <div className="mb-5 rounded-2xl border border-garden/20 bg-garden/10 p-4 text-sm leading-6 text-deep">
+        <p className="font-black">What happens after you submit?</p>
+        <p className="mt-1">{note}</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {fields.map((field) => (
+          <div
+            key={field.name}
+            className={field.type === "textarea" ? "sm:col-span-2" : ""}
+          >
+            <FormField field={field} />
+          </div>
+        ))}
+      </div>
+      <button
+        type="submit"
+        className="focus-ring mt-5 min-h-11 w-full rounded-full bg-garden px-6 py-3 text-sm font-black text-white shadow-card transition hover:bg-deep sm:w-auto"
+      >
+        {button}
+      </button>
+      {sent ? (
+        <p aria-live="polite" className="mt-4 rounded-xl border border-garden/25 bg-garden/10 p-3 text-sm font-bold text-deep">
+          {success}
+        </p>
+      ) : null}
+      <p className="mt-4 text-sm leading-6 text-muted">
+        We will only use your information to contact you about Local Trade
+        Garden. We will not sell your personal information.
+      </p>
+    </form>
+  );
+}
+
+export function EarlyAccessForm() {
+  return (
+    <MailtoForm
+      title="Early access form"
+      subject="Local Trade Garden Early Access"
+      button="Join Early Access"
+      note="This opens a prefilled email to hotpublishers@gmail.com. Please send that email to complete your early access request."
+      success="Your email app should now be open with a prefilled early access message. Send it to finish joining the launch list."
+      fields={[
+        { name: "firstName", label: "First name", required: true },
+        { name: "email", label: "Email", type: "email", required: true },
+        { name: "city", label: "City", required: true },
+        { name: "state", label: "State", required: true },
+        { name: "growerType", label: "Grower type", type: "select", options: growerTypes, required: true },
+        { name: "usuallyGrow", label: "What do you usually grow or trade?", required: true },
+        { name: "interestType", label: "Interest type", type: "select", options: interestTypes, required: true },
+        { name: "message", label: "Message", type: "textarea" },
+      ]}
+    />
+  );
+}
+
+export function PartnerForm() {
+  return (
+    <MailtoForm
+      title="Local partner form"
+      subject="Local Trade Garden Partner Interest"
+      button="Become a Local Partner"
+      note="This opens a prefilled email to hotpublishers@gmail.com. Please send that email so we can follow up about local partner opportunities."
+      success="Your email app should now be open with a prefilled partner message. Send it and we will follow up."
+      fields={[
+        { name: "name", label: "Name", required: true },
+        { name: "organization", label: "Business or organization", required: true },
+        { name: "email", label: "Email", type: "email", required: true },
+        { name: "region", label: "City / region", required: true },
+        { name: "organizationType", label: "Organization type", required: true },
+        { name: "interest", label: "Interest", required: true },
+        { name: "message", label: "Message", type: "textarea" },
+      ]}
+    />
+  );
+}
+
+export function ContactForm() {
+  return (
+    <MailtoForm
+      title="Contact form"
+      subject="Local Trade Garden Contact"
+      button="Send Message"
+      note="This opens a prefilled email to hotpublishers@gmail.com. Please send the email from your mail app."
+      success="Your message is ready in your email app. Send it from there so it reaches Local Trade Garden."
+      fields={[
+        { name: "name", label: "Name", required: true },
+        { name: "email", label: "Email", type: "email", required: true },
+        { name: "message", label: "Message", type: "textarea", required: true },
+      ]}
+    />
+  );
+}
