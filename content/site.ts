@@ -35,31 +35,31 @@ export const navLinks = [
 ];
 
 export const trustItems = [
-  "Private signup information",
-  "Built for public meetups",
-  "Restricted item rules",
-  "Trust after each trade",
+  "Email stays off public profiles",
+  "Meetup reminders, not delivery routes",
+  "Clear no-go item list",
+  "Ratings after real swaps",
 ];
 
 export const problemCards = [
   {
     title: "Too much at once",
-    body: "The best food often arrives in buckets. Local Trade Garden gives surplus a place to go before it wilts on the counter.",
+    body: "The good stuff shows up all at once. A neighbor with an empty basket can save it from the compost pile.",
     icon: ShoppingBasket,
   },
   {
     title: "Cash-first platforms do not fit",
-    body: "Selling a handful of basil or three extra tomato plants feels awkward. A trade-first flow keeps the exchange neighborly.",
+    body: "Three tomato starts and a bag of basil should not need a price tag, a checkout page or awkward haggling.",
     icon: Ban,
   },
   {
     title: "Trust matters",
-    body: "The planned profile, rating and report tools are built around cautious local exchanges, not anonymous marketplace chaos.",
+    body: "Profiles, trade history and reporting tools give careful people a way to say yes without guessing in the dark.",
     icon: ShieldCheck,
   },
   {
     title: "Local is the point",
-    body: "This is for the person ten minutes away with compost, eggs, seedlings or the exact garden tool you need.",
+    body: "This is for the person one neighborhood over with compost, extra eggs or the trowel you keep meaning to buy.",
     icon: MapPin,
   },
 ];
@@ -67,27 +67,27 @@ export const problemCards = [
 export const steps = [
   {
     title: "Create your profile",
-    body: "In the planned early app, sign up with your display name, grower type and city. Email and zip code stay private.",
+    body: "Use a display name, grower type and city. Your email and zip code are not meant for the public listing page.",
     icon: Home,
   },
   {
     title: "Post what you have",
-    body: "List the extra basket, tray, bundle or bag, then say what you would be happy to trade for.",
+    body: "Add the extra basket, tray, bundle or bag. Say what would make it worth the handoff.",
     icon: ShoppingBasket,
   },
   {
     title: "Browse local listings",
-    body: "Scan nearby produce, seedlings, compost, tools and supplies by city and category.",
+    body: "Look through nearby produce, starts, compost, tools and supplies without digging through cash marketplaces.",
     icon: Search,
   },
   {
     title: "Offer a trade",
-    body: "Choose one of your own listings and send a simple swap offer. No checkout screen, no payment step.",
+    body: "Offer something from your own garden pile. No checkout screen. No payment step.",
     icon: Undo2,
   },
   {
     title: "Confirm and rate",
-    body: "The planned flow includes messaging, public meetup reminders and ratings after a completed exchange.",
+    body: "Confirm the details, meet somewhere sensible, then leave a rating so the next trade starts with more trust.",
     icon: Star,
   },
 ];
@@ -113,27 +113,27 @@ export const restrictedItems =
 export const appScreens = [
   {
     title: "Home Feed",
-    body: "A local feed for garden surplus, organized by city and category.",
+    body: "Nearby garden goods without the flea-market noise.",
     rows: ["East Nashville tomatoes", "Madison basil starts", "Compost for trade"],
   },
   {
     title: "Create Listing",
-    body: "A plain listing builder for what you have and what you want back.",
+    body: "A quick way to say: here is what I have, here is what I need.",
     rows: ["Basket of peppers", "Porch or public meetup", "Wants: herbs"],
   },
   {
     title: "Trade Offer",
-    body: "Offer one of your own listings instead of sending money.",
+    body: "Swap from your own listings instead of reaching for a wallet.",
     rows: ["Your basil starts", "For fresh eggs", "Awaiting reply"],
   },
   {
     title: "Messages",
-    body: "Coordinate without posting personal contact info publicly.",
+    body: "Work out the handoff without posting your personal contact info.",
     rows: ["Public meetup", "Saturday morning", "Confirm trade"],
   },
   {
     title: "Ratings",
-    body: "Build trust after completed trades, one careful exchange at a time.",
+    body: "Leave a little trail of reliability after each completed trade.",
     rows: ["Item match", "Cleanliness", "Trade again"],
   },
 ];
@@ -141,42 +141,42 @@ export const appScreens = [
 export const safetyCards = [
   {
     title: "No public exact addresses",
-    body: "The product is designed around general city or neighborhood information.",
+    body: "Listings should point to a general area, not someone’s front door.",
     icon: MapPin,
   },
   {
     title: "Private contact information",
-    body: "Email addresses and zip codes should not be shown on public profiles.",
+    body: "Email addresses and zip codes stay behind the scenes.",
     icon: Mail,
   },
   {
     title: "In-app messaging",
-    body: "The planned app flow keeps coordination inside the product.",
+    body: "Messages keep the back-and-forth in one place.",
     icon: MessageCircle,
   },
   {
     title: "Public meetup reminders",
-    body: "Trade agreements are intended to remind users to choose public places.",
+    body: "The handoff flow nudges people toward public, sensible meeting spots.",
     icon: Handshake,
   },
   {
     title: "Restricted item filter",
-    body: "Restricted keywords can be flagged before questionable listings go live.",
+    body: "Obvious restricted terms can be flagged before they turn into a problem.",
     icon: Ban,
   },
   {
     title: "Ratings after trades",
-    body: "The planned rating flow focuses on reliability, cleanliness and communication.",
+    body: "Ratings focus on the stuff that matters: item match, cleanliness, communication and showing up.",
     icon: Star,
   },
   {
     title: "Report and block tools",
-    body: "Users should be able to report listings or users that violate the rules.",
+    body: "Bad listings and bad behavior need a clear way out of the garden.",
     icon: ShieldCheck,
   },
   {
     title: "Admin moderation",
-    body: "Admins should be able to review reports, approve flagged listings and suspend accounts.",
+    body: "Reports and flagged listings can go to an actual review queue.",
     icon: BadgeCheck,
   },
 ];

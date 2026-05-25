@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Lora, Nunito_Sans } from "next/font/google";
 import "./globals.css";
+
+const display = Lora({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["600", "700"],
+});
+
+const body = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Local Trade Garden | Cash-Free Garden Trading for Local Growers",
@@ -27,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

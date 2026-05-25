@@ -34,32 +34,32 @@ const imageCredits = [
   {
     src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1200",
     alt: "Wooden baskets of tomatoes and eggplants at an outdoor farmers market",
-    label: "Market baskets",
-    caption: "The feeling: warm, useful, local",
+    label: "Saturday table",
+    caption: "A basket goes farther when neighbors know it is there",
   },
   {
     src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=1200",
     alt: "Young tomato seedlings growing in small nursery pots",
-    label: "Plant starts",
-    caption: "Seedlings, starts and extra trays",
+    label: "Extra starts",
+    caption: "The tray you overplanted might be someone else's first garden",
   },
   {
     src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200",
     alt: "A basket filled with ripe red tomatoes at a farmers market",
-    label: "Garden surplus",
-    caption: "Too many tomatoes should find a home",
+    label: "Peak week",
+    caption: "When the tomatoes come in, they do not wait politely",
   },
 ];
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-borderwarm/80 bg-cream/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-soil/15 bg-linen/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="focus-ring flex min-h-11 items-center gap-2 rounded-full">
-          <span className="flex size-10 items-center justify-center rounded-full bg-softyellow text-deep">
+          <span className="flex size-10 items-center justify-center rounded-full bg-sunflower text-deep shadow-card">
             <Flower2 aria-hidden="true" size={22} />
           </span>
-          <span className="text-base font-black text-deep sm:text-lg">Local Trade Garden</span>
+          <span className="font-display text-base font-bold text-deep sm:text-lg">Local Trade Garden</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-bold text-charcoal lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
@@ -72,7 +72,7 @@ function Header() {
           <ButtonLink href="#early-access">Join Early Access</ButtonLink>
         </div>
         <details className="relative lg:hidden">
-          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-borderwarm bg-card px-4 text-sm font-bold text-deep shadow-card">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-soil/15 bg-card px-4 text-sm font-bold text-deep shadow-card">
             <Menu aria-hidden="true" size={18} />
             Menu
           </summary>
@@ -94,12 +94,12 @@ function Header() {
 
 function ListingCard({ title, wants, place }: { title: string; wants: string; place: string }) {
   return (
-    <div className="rounded-2xl border border-borderwarm bg-white p-4 shadow-card">
+    <div className="rounded-2xl border border-soil/15 bg-white p-4 shadow-card">
       <div className="flex items-start gap-3">
-        <span className="mt-1 size-3 shrink-0 rounded-full bg-sunflower" />
+        <span className="mt-1 size-3 shrink-0 rounded-full bg-tomato" />
         <div>
           <p className="text-sm font-black text-charcoal">{title}</p>
-          <p className="mt-1 text-xs font-bold text-garden">Wants: {wants}</p>
+          <p className="mt-1 text-xs font-bold text-deep">Wants: {wants}</p>
           <p className="mt-2 text-xs text-muted">{place}</p>
         </div>
       </div>
@@ -113,7 +113,7 @@ function HeroVisual() {
       <div className="absolute -left-3 top-8 hidden rotate-[-10deg] rounded-full bg-softyellow p-3 text-deep shadow-card sm:block">
         <Sun aria-hidden="true" size={30} />
       </div>
-      <div className="overflow-hidden rounded-[30px] border border-borderwarm bg-card shadow-soft">
+      <div className="overflow-hidden rounded-[30px] border border-soil/20 bg-card shadow-soft">
         <div className="relative min-h-[440px]">
           <Image
             src="https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200"
@@ -124,9 +124,9 @@ function HeroVisual() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/72 via-charcoal/20 to-transparent" />
-          <div className="absolute left-4 right-4 top-4 flex items-center justify-between rounded-2xl border border-white/25 bg-white/90 px-4 py-3 backdrop-blur">
+          <div className="absolute left-4 right-4 top-4 flex items-center justify-between rounded-2xl border border-white/25 bg-linen/92 px-4 py-3 backdrop-blur">
             <div>
-              <p className="text-sm font-black text-deep">Nearby trade board</p>
+              <p className="font-display text-sm font-bold text-deep">Nearby trade board</p>
               <p className="text-xs text-muted">Early access preview</p>
             </div>
             <div className="flex gap-1" aria-hidden="true">
@@ -144,7 +144,7 @@ function HeroVisual() {
           </div>
         </div>
         <div className="grid gap-3 bg-card p-4 sm:grid-cols-[1fr_auto]">
-          <div className="rounded-2xl bg-deep p-4 text-white">
+          <div className="rounded-2xl bg-soil p-4 text-white">
             <div className="flex items-center gap-3">
               <ShoppingBasket aria-hidden="true" />
               <div>
@@ -162,7 +162,7 @@ function HeroVisual() {
       <div className="absolute -right-2 -top-4 rotate-6 rounded-2xl border border-borderwarm bg-white p-3 shadow-card">
         <Flower2 aria-hidden="true" className="text-sunflower" size={30} />
       </div>
-      <div className="absolute -bottom-5 left-4 flex max-w-[calc(100%-2rem)] gap-2 rounded-full border border-borderwarm bg-white px-4 py-3 text-sm font-black text-deep shadow-card sm:left-8">
+      <div className="absolute -bottom-5 left-4 flex max-w-[calc(100%-2rem)] gap-2 rounded-full border border-soil/15 bg-linen px-4 py-3 text-sm font-black text-deep shadow-card sm:left-8">
         <Leaf aria-hidden="true" size={18} />
         Tomatoes, herbs, eggs, compost
       </div>
@@ -179,17 +179,16 @@ function Hero() {
             <Sprout aria-hidden="true" size={17} />
             Cash-free local garden trading
           </p>
-          <h1 className="mt-6 text-4xl font-black leading-tight text-charcoal sm:text-5xl lg:text-6xl">
+          <h1 className="font-display mt-6 text-4xl font-bold leading-tight text-charcoal sm:text-5xl lg:text-6xl">
             Trade what you grow. Get what you need.
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted sm:text-xl">
-            Local Trade Garden helps backyard gardeners, small growers and
-            homesteaders find nearby neighbors for cash-free garden trades:
-            extra tomatoes for basil starts, compost for seedlings, tools for
-            herbs, eggs or honey where local rules allow.
+            Got more tomatoes than you can eat? Too many basil starts? A shed
+            full of tools you would rather trade than sell? Local Trade Garden
+            is for those small, practical swaps with people nearby.
           </p>
-          <p className="mt-4 font-black text-deep">
-            Early access is open now. The trading app launches one community at a time.
+          <p className="mt-4 rounded-2xl border border-tomato/20 bg-tomato/10 p-4 font-black text-deep">
+            Join the list for the first local launch. No cash sales, no checkout, no crypto.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#early-access">Join Early Access</ButtonLink>
@@ -222,13 +221,15 @@ function ProduceStrip() {
 
   return (
     <div className="mx-auto -mt-6 max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="grid gap-3 rounded-[24px] border border-borderwarm bg-card p-3 shadow-card sm:grid-cols-4">
-        {items.map(([color, label]) => (
-          <div key={label} className="flex min-h-16 items-center gap-3 rounded-2xl bg-white px-4">
-            <span className={`size-8 rounded-full ${color}`} aria-hidden="true" />
-            <span className="text-sm font-black text-charcoal">{label}</span>
-          </div>
-        ))}
+      <div className="market-line rounded-[26px] p-2">
+        <div className="grid gap-3 rounded-[22px] border border-soil/15 bg-card p-3 shadow-card sm:grid-cols-4">
+          {items.map(([color, label]) => (
+            <div key={label} className="flex min-h-16 items-center gap-3 rounded-2xl bg-white px-4">
+              <span className={`size-8 rounded-full ${color}`} aria-hidden="true" />
+              <span className="text-sm font-black text-charcoal">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -241,7 +242,7 @@ function PhotoBand() {
         {imageCredits.map((image, index) => (
           <figure
             key={image.src}
-            className={`group overflow-hidden rounded-[24px] border border-borderwarm bg-card shadow-soft ${index === 0 ? "lg:row-span-2" : ""}`}
+            className={`group overflow-hidden rounded-[24px] border border-soil/15 bg-card shadow-soft ${index === 0 ? "lg:row-span-2" : ""}`}
           >
             <div className={index === 0 ? "relative min-h-[360px]" : "relative min-h-[220px]"}>
               <Image
@@ -253,20 +254,21 @@ function PhotoBand() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/78 via-charcoal/12 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <p className="inline-flex rounded-full bg-softyellow px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
+                <p className="inline-flex rounded-full bg-sunflower px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
                   {image.label}
                 </p>
-                <p className="mt-3 text-xl font-black leading-tight">{image.caption}</p>
+                <p className="font-display mt-3 text-xl font-bold leading-tight">{image.caption}</p>
               </figcaption>
             </div>
           </figure>
         ))}
-        <div className="rounded-[24px] border border-garden/20 bg-deep p-6 text-white shadow-soft">
-          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">Color direction</p>
-          <h2 className="mt-3 text-3xl font-black leading-tight">Cream, leaf green, tomato red and sunflower yellow.</h2>
+        <div className="rounded-[24px] border border-garden/20 bg-soil p-6 text-white shadow-soft">
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">What might show up</p>
+          <h2 className="font-display mt-3 text-3xl font-bold leading-tight">A table full of small, useful trades.</h2>
           <p className="mt-4 leading-7 text-white/82">
-            The site should feel like a clean farmers market table: bright produce,
-            practical labels, friendly cards and enough warmth to remember it.
+            Tomatoes for basil. Compost for seedlings. A borrowed broadfork.
+            A dozen eggs, where local rules allow. Nothing fancy, just the kind
+            of practical swap gardeners already make over a fence.
           </p>
         </div>
       </div>
@@ -277,24 +279,24 @@ function PhotoBand() {
 function ProblemSection() {
   return (
     <Section
-      title="Good harvests should not disappear because the right neighbor never heard about them."
+      title="The garden always has a week when everything shows up at once."
       className="bg-white/70"
     >
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="rounded-[24px] border border-borderwarm bg-cream p-6 shadow-card">
-          <p className="mb-3 inline-flex rounded-full bg-softyellow px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
-            The familiar garden problem
+        <div className="rounded-[24px] border border-soil/15 bg-linen p-6 shadow-card">
+          <p className="mb-3 inline-flex rounded-full bg-tomato px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-white">
+            Anyone with a garden knows this week
           </p>
           <p className="text-lg font-black leading-8 text-charcoal">
             Tomatoes ripen all at once. Zucchini gets ambitious. Seedlings
             outgrow their trays. Eggs stack up before the weekend.
           </p>
           <p className="mt-4 leading-7 text-muted">
-            Most gardeners already share. Local Trade Garden gives that habit a
-            simple early-access home: what you have, what you need, and who is
-            nearby enough to make a sensible trade.
+            Most gardeners already share. The hard part is timing. You have
+            basil today, somebody else has compost tomorrow, and nobody wants
+            to make a whole sales listing for four extra pepper plants.
           </p>
-          <div className="mt-5 rounded-2xl bg-deep p-4 text-white">
+          <div className="mt-5 rounded-2xl bg-soil p-4 text-white">
             <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">The launch idea</p>
             <p className="mt-2 leading-7">
               A cash-free local exchange for garden surplus, seedlings,
@@ -318,7 +320,7 @@ function AppPreview() {
       id="app-preview"
       eyebrow="Mock app preview"
       title="A simple app for neighbor-to-neighbor swaps"
-      intro="These static previews show the intended early access experience. They are mockups only; the full app is not live yet."
+      intro="These are mockups, not live app screenshots. They show the kind of plain, useful flow we are building for early access."
       className="bg-white/70"
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -400,7 +402,7 @@ export default function HomePage() {
           id="how-it-works"
           eyebrow="Five simple steps"
           title="How it works"
-          intro="The early app is designed to keep trades simple: list surplus, make an offer, meet carefully and rate the exchange."
+          intro="No bidding, no cart, no shipping label. Just a few steps from extra garden goods to a real local swap."
         >
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => {
@@ -413,7 +415,7 @@ export default function HomePage() {
                     </span>
                     <Icon aria-hidden="true" className="text-garden" size={22} />
                   </div>
-                  <h3 className="mt-5 text-lg font-black text-charcoal">{step.title}</h3>
+                  <h3 className="font-display mt-5 text-lg font-bold text-charcoal">{step.title}</h3>
                   <p className="mt-2 leading-7 text-muted">{step.body}</p>
                 </article>
               );
@@ -425,7 +427,7 @@ export default function HomePage() {
           id="what-you-can-trade"
           eyebrow="Garden goods only"
           title="What you can trade"
-          intro="Local Trade Garden is focused on ordinary garden, homestead and growing supplies that neighbors can trade responsibly."
+          intro="Keep it garden-adjacent, local and practical. If it belongs at a backyard grower's table or in a shed, it may fit."
           className="bg-white/70"
         >
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -453,7 +455,7 @@ export default function HomePage() {
         <Section
           id="safety"
           eyebrow="Safety and trust"
-          title="Built for local trades, with safety in mind."
+          title="Local trades need common sense baked in."
         >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {safetyCards.map((card) => (
@@ -466,7 +468,7 @@ export default function HomePage() {
           id="early-access"
           eyebrow="Early access"
           title="Help launch the first Local Trade Garden community."
-          intro="We are starting with one local area first. Join early access if you want to trade garden goods, test the app or help seed the first listings."
+          intro="We are starting in one local area first. Join if you would actually post a few listings, test the rough edges or help the first trades feel alive."
           className="bg-softyellow/30"
         >
           <EarlyAccessCallout />
@@ -476,8 +478,8 @@ export default function HomePage() {
         <Section
           id="sponsors"
           eyebrow="Local partners"
-          title="Local garden businesses belong here too."
-          intro="Nurseries, feed stores, farmers markets, garden centers, seed companies, churches, garden clubs and community groups can help launch Local Trade Garden in their area."
+          title="The best launch partners are already part of garden life."
+          intro="Nurseries, feed stores, markets, garden clubs, churches and local food groups can help a first community feel real from day one."
           className="bg-white/70"
         >
           <PartnerIntroCard />
@@ -507,7 +509,7 @@ export default function HomePage() {
         <Section
           id="contact"
           eyebrow="Contact"
-          title="Have a launch question?"
+          title="Want to ask before you join?"
           intro={`Reach Local Trade Garden at ${email} or send a quick message.`}
           className="bg-white/70"
         >
@@ -524,13 +526,13 @@ export default function HomePage() {
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep/84 to-deep/24" />
+              <div className="absolute inset-0 bg-gradient-to-r from-soil via-soil/86 to-deep/24" />
               <div className="absolute right-6 top-6 text-softyellow/80">
                 <Flower2 aria-hidden="true" size={72} />
               </div>
               <div className="relative max-w-3xl">
-                <h2 className="text-3xl font-black leading-tight sm:text-4xl">
-                  Your extra harvest may be exactly what someone nearby needs.
+                <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
+                  The extra basket on your counter might be someone else&apos;s dinner.
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-white/82">
                   Join early access and help build a better way to trade local garden goods.
@@ -567,7 +569,7 @@ function Footer() {
     <footer className="border-t border-borderwarm bg-card px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <div className="flex items-center gap-2 text-xl font-black text-deep">
+          <div className="font-display flex items-center gap-2 text-xl font-bold text-deep">
             <Flower2 aria-hidden="true" className="text-sunflower" />
             Local Trade Garden
           </div>

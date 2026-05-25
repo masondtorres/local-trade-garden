@@ -17,9 +17,9 @@ body {
   overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(246, 215, 107, 0.4), transparent 34rem),
-    radial-gradient(circle at 82% 18%, rgba(74, 124, 89, 0.14), transparent 28rem),
-    radial-gradient(circle at 15% 72%, rgba(192, 57, 43, 0.09), transparent 24rem),
-    linear-gradient(180deg, #fff8e5 0%, #fffdf4 42%, #f8f1d9 100%);
+    radial-gradient(circle at 82% 18%, rgba(111, 163, 111, 0.22), transparent 28rem),
+    radial-gradient(circle at 15% 72%, rgba(184, 58, 46, 0.12), transparent 24rem),
+    linear-gradient(180deg, #fff8e5 0%, #fff3d1 42%, #f5e6b8 100%);
   color: #2d2d2d;
 }
 
@@ -36,4 +36,14 @@ textarea {
 
 .focus-ring {
   @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep;
+}
+
+.market-line {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(184, 58, 46, 0.18) 0,
+    rgba(184, 58, 46, 0.18) 14px,
+    transparent 14px,
+    transparent 28px
+  );
 }

@@ -24,7 +24,7 @@ export function Section({
               {eyebrow}
             </p>
           ) : null}
-          <h2 className="text-3xl font-black leading-tight text-charcoal sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold leading-tight text-charcoal sm:text-4xl">
             {title}
           </h2>
           {intro ? (
@@ -53,7 +53,7 @@ export function InfoCard({
           <Icon aria-hidden="true" size={22} />
         </div>
       ) : null}
-      <h3 className="text-lg font-black text-charcoal">{title}</h3>
+      <h3 className="font-display text-lg font-bold text-charcoal">{title}</h3>
       {body ? <p className="mt-2 leading-7 text-muted">{body}</p> : null}
     </article>
   );
