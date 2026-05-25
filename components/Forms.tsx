@@ -15,7 +15,7 @@ type Field =
     };
 
 const baseInput =
-  "focus-ring min-h-11 w-full rounded-xl border border-borderwarm bg-white px-4 py-3 text-charcoal shadow-sm transition hover:border-garden/45";
+  "focus-ring min-h-12 w-full rounded-lg border border-soil/20 bg-white px-4 py-3 text-[17px] text-charcoal transition hover:border-garden/45";
 
 function FormField({ field }: { field: Field }) {
   const id = field.name;
@@ -90,13 +90,13 @@ function MailtoForm({
 
   return (
     <form
-      className="rounded-[20px] border border-borderwarm bg-card p-5 shadow-soft sm:p-7"
+      className="rounded-2xl border border-soil/20 bg-card p-5 sm:p-7"
       onSubmit={submit}
       aria-label={title}
     >
-      <div className="mb-5 rounded-2xl border border-soil/15 bg-linen p-4 text-sm leading-6 text-deep">
-        <p className="font-black">Before you send</p>
-        <p className="mt-1">{note}</p>
+      <div className="mb-5 rounded-xl border border-soil/15 bg-linen p-4 text-base leading-7 text-deep">
+        <p className="font-display text-xl font-bold">Before you send</p>
+        <p className="mt-1 font-semibold">{note}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {fields.map((field) => (
@@ -110,16 +110,16 @@ function MailtoForm({
       </div>
       <button
         type="submit"
-        className="focus-ring mt-5 min-h-11 w-full rounded-full bg-garden px-6 py-3 text-sm font-black text-white shadow-card transition hover:bg-deep sm:w-auto"
+        className="focus-ring mt-5 min-h-12 w-full rounded-full bg-garden px-7 py-3 text-base font-black text-white transition hover:bg-deep sm:w-auto"
       >
         {button}
       </button>
       {sent ? (
-        <p aria-live="polite" className="mt-4 rounded-xl border border-garden/25 bg-garden/10 p-3 text-sm font-bold text-deep">
+        <p aria-live="polite" className="mt-4 rounded-xl border border-garden/25 bg-garden/10 p-3 text-base font-bold text-deep">
           {success}
         </p>
       ) : null}
-      <p className="mt-4 text-sm leading-6 text-muted">
+      <p className="mt-4 text-sm font-semibold leading-6 text-muted">
         We will use this to contact you about Local Trade Garden. No spam list,
         no selling your information.
       </p>
@@ -132,7 +132,7 @@ export function EarlyAccessForm() {
     <MailtoForm
       title="Early access form"
       subject="Local Trade Garden Early Access"
-      button="Join Early Access"
+      button="Join the First Local List"
       note="This opens your email app with a draft to hotpublishers@gmail.com. Send that email and you are done."
       success="Your email app should now have a draft ready. Send it to finish joining the launch list."
       fields={[

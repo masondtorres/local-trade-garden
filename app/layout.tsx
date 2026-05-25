@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Lora, Nunito_Sans } from "next/font/google";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const display = Lora({
+const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["600", "700"],
+  weight: ["600", "700", "800"],
 });
 
-const body = Nunito_Sans({
+const body = Source_Sans_3({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "600", "700", "800", "900"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
