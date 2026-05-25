@@ -25,8 +25,8 @@ const config: Config = {
         warning: "#C0392B",
       },
       boxShadow: {
-        soft: "0 16px 45px rgba(47, 93, 58, 0.12)",
-        card: "0 10px 25px rgba(45, 45, 45, 0.08)",
+        soft: "0 10px 24px rgba(110, 76, 47, 0.12)",
+        card: "3px 3px 0 rgba(110, 76, 47, 0.14)",
       },
       fontFamily: {
         sans: ["var(--font-body)", "ui-sans-serif", "system-ui", "sans-serif"],

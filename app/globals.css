@@ -25,6 +25,7 @@ body {
   background-attachment: fixed;
   background-size: 28px 28px, 28px 28px, auto, auto, auto, auto;
   color: #2d2d2d;
+  font-size: 17px;
 }
 
 a {
@@ -80,4 +81,21 @@ textarea {
       #b83a2e 36px 48px
     )
     8;
+}
+
+.note-card:nth-child(2n) {
+  transform: rotate(0.45deg);
+}
+
+.note-card:nth-child(3n) {
+  transform: rotate(-0.55deg);
+}
+
+.note-card:nth-child(4n) {
+  transform: rotate(0.25deg);
+}
+
+.stamp-label {
+  border: 2px solid rgba(110, 76, 47, 0.28);
+  box-shadow: 2px 2px 0 rgba(110, 76, 47, 0.12);
 }

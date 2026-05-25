@@ -16,17 +16,17 @@ export function ButtonLink({
 }: ButtonProps) {
   const styles = {
     primary:
-      "bg-garden text-white hover:bg-deep shadow-card border border-garden",
+      "bg-garden text-white hover:bg-deep border-2 border-deep shadow-card",
     secondary:
-      "bg-card text-deep hover:bg-white border border-borderwarm shadow-card",
+      "bg-linen text-deep hover:bg-white border-2 border-soil/20 shadow-card",
     light:
-      "bg-white text-deep hover:bg-cream border border-white/60 shadow-card",
+      "bg-white text-deep hover:bg-cream border-2 border-white/70 shadow-card",
   };
 
   return (
     <Link
       href={href}
-      className={`focus-ring inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-black transition sm:w-auto ${styles[variant]} ${className}`}
+      className={`focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-bold transition sm:w-auto ${styles[variant]} ${className}`}
     >
       {children}
       <ArrowRight aria-hidden="true" size={18} />

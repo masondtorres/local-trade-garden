@@ -57,11 +57,11 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-soil/20 bg-linen/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-        <Link href="/" className="focus-ring flex min-h-11 items-center gap-2 rounded-full">
-          <span className="flex size-10 items-center justify-center rounded-full bg-sunflower text-deep">
+        <Link href="/" className="focus-ring flex min-h-11 items-center gap-2 rounded-sm">
+          <span className="flex size-10 rotate-[-2deg] items-center justify-center rounded-sm bg-sunflower text-deep shadow-card">
             <Flower2 aria-hidden="true" size={22} />
           </span>
-          <span className="font-display text-lg font-bold text-deep">Local Trade Garden</span>
+          <span className="font-display text-xl font-normal text-deep">Local Trade Garden</span>
         </Link>
         <nav className="hidden items-center gap-6 text-base font-bold text-charcoal lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
@@ -74,7 +74,7 @@ function Header() {
           <ButtonLink href="#early-access">Join the First Local List</ButtonLink>
         </div>
         <details className="relative lg:hidden">
-          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-soil/20 bg-card px-4 text-sm font-bold text-deep">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-md border-2 border-soil/20 bg-card px-4 text-sm font-bold text-deep">
             <Menu aria-hidden="true" size={18} />
             Menu
           </summary>
@@ -102,28 +102,28 @@ function ListingPin({
   compact?: boolean;
 }) {
   return (
-    <article className={`paper-panel relative border-2 border-soil/20 p-4 shadow-[4px_4px_0_rgba(110,76,47,0.12)] ${compact ? "rounded-sm" : "rounded-sm"}`}>
+    <article className={`note-card paper-panel relative border-2 border-soil/20 p-4 shadow-[4px_4px_0_rgba(110,76,47,0.12)] ${compact ? "rounded-sm" : "rounded-sm"}`}>
       <span className="absolute -top-2 left-5 h-4 w-10 rotate-[-2deg] bg-sunflower/70" aria-hidden="true" />
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.12em] text-tomato">Have</p>
-          <h3 className="font-display mt-1 text-xl font-bold leading-tight text-charcoal">{listing.have}</h3>
+          <p className="stamp-label inline-block bg-white px-2 py-0.5 text-xs font-bold uppercase tracking-[0.08em] text-tomato">Have</p>
+          <h3 className="font-display mt-2 text-2xl font-normal leading-tight text-charcoal">{listing.have}</h3>
         </div>
-        <span className="shrink-0 border border-soil/20 bg-linen px-2 py-1 text-xs font-black text-deep">
+        <span className="shrink-0 border border-soil/20 bg-linen px-2 py-1 text-xs font-bold text-deep">
           {listing.status}
         </span>
       </div>
       <dl className="mt-4 grid gap-2 text-base leading-6">
         <div>
-          <dt className="inline font-black text-deep">Wants: </dt>
+          <dt className="inline font-bold text-deep">Wants: </dt>
           <dd className="inline text-charcoal">{listing.wants}</dd>
         </div>
         <div>
-          <dt className="inline font-black text-deep">Area: </dt>
+          <dt className="inline font-bold text-deep">Area: </dt>
           <dd className="inline text-charcoal">{listing.area}</dd>
         </div>
         <div>
-          <dt className="inline font-black text-deep">Handoff: </dt>
+          <dt className="inline font-bold text-deep">Handoff: </dt>
           <dd className="inline text-charcoal">{listing.handoff}</dd>
         </div>
       </dl>
@@ -138,7 +138,7 @@ function HeroBoard() {
         <div className="flex items-start justify-between gap-4 border-b border-soil/20 pb-4">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Example board</p>
-            <h2 className="font-display mt-1 text-3xl font-bold text-deep">Today near Nashville</h2>
+            <h2 className="font-display mt-1 text-3xl font-normal text-deep">Today near Nashville</h2>
           </div>
           <ClipboardList aria-hidden="true" className="mt-1 text-soil" />
         </div>
@@ -147,9 +147,9 @@ function HeroBoard() {
             <ListingPin key={listing.have} listing={listing} compact />
           ))}
         </div>
-        <p className="mt-4 rounded-xl bg-white p-3 text-sm font-bold leading-6 text-muted">
-          These are examples for early access. They are not live trades.
-        </p>
+          <p className="mt-4 border-l-4 border-tomato bg-white p-3 text-sm font-bold leading-6 text-muted">
+            These are examples for early access. They are not live trades.
+          </p>
       </div>
     </aside>
   );
@@ -161,11 +161,11 @@ function Hero() {
       <div className="mx-auto max-w-6xl rounded-[32px] border-4 border-soil/20 bg-soil/10 p-3">
       <div className="paper-panel grid items-center gap-10 rounded-[24px] border border-soil/20 p-5 sm:p-8 lg:grid-cols-[0.94fr_1.06fr]">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-soil/20 bg-card px-4 py-2 text-sm font-black text-deep">
+          <p className="stamp-label inline-flex rotate-[-1deg] items-center gap-2 bg-card px-4 py-2 text-sm font-bold text-deep">
             <Sprout aria-hidden="true" size={17} />
             Cash-free local garden trading
           </p>
-          <h1 className="font-display mt-6 text-5xl font-bold leading-[1.04] text-charcoal sm:text-6xl">
+          <h1 className="font-display mt-6 max-w-3xl text-5xl font-normal leading-[1.02] text-charcoal sm:text-6xl">
             Trade what you grow. Get what you need.
           </h1>
           <p className="mt-5 max-w-2xl text-xl leading-8 text-charcoal">
@@ -173,13 +173,20 @@ function Hero() {
             extra tomatoes, basil starts, compost, eggs or tools than turn every
             little thing into a sale.
           </p>
+          <div className="mt-5 max-w-xl rotate-[-0.4deg] border-2 border-soil/20 bg-linen p-4 shadow-card">
+            <p className="font-display text-2xl font-normal text-deep">Field note</p>
+            <p className="mt-2 text-base font-bold leading-7 text-charcoal">
+              This is for the little overflows: six tomato starts, a spare rake,
+              a bucket of compost, herbs you clipped too much of.
+            </p>
+          </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#early-access">Join the First Local List</ButtonLink>
             <ButtonLink href="#how-it-works" variant="secondary">
               See How It Works
             </ButtonLink>
           </div>
-          <p className="mt-5 max-w-xl rounded-2xl border border-tomato/20 bg-tomato/10 p-4 font-bold leading-7 text-deep">
+          <p className="mt-5 max-w-xl border-l-4 border-tomato bg-tomato/10 p-4 font-bold leading-7 text-deep">
             Private early access. No checkout, no crypto, no cash sales.
           </p>
         </div>
@@ -197,7 +204,7 @@ function LocalBoard() {
         <div className="mb-6 flex flex-col justify-between gap-3 border-b border-soil/20 pb-5 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Sample pilot board</p>
-            <h2 id="local-board-title" className="font-display text-4xl font-bold leading-tight text-charcoal">
+            <h2 id="local-board-title" className="font-display text-4xl font-normal leading-tight text-charcoal">
               Today&apos;s Local Board
             </h2>
           </div>
@@ -219,8 +226,8 @@ function HowItWorks() {
   return (
     <section id="how-it-works" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="how-title">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">How it works</p>
-        <h2 id="how-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+        <p className="stamp-label inline-block rotate-[-0.5deg] bg-card px-3 py-1 text-sm font-bold uppercase tracking-[0.08em] text-garden">How it works</p>
+        <h2 id="how-title" className="font-display mt-3 text-4xl font-normal leading-tight text-charcoal">
           Five plain steps. No shopping cart.
         </h2>
         <div className="seed-border mt-8 grid gap-0 overflow-hidden rounded-sm border-4 bg-card md:grid-cols-5">
@@ -229,7 +236,7 @@ function HowItWorks() {
               <span className="flex size-9 items-center justify-center rounded-full bg-deep text-sm font-black text-white">
                 {index + 1}
               </span>
-              <h3 className="font-display mt-5 text-xl font-bold leading-tight text-charcoal">{step.title}</h3>
+              <h3 className="font-display mt-5 text-2xl font-normal leading-tight text-charcoal">{step.title}</h3>
               <p className="mt-3 text-base leading-7 text-muted">{step.body}</p>
             </article>
           ))}
@@ -245,8 +252,8 @@ function TradeTags() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Trade list</p>
-            <h2 id="trade-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+            <p className="stamp-label inline-block bg-card px-3 py-1 text-sm font-bold uppercase tracking-[0.08em] text-tomato">Trade list</p>
+            <h2 id="trade-title" className="font-display mt-3 text-4xl font-normal leading-tight text-charcoal">
               Keep it garden-adjacent.
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-8 text-muted">
@@ -257,7 +264,7 @@ function TradeTags() {
           <div>
             <div className="flex flex-wrap gap-3">
               {tradeItems.map((item) => (
-                <span key={item} className="rounded-sm border-2 border-soil/20 bg-linen px-4 py-2 text-base font-black text-deep shadow-[3px_3px_0_rgba(110,76,47,0.12)]">
+                <span key={item} className="rounded-sm border-2 border-soil/20 bg-linen px-4 py-2 text-base font-bold text-deep shadow-[3px_3px_0_rgba(110,76,47,0.12)]">
                   {item}
                 </span>
               ))}
@@ -285,8 +292,8 @@ function SafetyRules() {
   return (
     <section id="safety" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="safety-title">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">Safety rules</p>
-        <h2 id="safety-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+        <p className="stamp-label inline-block bg-card px-3 py-1 text-sm font-bold uppercase tracking-[0.08em] text-garden">Safety rules</p>
+        <h2 id="safety-title" className="font-display mt-3 text-4xl font-normal leading-tight text-charcoal">
           Local trades need common sense baked in.
         </h2>
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
@@ -314,7 +321,7 @@ function SafetyList({
 }) {
   return (
     <article className="paper-panel rounded-2xl border border-soil/20 p-5">
-      <h3 className="font-display text-2xl font-bold text-deep">{title}</h3>
+      <h3 className="font-display text-2xl font-normal text-deep">{title}</h3>
       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <li key={item} className="flex gap-2 text-base font-bold leading-6 text-charcoal">
@@ -343,12 +350,12 @@ function EarlyAccess() {
     <section id="early-access" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="early-title">
       <div className="board-panel mx-auto grid max-w-6xl gap-8 rounded-[28px] border-4 border-soil/20 p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Early access</p>
-          <h2 id="early-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+          <p className="stamp-label inline-block bg-card px-3 py-1 text-sm font-bold uppercase tracking-[0.08em] text-tomato">Early access</p>
+          <h2 id="early-title" className="font-display mt-3 text-4xl font-normal leading-tight text-charcoal">
             Put your name on the first local signup sheet.
           </h2>
           <div className="paper-panel mt-6 rounded-2xl border border-soil/20 p-5">
-            <h3 className="font-display text-2xl font-bold text-deep">After you join</h3>
+            <h3 className="font-display text-2xl font-normal text-deep">After you join</h3>
             <ol className="mt-4 grid gap-3">
               {afterJoin.map((item, index) => (
                 <li key={item} className="flex gap-3 text-base font-bold leading-6 text-charcoal">
@@ -372,8 +379,8 @@ function PartnerStrip() {
     <section id="sponsors" className="px-4 py-8 sm:px-6 lg:px-8" aria-label="Local partner interest">
       <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-sm border-4 border-soil bg-soil p-6 text-white md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">Local partners</p>
-          <h2 className="font-display mt-2 text-3xl font-bold leading-tight">
+          <p className="text-sm font-bold uppercase tracking-[0.08em] text-softyellow">Local partners</p>
+          <h2 className="font-display mt-2 text-3xl font-normal leading-tight">
             Own a nursery, feed store, market, church group or garden club?
           </h2>
           <p className="mt-2 max-w-3xl text-base leading-7 text-white/84">
@@ -396,14 +403,14 @@ function FAQ() {
   return (
     <section id="faq" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="faq-title">
       <div className="mx-auto max-w-4xl">
-        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">FAQ</p>
-        <h2 id="faq-title" className="font-display mt-2 text-4xl font-bold text-charcoal">
+        <p className="stamp-label inline-block bg-card px-3 py-1 text-sm font-bold uppercase tracking-[0.08em] text-garden">FAQ</p>
+        <h2 id="faq-title" className="font-display mt-3 text-4xl font-normal text-charcoal">
           Hard questions first.
         </h2>
         <div className="mt-7 grid gap-3">
           {faq.map((item) => (
             <details key={item.q} className="paper-panel rounded-xl border border-soil/20 p-5">
-              <summary className="focus-ring cursor-pointer list-none rounded-lg font-display text-xl font-bold text-charcoal">
+              <summary className="focus-ring cursor-pointer list-none rounded-lg font-display text-xl font-normal text-charcoal">
                 {item.q}
               </summary>
               <p className="mt-3 text-base leading-7 text-muted">{item.a}</p>
@@ -428,7 +435,7 @@ function Footer() {
     <footer className="border-t border-soil/20 bg-linen/90 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_1fr]">
         <div>
-          <div className="font-display flex items-center gap-2 text-2xl font-bold text-deep">
+          <div className="font-display flex items-center gap-2 text-2xl font-normal text-deep">
             <Flower2 aria-hidden="true" className="text-sunflower" />
             Local Trade Garden
           </div>

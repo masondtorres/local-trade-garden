@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Atkinson_Hyperlegible, Bree_Serif } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Bree_Serif({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["600", "700", "800"],
+  weight: "400",
 });
 
-const body = Source_Sans_3({
+const body = Atkinson_Hyperlegible({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {

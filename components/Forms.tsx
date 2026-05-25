@@ -15,7 +15,7 @@ type Field =
     };
 
 const baseInput =
-  "focus-ring min-h-12 w-full rounded-lg border border-soil/20 bg-white px-4 py-3 text-[17px] text-charcoal transition hover:border-garden/45";
+  "focus-ring min-h-12 w-full rounded-md border-2 border-soil/20 bg-white px-4 py-3 text-[17px] text-charcoal transition hover:border-garden/45";
 
 function FormField({ field }: { field: Field }) {
   const id = field.name;
@@ -90,12 +90,12 @@ function MailtoForm({
 
   return (
     <form
-      className="rounded-2xl border border-soil/20 bg-card p-5 sm:p-7"
+      className="paper-panel border-2 border-soil/20 p-5 shadow-card sm:p-7"
       onSubmit={submit}
       aria-label={title}
     >
-      <div className="mb-5 rounded-xl border border-soil/15 bg-linen p-4 text-base leading-7 text-deep">
-        <p className="font-display text-xl font-bold">Before you send</p>
+      <div className="mb-5 border-2 border-soil/15 bg-linen p-4 text-base leading-7 text-deep">
+        <p className="font-display text-2xl font-normal">Before you send</p>
         <p className="mt-1 font-semibold">{note}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -110,7 +110,7 @@ function MailtoForm({
       </div>
       <button
         type="submit"
-        className="focus-ring mt-5 min-h-12 w-full rounded-full bg-garden px-7 py-3 text-base font-black text-white transition hover:bg-deep sm:w-auto"
+        className="focus-ring mt-5 min-h-12 w-full rounded-lg border-2 border-deep bg-garden px-7 py-3 text-base font-bold text-white shadow-card transition hover:bg-deep sm:w-auto"
       >
         {button}
       </button>
