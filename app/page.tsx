@@ -1,67 +1,69 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   AlertTriangle,
   CheckCircle2,
-  CircleDollarSign,
+  ClipboardList,
   Flower2,
-  Leaf,
+  Mail,
   Menu,
-  MessageSquare,
-  MoveRight,
-  ShoppingBasket,
   Sprout,
-  Sun,
 } from "lucide-react";
 import { ButtonLink } from "@/components/Buttons";
-import { EarlyAccessForm, PartnerForm, ContactForm } from "@/components/Forms";
-import { InfoCard, Section } from "@/components/Section";
+import { EarlyAccessForm } from "@/components/Forms";
 import {
-  appScreens,
+  builtSafety,
   email,
   faq,
   navLinks,
   partnerCards,
-  problemCards,
+  plannedSafety,
   restrictedItems,
-  safetyCards,
   steps,
   tradeItems,
-  trustItems,
 } from "@/content/site";
 
-const imageCredits = [
+const sampleListings = [
   {
-    src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1200",
-    alt: "Wooden baskets of tomatoes and eggplants at an outdoor farmers market",
-    label: "Saturday table",
-    caption: "A basket goes farther when neighbors know it is there",
+    have: "Heirloom tomatoes",
+    wants: "Eggs or basil starts",
+    area: "East Nashville",
+    handoff: "Public meetup",
+    status: "Sample listing",
   },
   {
-    src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=1200",
-    alt: "Young tomato seedlings growing in small nursery pots",
-    label: "Extra starts",
-    caption: "The tray you overplanted might be someone else's first garden",
+    have: "Basil starts",
+    wants: "Compost",
+    area: "Madison",
+    handoff: "Porch pickup, general area only",
+    status: "Early access example",
   },
   {
-    src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200",
-    alt: "A basket filled with ripe red tomatoes at a farmers market",
-    label: "Peak week",
-    caption: "When the tomatoes come in, they do not wait politely",
+    have: "Seed packets",
+    wants: "Garden tools",
+    area: "Nashville",
+    handoff: "Public meetup",
+    status: "Pilot example",
+  },
+  {
+    have: "Compost bags",
+    wants: "Tomatoes or herbs",
+    area: "Madison",
+    handoff: "Meetup arranged by users",
+    status: "Sample listing",
   },
 ];
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-soil/15 bg-linen/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-soil/20 bg-linen/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="focus-ring flex min-h-11 items-center gap-2 rounded-full">
-          <span className="flex size-10 items-center justify-center rounded-full bg-sunflower text-deep shadow-card">
+          <span className="flex size-10 items-center justify-center rounded-full bg-sunflower text-deep">
             <Flower2 aria-hidden="true" size={22} />
           </span>
-          <span className="font-display text-base font-bold text-deep sm:text-lg">Local Trade Garden</span>
+          <span className="font-display text-lg font-bold text-deep">Local Trade Garden</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-bold text-charcoal lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-6 text-base font-bold text-charcoal lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="focus-ring rounded-full hover:text-deep">
               {link.label}
@@ -69,22 +71,22 @@ function Header() {
           ))}
         </nav>
         <div className="hidden lg:block">
-          <ButtonLink href="#early-access">Join Early Access</ButtonLink>
+          <ButtonLink href="#early-access">Join the First Local List</ButtonLink>
         </div>
         <details className="relative lg:hidden">
-          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-soil/15 bg-card px-4 text-sm font-bold text-deep shadow-card">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-soil/20 bg-card px-4 text-sm font-bold text-deep">
             <Menu aria-hidden="true" size={18} />
             Menu
           </summary>
-          <nav className="absolute right-0 mt-3 grid w-[min(18rem,calc(100vw-2rem))] gap-2 rounded-2xl border border-borderwarm bg-card p-3 shadow-soft" aria-label="Mobile navigation">
+          <nav className="absolute right-0 mt-3 grid w-[min(18rem,calc(100vw-2rem))] gap-2 rounded-2xl border border-soil/20 bg-card p-3 shadow-card" aria-label="Mobile navigation">
+            <Link href="#early-access" className="focus-ring min-h-11 rounded-xl bg-garden px-3 py-3 text-center font-black text-white">
+              Join the First Local List
+            </Link>
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream">
+              <Link key={link.href} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-linen">
                 {link.label}
               </Link>
             ))}
-            <Link href="#early-access" className="focus-ring min-h-11 rounded-xl bg-garden px-3 py-3 text-center font-black text-white">
-              Join Early Access
-            </Link>
           </nav>
         </details>
       </div>
@@ -92,299 +94,369 @@ function Header() {
   );
 }
 
-function ListingCard({ title, wants, place }: { title: string; wants: string; place: string }) {
+function ListingPin({
+  listing,
+  compact = false,
+}: {
+  listing: (typeof sampleListings)[number];
+  compact?: boolean;
+}) {
   return (
-    <div className="rounded-2xl border border-soil/15 bg-white p-4 shadow-card">
-      <div className="flex items-start gap-3">
-        <span className="mt-1 size-3 shrink-0 rounded-full bg-tomato" />
+    <article className={`paper-panel relative border-2 border-soil/20 p-4 shadow-[4px_4px_0_rgba(110,76,47,0.12)] ${compact ? "rounded-sm" : "rounded-sm"}`}>
+      <span className="absolute -top-2 left-5 h-4 w-10 rotate-[-2deg] bg-sunflower/70" aria-hidden="true" />
+      <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-black text-charcoal">{title}</p>
-          <p className="mt-1 text-xs font-bold text-deep">Wants: {wants}</p>
-          <p className="mt-2 text-xs text-muted">{place}</p>
+          <p className="text-xs font-black uppercase tracking-[0.12em] text-tomato">Have</p>
+          <h3 className="font-display mt-1 text-xl font-bold leading-tight text-charcoal">{listing.have}</h3>
         </div>
+        <span className="shrink-0 border border-soil/20 bg-linen px-2 py-1 text-xs font-black text-deep">
+          {listing.status}
+        </span>
       </div>
-    </div>
+      <dl className="mt-4 grid gap-2 text-base leading-6">
+        <div>
+          <dt className="inline font-black text-deep">Wants: </dt>
+          <dd className="inline text-charcoal">{listing.wants}</dd>
+        </div>
+        <div>
+          <dt className="inline font-black text-deep">Area: </dt>
+          <dd className="inline text-charcoal">{listing.area}</dd>
+        </div>
+        <div>
+          <dt className="inline font-black text-deep">Handoff: </dt>
+          <dd className="inline text-charcoal">{listing.handoff}</dd>
+        </div>
+      </dl>
+    </article>
   );
 }
 
-function HeroVisual() {
+function HeroBoard() {
   return (
-    <div className="relative mx-auto w-full max-w-lg" aria-label="Garden harvest photo with trade listing cards">
-      <div className="absolute -left-3 top-8 hidden rotate-[-10deg] rounded-full bg-softyellow p-3 text-deep shadow-card sm:block">
-        <Sun aria-hidden="true" size={30} />
-      </div>
-      <div className="overflow-hidden rounded-[30px] border border-soil/20 bg-card shadow-soft">
-        <div className="relative min-h-[440px]">
-          <Image
-            src="https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200"
-            alt="A basket filled with ripe red tomatoes at a farmers market"
-            fill
-            priority
-            sizes="(min-width: 1024px) 520px, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/72 via-charcoal/20 to-transparent" />
-          <div className="absolute left-4 right-4 top-4 flex items-center justify-between rounded-2xl border border-white/25 bg-linen/92 px-4 py-3 backdrop-blur">
-            <div>
-              <p className="font-display text-sm font-bold text-deep">Nearby trade board</p>
-              <p className="text-xs text-muted">Early access preview</p>
-            </div>
-            <div className="flex gap-1" aria-hidden="true">
-              <span className="size-3 rounded-full bg-sunflower" />
-              <span className="size-3 rounded-full bg-garden" />
-              <span className="size-3 rounded-full bg-warning" />
-            </div>
+    <aside className="market-line rounded-[28px] p-2" aria-label="Sample local trade board">
+      <div className="board-panel rounded-[22px] border border-soil/25 p-4">
+        <div className="flex items-start justify-between gap-4 border-b border-soil/20 pb-4">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Example board</p>
+            <h2 className="font-display mt-1 text-3xl font-bold text-deep">Today near Nashville</h2>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 grid gap-3">
-            <ListingCard title="Heirloom Tomatoes" wants="Eggs or basil starts" place="East Nashville" />
-            <div className="grid gap-3 sm:grid-cols-2">
-              <ListingCard title="Basil Starts" wants="Compost or garden tools" place="Madison" />
-              <ListingCard title="Fresh Eggs" wants="Tomatoes or herbs" place="Where local rules allow" />
-            </div>
-          </div>
+          <ClipboardList aria-hidden="true" className="mt-1 text-soil" />
         </div>
-        <div className="grid gap-3 bg-card p-4 sm:grid-cols-[1fr_auto]">
-          <div className="rounded-2xl bg-soil p-4 text-white">
-            <div className="flex items-center gap-3">
-              <ShoppingBasket aria-hidden="true" />
-              <div>
-                <p className="font-black">Garden basket, not shopping cart</p>
-                <p className="text-sm text-white/78">The signup list is open. The trading app is still in early access.</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center rounded-2xl border border-borderwarm bg-white px-4 py-3 text-deep">
-            <CircleDollarSign aria-hidden="true" size={24} />
-            <span className="sr-only">Cash-free</span>
-          </div>
+        <div className="mt-4 grid gap-3">
+          {sampleListings.slice(0, 2).map((listing) => (
+            <ListingPin key={listing.have} listing={listing} compact />
+          ))}
         </div>
+        <p className="mt-4 rounded-xl bg-white p-3 text-sm font-bold leading-6 text-muted">
+          These are examples for early access. They are not live trades.
+        </p>
       </div>
-      <div className="absolute -right-2 -top-4 rotate-6 rounded-2xl border border-borderwarm bg-white p-3 shadow-card">
-        <Flower2 aria-hidden="true" className="text-sunflower" size={30} />
-      </div>
-      <div className="absolute -bottom-5 left-4 flex max-w-[calc(100%-2rem)] gap-2 rounded-full border border-soil/15 bg-linen px-4 py-3 text-sm font-black text-deep shadow-card sm:left-8">
-        <Leaf aria-hidden="true" size={18} />
-        Tomatoes, herbs, eggs, compost
-      </div>
-    </div>
+    </aside>
   );
 }
 
 function Hero() {
   return (
-    <section className="px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pt-16">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
+    <section className="px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+      <div className="mx-auto max-w-6xl rounded-[32px] border-4 border-soil/20 bg-soil/10 p-3">
+      <div className="paper-panel grid items-center gap-10 rounded-[24px] border border-soil/20 p-5 sm:p-8 lg:grid-cols-[0.94fr_1.06fr]">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-borderwarm bg-card px-4 py-2 text-sm font-black text-deep shadow-card">
+          <p className="inline-flex items-center gap-2 rounded-full border border-soil/20 bg-card px-4 py-2 text-sm font-black text-deep">
             <Sprout aria-hidden="true" size={17} />
             Cash-free local garden trading
           </p>
-          <h1 className="font-display mt-6 text-4xl font-bold leading-tight text-charcoal sm:text-5xl lg:text-6xl">
+          <h1 className="font-display mt-6 text-5xl font-bold leading-[1.04] text-charcoal sm:text-6xl">
             Trade what you grow. Get what you need.
           </h1>
-          <p className="mt-5 text-lg leading-8 text-muted sm:text-xl">
-            Got more tomatoes than you can eat? Too many basil starts? A shed
-            full of tools you would rather trade than sell? Local Trade Garden
-            is for those small, practical swaps with people nearby.
+          <p className="mt-5 max-w-2xl text-xl leading-8 text-charcoal">
+            A simple early-access list for gardeners who would rather swap
+            extra tomatoes, basil starts, compost, eggs or tools than turn every
+            little thing into a sale.
           </p>
-          <p className="mt-4 rounded-2xl border border-tomato/20 bg-tomato/10 p-4 font-black text-deep">
-            Join the list for the first local launch. No cash sales, no checkout, no crypto.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="#early-access">Join Early Access</ButtonLink>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="#early-access">Join the First Local List</ButtonLink>
             <ButtonLink href="#how-it-works" variant="secondary">
               See How It Works
             </ButtonLink>
           </div>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            {trustItems.map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm font-bold text-charcoal">
-                <CheckCircle2 aria-hidden="true" className="shrink-0 text-garden" size={18} />
-                {item}
-              </div>
-            ))}
-          </div>
+          <p className="mt-5 max-w-xl rounded-2xl border border-tomato/20 bg-tomato/10 p-4 font-bold leading-7 text-deep">
+            Private early access. No checkout, no crypto, no cash sales.
+          </p>
         </div>
-        <HeroVisual />
+        <HeroBoard />
+      </div>
       </div>
     </section>
   );
 }
 
-function ProduceStrip() {
-  const items = [
-    ["bg-warning", "too many tomatoes"],
-    ["bg-garden", "basil starts"],
-    ["bg-sunflower", "seed packets"],
-    ["bg-deep", "compost bags"],
+function LocalBoard() {
+  return (
+    <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="local-board-title">
+      <div className="board-panel mx-auto max-w-6xl rounded-[28px] border-4 border-soil/20 p-5 sm:p-7">
+        <div className="mb-6 flex flex-col justify-between gap-3 border-b border-soil/20 pb-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Sample pilot board</p>
+            <h2 id="local-board-title" className="font-display text-4xl font-bold leading-tight text-charcoal">
+              Today&apos;s Local Board
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-bold leading-6 text-muted">
+            This is the whole idea in one glance: have, wants, area, handoff.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {sampleListings.map((listing) => (
+            <ListingPin key={listing.have} listing={listing} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowItWorks() {
+  return (
+    <section id="how-it-works" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="how-title">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">How it works</p>
+        <h2 id="how-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+          Five plain steps. No shopping cart.
+        </h2>
+        <div className="seed-border mt-8 grid gap-0 overflow-hidden rounded-sm border-4 bg-card md:grid-cols-5">
+          {steps.map((step, index) => (
+            <article key={step.title} className="paper-panel border-b border-soil/20 p-5 md:border-b-0 md:border-r last:border-b-0 md:last:border-r-0">
+              <span className="flex size-9 items-center justify-center rounded-full bg-deep text-sm font-black text-white">
+                {index + 1}
+              </span>
+              <h3 className="font-display mt-5 text-xl font-bold leading-tight text-charcoal">{step.title}</h3>
+              <p className="mt-3 text-base leading-7 text-muted">{step.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TradeTags() {
+  return (
+    <section id="what-you-can-trade" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="trade-title">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Trade list</p>
+            <h2 id="trade-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+              Keep it garden-adjacent.
+            </h2>
+            <p className="mt-4 max-w-xl text-lg leading-8 text-muted">
+              If it belongs on a backyard grower&apos;s table, seed shelf or shed
+              wall, it may fit the first version.
+            </p>
+          </div>
+          <div>
+            <div className="flex flex-wrap gap-3">
+              {tradeItems.map((item) => (
+                <span key={item} className="rounded-sm border-2 border-soil/20 bg-linen px-4 py-2 text-base font-black text-deep shadow-[3px_3px_0_rgba(110,76,47,0.12)]">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="mt-7 rounded-2xl border border-tomato/25 bg-tomato/10 p-5">
+              <div className="flex gap-3">
+                <AlertTriangle aria-hidden="true" className="mt-1 shrink-0 text-tomato" />
+                <p className="text-base font-bold leading-7 text-charcoal">
+                  Some items may be legal in one place and restricted in another.
+                  The first version keeps the rules tighter to protect the community.
+                </p>
+              </div>
+              <p className="mt-4 text-sm font-bold leading-6 text-muted">
+                Not allowed: {restrictedItems}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SafetyRules() {
+  return (
+    <section id="safety" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="safety-title">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">Safety rules</p>
+        <h2 id="safety-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+          Local trades need common sense baked in.
+        </h2>
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <SafetyList title="Built for the first version" items={builtSafety} />
+          <SafetyList title="Planned for app launch" items={plannedSafety} planned />
+        </div>
+        <p className="mt-6 max-w-3xl text-base font-bold leading-7 text-muted">
+          Users are responsible for knowing and following local food, cottage
+          food, egg, honey and garden trade laws. Local Trade Garden is a
+          connection platform, not a food vendor or legal advisor.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SafetyList({
+  title,
+  items,
+  planned = false,
+}: {
+  title: string;
+  items: string[];
+  planned?: boolean;
+}) {
+  return (
+    <article className="paper-panel rounded-2xl border border-soil/20 p-5">
+      <h3 className="font-display text-2xl font-bold text-deep">{title}</h3>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <li key={item} className="flex gap-2 text-base font-bold leading-6 text-charcoal">
+            <CheckCircle2 aria-hidden="true" className={planned ? "mt-0.5 shrink-0 text-soil" : "mt-0.5 shrink-0 text-garden"} size={18} />
+            <span>
+              {item}
+              {planned ? <span className="text-muted"> · planned</span> : null}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
+function EarlyAccess() {
+  const afterJoin = [
+    "We review the first local signups.",
+    "We invite a small test group.",
+    "Testers post sample listings.",
+    "The first trades happen in one local area.",
+    "Feedback shapes the app before public launch.",
   ];
 
   return (
-    <div className="mx-auto -mt-6 max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="market-line rounded-[26px] p-2">
-        <div className="grid gap-3 rounded-[22px] border border-soil/15 bg-card p-3 shadow-card sm:grid-cols-4">
-          {items.map(([color, label]) => (
-            <div key={label} className="flex min-h-16 items-center gap-3 rounded-2xl bg-white px-4">
-              <span className={`size-8 rounded-full ${color}`} aria-hidden="true" />
-              <span className="text-sm font-black text-charcoal">{label}</span>
-            </div>
-          ))}
+    <section id="early-access" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="early-title">
+      <div className="board-panel mx-auto grid max-w-6xl gap-8 rounded-[28px] border-4 border-soil/20 p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-tomato">Early access</p>
+          <h2 id="early-title" className="font-display mt-2 text-4xl font-bold leading-tight text-charcoal">
+            Put your name on the first local signup sheet.
+          </h2>
+          <div className="paper-panel mt-6 rounded-2xl border border-soil/20 p-5">
+            <h3 className="font-display text-2xl font-bold text-deep">After you join</h3>
+            <ol className="mt-4 grid gap-3">
+              {afterJoin.map((item, index) => (
+                <li key={item} className="flex gap-3 text-base font-bold leading-6 text-charcoal">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-deep text-sm text-white">
+                    {index + 1}
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
+        <EarlyAccessForm />
       </div>
-    </div>
+    </section>
   );
 }
 
-function PhotoBand() {
+function PartnerStrip() {
   return (
-    <section className="px-4 py-10 sm:px-6 lg:px-8" aria-label="Garden trade photo examples">
-      <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
-        {imageCredits.map((image, index) => (
-          <figure
-            key={image.src}
-            className={`group overflow-hidden rounded-[24px] border border-soil/15 bg-card shadow-soft ${index === 0 ? "lg:row-span-2" : ""}`}
-          >
-            <div className={index === 0 ? "relative min-h-[360px]" : "relative min-h-[220px]"}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes={index === 0 ? "(min-width: 1024px) 520px, 100vw" : "(min-width: 1024px) 320px, 100vw"}
-                className="object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/78 via-charcoal/12 to-transparent" />
-              <figcaption className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <p className="inline-flex rounded-full bg-sunflower px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
-                  {image.label}
-                </p>
-                <p className="font-display mt-3 text-xl font-bold leading-tight">{image.caption}</p>
-              </figcaption>
-            </div>
-          </figure>
-        ))}
-        <div className="rounded-[24px] border border-garden/20 bg-soil p-6 text-white shadow-soft">
-          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">What might show up</p>
-          <h2 className="font-display mt-3 text-3xl font-bold leading-tight">A table full of small, useful trades.</h2>
-          <p className="mt-4 leading-7 text-white/82">
-            Tomatoes for basil. Compost for seedlings. A borrowed broadfork.
-            A dozen eggs, where local rules allow. Nothing fancy, just the kind
-            of practical swap gardeners already make over a fence.
+    <section id="sponsors" className="px-4 py-8 sm:px-6 lg:px-8" aria-label="Local partner interest">
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-sm border-4 border-soil bg-soil p-6 text-white md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">Local partners</p>
+          <h2 className="font-display mt-2 text-3xl font-bold leading-tight">
+            Own a nursery, feed store, market, church group or garden club?
+          </h2>
+          <p className="mt-2 max-w-3xl text-base leading-7 text-white/84">
+            Help launch the first local trade community. Useful partners are:
+            {" "}{partnerCards.join(", ")}.
           </p>
+        </div>
+        <a
+          href={`mailto:${email}?subject=${encodeURIComponent("Local Trade Garden Partner Interest")}`}
+          className="focus-ring inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-softyellow px-6 py-3 text-sm font-black text-deep hover:bg-white"
+        >
+          Partner With Us
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  return (
+    <section id="faq" className="px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="faq-title">
+      <div className="mx-auto max-w-4xl">
+        <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">FAQ</p>
+        <h2 id="faq-title" className="font-display mt-2 text-4xl font-bold text-charcoal">
+          Hard questions first.
+        </h2>
+        <div className="mt-7 grid gap-3">
+          {faq.map((item) => (
+            <details key={item.q} className="paper-panel rounded-xl border border-soil/20 p-5">
+              <summary className="focus-ring cursor-pointer list-none rounded-lg font-display text-xl font-bold text-charcoal">
+                {item.q}
+              </summary>
+              <p className="mt-3 text-base leading-7 text-muted">{item.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function ProblemSection() {
+function Footer() {
+  const links = [
+    ["Terms", "/terms"],
+    ["Privacy", "/privacy"],
+    ["Safety", "#safety"],
+    ["Prohibited Items", "#what-you-can-trade"],
+    ["Pilot Area", "#early-access"],
+  ];
+
   return (
-    <Section
-      title="The garden always has a week when everything shows up at once."
-      className="bg-white/70"
-    >
-      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="rounded-[24px] border border-soil/15 bg-linen p-6 shadow-card">
-          <p className="mb-3 inline-flex rounded-full bg-tomato px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-white">
-            Anyone with a garden knows this week
-          </p>
-          <p className="text-lg font-black leading-8 text-charcoal">
-            Tomatoes ripen all at once. Zucchini gets ambitious. Seedlings
-            outgrow their trays. Eggs stack up before the weekend.
-          </p>
-          <p className="mt-4 leading-7 text-muted">
-            Most gardeners already share. The hard part is timing. You have
-            basil today, somebody else has compost tomorrow, and nobody wants
-            to make a whole sales listing for four extra pepper plants.
-          </p>
-          <div className="mt-5 rounded-2xl bg-soil p-4 text-white">
-            <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">The launch idea</p>
-            <p className="mt-2 leading-7">
-              A cash-free local exchange for garden surplus, seedlings,
-              compost, tools and approved homestead goods. No payment layer.
-            </p>
+    <footer className="border-t border-soil/20 bg-linen/90 px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <div className="font-display flex items-center gap-2 text-2xl font-bold text-deep">
+            <Flower2 aria-hidden="true" className="text-sunflower" />
+            Local Trade Garden
           </div>
+          <p className="mt-3 text-base font-bold text-charcoal">Trade what you grow. Get what you need.</p>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-muted">
+            Local Trade Garden is a connection platform for local trades. It is
+            not a food vendor, legal advisor or guarantor of any trade.
+          </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
-          {problemCards.map((card) => (
-            <InfoCard key={card.title} {...card} />
-          ))}
+        <div className="lg:text-right">
+          <p className="inline-flex items-center gap-2 rounded-full bg-linen px-3 py-2 text-sm font-black text-deep">
+            <Mail aria-hidden="true" size={16} />
+            Status: Private early access
+          </p>
+          <p className="mt-4 text-base font-bold text-charcoal">
+            Contact: <a className="underline decoration-soil/30 underline-offset-4" href={`mailto:${email}`}>{email}</a>
+          </p>
+          <nav className="mt-4 flex flex-wrap gap-3 lg:justify-end" aria-label="Footer navigation">
+            {links.map(([label, href]) => (
+              <Link key={href} href={href} className="focus-ring rounded-full px-2 py-1 text-sm font-bold text-charcoal hover:bg-linen">
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <p className="mt-5 text-sm text-muted">&copy; 2026 Local Trade Garden. All rights reserved.</p>
         </div>
       </div>
-    </Section>
-  );
-}
-
-function AppPreview() {
-  return (
-    <Section
-      id="app-preview"
-      eyebrow="Mock app preview"
-      title="A simple app for neighbor-to-neighbor swaps"
-      intro="These are mockups, not live app screenshots. They show the kind of plain, useful flow we are building for early access."
-      className="bg-white/70"
-    >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-        {appScreens.map((screen) => (
-          <article key={screen.title} className="rounded-[24px] border border-borderwarm bg-charcoal p-3 shadow-soft">
-            <div className="rounded-[18px] bg-card p-4">
-              <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-borderwarm" />
-              <p className="text-xs font-black uppercase tracking-[0.12em] text-garden">{screen.title}</p>
-              <p className="mt-2 min-h-16 text-sm leading-6 text-muted">{screen.body}</p>
-              <div className="mt-4 grid gap-2">
-                {screen.rows.map((row) => (
-                  <div key={row} className="rounded-xl border border-borderwarm bg-white px-3 py-2 text-xs font-bold text-charcoal">
-                    {row}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function EarlyAccessCallout() {
-  return (
-    <div className="mb-8 grid gap-4 lg:grid-cols-3">
-      {[
-        ["First community first", "The launch starts in one local area before expanding."],
-        ["Trade-first by design", "No ecommerce, checkout, crypto or payment flow is being built for v1."],
-        ["Real rules matter", "Food, egg, honey and cottage-food laws vary by place."],
-      ].map(([title, body]) => (
-        <div key={title} className="rounded-2xl border border-garden/20 bg-white p-5 shadow-card">
-          <h3 className="flex items-center gap-2 font-black text-deep">
-            <MoveRight aria-hidden="true" size={18} />
-            {title}
-          </h3>
-          <p className="mt-2 text-sm leading-6 text-muted">{body}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function PartnerIntroCard() {
-  return (
-    <div className="mb-8 grid gap-6 rounded-[24px] border border-borderwarm bg-cream p-5 shadow-card lg:grid-cols-[1fr_0.78fr] lg:p-7">
-      <div>
-        <p className="text-lg leading-8 text-muted">
-          Instead of generic banner ads, Local Trade Garden will prioritize
-          useful local sponsorships and launch partnerships. Sponsors can reach
-          people who already care about seeds, soil, tools, compost, plant
-          starts and local food.
-        </p>
-      </div>
-      <div className="rounded-2xl bg-card p-5">
-        <MessageSquare aria-hidden="true" className="text-garden" />
-        <p className="mt-3 font-black text-charcoal">Good partner fit</p>
-        <p className="mt-2 text-sm leading-6 text-muted">
-          Practical, local, garden-adjacent organizations that can help a first
-          community trust and use the early app.
-        </p>
-      </div>
-    </div>
+    </footer>
   );
 }
 
@@ -394,200 +466,15 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <ProduceStrip />
-        <PhotoBand />
-        <ProblemSection />
-
-        <Section
-          id="how-it-works"
-          eyebrow="Five simple steps"
-          title="How it works"
-          intro="No bidding, no cart, no shipping label. Just a few steps from extra garden goods to a real local swap."
-        >
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <article key={step.title} className="rounded-2xl border border-borderwarm bg-card p-5 shadow-card transition hover:-translate-y-1 hover:shadow-soft">
-                  <div className="flex items-center justify-between">
-                    <span className="flex size-10 items-center justify-center rounded-full bg-softyellow font-black text-deep">
-                      {index + 1}
-                    </span>
-                    <Icon aria-hidden="true" className="text-garden" size={22} />
-                  </div>
-                  <h3 className="font-display mt-5 text-lg font-bold text-charcoal">{step.title}</h3>
-                  <p className="mt-2 leading-7 text-muted">{step.body}</p>
-                </article>
-              );
-            })}
-          </div>
-        </Section>
-
-        <Section
-          id="what-you-can-trade"
-          eyebrow="Garden goods only"
-          title="What you can trade"
-          intro="Keep it garden-adjacent, local and practical. If it belongs at a backyard grower's table or in a shed, it may fit."
-          className="bg-white/70"
-        >
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {tradeItems.map((item) => (
-              <InfoCard key={item.title} title={item.title} icon={item.icon} />
-            ))}
-          </div>
-          <div className="mt-8 rounded-2xl border border-warning/35 bg-warning/10 p-5">
-            <div className="flex gap-3">
-              <AlertTriangle aria-hidden="true" className="mt-1 shrink-0 text-warning" />
-              <div>
-                <h3 className="font-black text-warning">Not allowed</h3>
-                <p className="mt-2 leading-7 text-charcoal">{restrictedItems}</p>
-                <p className="mt-3 text-sm font-bold leading-6 text-muted">
-                  Users are responsible for knowing and following local food,
-                  cottage food, egg, honey and garden trade laws.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        <AppPreview />
-
-        <Section
-          id="safety"
-          eyebrow="Safety and trust"
-          title="Local trades need common sense baked in."
-        >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {safetyCards.map((card) => (
-              <InfoCard key={card.title} {...card} />
-            ))}
-          </div>
-        </Section>
-
-        <Section
-          id="early-access"
-          eyebrow="Early access"
-          title="Help launch the first Local Trade Garden community."
-          intro="We are starting in one local area first. Join if you would actually post a few listings, test the rough edges or help the first trades feel alive."
-          className="bg-softyellow/30"
-        >
-          <EarlyAccessCallout />
-          <EarlyAccessForm />
-        </Section>
-
-        <Section
-          id="sponsors"
-          eyebrow="Local partners"
-          title="The best launch partners are already part of garden life."
-          intro="Nurseries, feed stores, markets, garden clubs, churches and local food groups can help a first community feel real from day one."
-          className="bg-white/70"
-        >
-          <PartnerIntroCard />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {partnerCards.map((card) => (
-              <InfoCard key={card.title} title={card.title} icon={card.icon} />
-            ))}
-          </div>
-          <div className="mt-8">
-            <PartnerForm />
-          </div>
-        </Section>
-
-        <Section id="faq" eyebrow="Questions" title="FAQ">
-          <div className="grid gap-4">
-            {faq.map((item) => (
-              <details key={item.q} className="group rounded-2xl border border-borderwarm bg-card p-5 shadow-card">
-                <summary className="focus-ring cursor-pointer list-none rounded-xl text-lg font-black text-charcoal">
-                  {item.q}
-                </summary>
-                <p className="mt-3 leading-7 text-muted">{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </Section>
-
-        <Section
-          id="contact"
-          eyebrow="Contact"
-          title="Want to ask before you join?"
-          intro={`Reach Local Trade Garden at ${email} or send a quick message.`}
-          className="bg-white/70"
-        >
-          <ContactForm />
-        </Section>
-
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-deep shadow-soft">
-            <div className="relative min-h-[360px] p-8 text-white sm:p-12">
-              <Image
-                src="https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1600"
-                alt="Outdoor market table with baskets of fresh vegetables"
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-soil via-soil/86 to-deep/24" />
-              <div className="absolute right-6 top-6 text-softyellow/80">
-                <Flower2 aria-hidden="true" size={72} />
-              </div>
-              <div className="relative max-w-3xl">
-                <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
-                  The extra basket on your counter might be someone else&apos;s dinner.
-                </h2>
-                <p className="mt-4 text-lg leading-8 text-white/82">
-                  Join early access and help build a better way to trade local garden goods.
-                </p>
-                <div className="mt-7">
-                  <ButtonLink href="#early-access" variant="light">
-                    Join Early Access
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LocalBoard />
+        <HowItWorks />
+        <TradeTags />
+        <SafetyRules />
+        <EarlyAccess />
+        <PartnerStrip />
+        <FAQ />
       </main>
       <Footer />
     </>
-  );
-}
-
-function Footer() {
-  const links = [
-    ["How It Works", "#how-it-works"],
-    ["What You Can Trade", "#what-you-can-trade"],
-    ["Safety", "#safety"],
-    ["FAQ", "#faq"],
-    ["Early Access", "#early-access"],
-    ["Sponsors", "#sponsors"],
-    ["Contact", "#contact"],
-    ["Terms of Service", "/terms"],
-    ["Privacy Policy", "/privacy"],
-  ];
-
-  return (
-    <footer className="border-t border-borderwarm bg-card px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_1fr]">
-        <div>
-          <div className="font-display flex items-center gap-2 text-xl font-bold text-deep">
-            <Flower2 aria-hidden="true" className="text-sunflower" />
-            Local Trade Garden
-          </div>
-          <p className="mt-3 font-bold text-charcoal">Trade what you grow. Get what you need.</p>
-          <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
-            Local Trade Garden is a connection platform for local trades. It is
-            not a food vendor, legal advisor or guarantor of any trade.
-          </p>
-          <p className="mt-4 text-sm text-muted">&copy; 2026 Local Trade Garden. All rights reserved.</p>
-        </div>
-        <nav className="grid gap-2 sm:grid-cols-2" aria-label="Footer navigation">
-          {links.map(([label, href]) => (
-            <Link key={href} href={href} className="focus-ring min-h-11 rounded-xl px-2 py-2 text-sm font-bold text-charcoal hover:bg-cream">
-              {label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </footer>
   );
 }
