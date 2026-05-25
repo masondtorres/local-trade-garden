@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible, Bree_Serif } from "next/font/google";
+import { Atkinson_Hyperlegible, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
-const display = Bree_Serif({
+const display = Libre_Baskerville({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: "400",
+  weight: ["400", "700"],
 });
 
 const body = Atkinson_Hyperlegible({

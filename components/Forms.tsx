@@ -90,7 +90,7 @@ function MailtoForm({
 
   return (
     <form
-      className="paper-panel border-2 border-soil/20 p-5 shadow-card sm:p-7"
+      className="rounded-[20px] border border-soil/20 bg-card p-5 shadow-card sm:p-7"
       onSubmit={submit}
       aria-label={title}
     >

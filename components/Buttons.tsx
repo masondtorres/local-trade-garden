@@ -26,7 +26,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-bold transition sm:w-auto ${styles[variant]} ${className}`}
+      className={`focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-bold transition sm:w-auto ${styles[variant]} ${className}`}
     >
       {children}
       <ArrowRight aria-hidden="true" size={18} />
