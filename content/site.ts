@@ -35,10 +35,10 @@ export const navLinks = [
 ];
 
 export const trustItems = [
-  "Private email and zip code planned",
-  "Public meetup reminders planned",
-  "Restricted item review planned",
-  "Post-trade ratings planned",
+  "Private signup information",
+  "Built for public meetups",
+  "Restricted item rules",
+  "Trust after each trade",
 ];
 
 export const problemCards = [

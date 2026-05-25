@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   AlertTriangle,
   CheckCircle2,
@@ -7,6 +8,7 @@ import {
   Leaf,
   Menu,
   MessageSquare,
+  MoveRight,
   ShoppingBasket,
   Sprout,
   Sun,
@@ -86,17 +88,25 @@ function ListingCard({ title, wants, place }: { title: string; wants: string; pl
 
 function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-lg" aria-label="Illustration of garden trades with produce listing cards">
+    <div className="relative mx-auto w-full max-w-lg" aria-label="Garden harvest photo with trade listing cards">
       <div className="absolute -left-3 top-8 hidden rotate-[-10deg] rounded-full bg-softyellow p-3 text-deep shadow-card sm:block">
         <Sun aria-hidden="true" size={30} />
       </div>
-      <div className="absolute right-8 top-12 hidden h-24 w-24 rounded-full border-[14px] border-sunflower/80 bg-softyellow/40 sm:block" aria-hidden="true" />
-      <div className="rounded-[28px] border border-borderwarm bg-card p-4 shadow-soft sm:p-5">
-        <div className="rounded-[24px] bg-cream p-4 sm:p-5">
-          <div className="flex items-end justify-between">
+      <div className="overflow-hidden rounded-[30px] border border-borderwarm bg-card shadow-soft">
+        <div className="relative min-h-[440px]">
+          <Image
+            src="https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200"
+            alt="A basket filled with ripe red tomatoes at a farmers market"
+            fill
+            priority
+            sizes="(min-width: 1024px) 520px, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/72 via-charcoal/20 to-transparent" />
+          <div className="absolute left-4 right-4 top-4 flex items-center justify-between rounded-2xl border border-white/25 bg-white/90 px-4 py-3 backdrop-blur">
             <div>
-              <p className="text-sm font-black text-deep">Saturday trade board</p>
-              <p className="text-xs text-muted">Early access mockup</p>
+              <p className="text-sm font-black text-deep">Nearby trade board</p>
+              <p className="text-xs text-muted">Early access preview</p>
             </div>
             <div className="flex gap-1" aria-hidden="true">
               <span className="size-3 rounded-full bg-sunflower" />
@@ -104,32 +114,27 @@ function HeroVisual() {
               <span className="size-3 rounded-full bg-warning" />
             </div>
           </div>
-          <div className="mt-5 grid gap-3">
+          <div className="absolute bottom-4 left-4 right-4 grid gap-3">
             <ListingCard title="Heirloom Tomatoes" wants="Eggs or basil starts" place="East Nashville" />
-            <ListingCard title="Basil Starts" wants="Compost or garden tools" place="Madison" />
-            <ListingCard title="Fresh Eggs" wants="Tomatoes or herbs" place="Available where local rules allow" />
+            <div className="grid gap-3 sm:grid-cols-2">
+              <ListingCard title="Basil Starts" wants="Compost or garden tools" place="Madison" />
+              <ListingCard title="Fresh Eggs" wants="Tomatoes or herbs" place="Where local rules allow" />
+            </div>
           </div>
-          <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto]">
-            <div className="rounded-2xl bg-deep p-4 text-white">
-              <div className="flex items-center gap-3">
-                <ShoppingBasket aria-hidden="true" />
-                <div>
-                  <p className="font-black">No checkout needed</p>
-                  <p className="text-sm text-white/78">Offer a trade from your own listing.</p>
-                </div>
+        </div>
+        <div className="grid gap-3 bg-card p-4 sm:grid-cols-[1fr_auto]">
+          <div className="rounded-2xl bg-deep p-4 text-white">
+            <div className="flex items-center gap-3">
+              <ShoppingBasket aria-hidden="true" />
+              <div>
+                <p className="font-black">Garden basket, not shopping cart</p>
+                <p className="text-sm text-white/78">The signup list is open. The trading app is still in early access.</p>
               </div>
             </div>
-            <div className="flex items-center justify-center rounded-2xl border border-borderwarm bg-white px-4 py-3 text-deep">
-              <CircleDollarSign aria-hidden="true" size={24} />
-              <span className="sr-only">Cash-free</span>
-            </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {["tomatoes", "herbs", "seed packets", "compost"].map((item) => (
-              <span key={item} className="rounded-full border border-borderwarm bg-white px-3 py-1 text-xs font-black text-deep">
-                {item}
-              </span>
-            ))}
+          <div className="flex items-center justify-center rounded-2xl border border-borderwarm bg-white px-4 py-3 text-deep">
+            <CircleDollarSign aria-hidden="true" size={24} />
+            <span className="sr-only">Cash-free</span>
           </div>
         </div>
       </div>
@@ -138,7 +143,7 @@ function HeroVisual() {
       </div>
       <div className="absolute -bottom-5 left-4 flex max-w-[calc(100%-2rem)] gap-2 rounded-full border border-borderwarm bg-white px-4 py-3 text-sm font-black text-deep shadow-card sm:left-8">
         <Leaf aria-hidden="true" size={18} />
-        Garden basket, not shopping cart
+        Tomatoes, herbs, eggs, compost
       </div>
     </div>
   );
@@ -157,13 +162,13 @@ function Hero() {
             Trade what you grow. Get what you need.
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted sm:text-xl">
-            Local Trade Garden is an early-access platform concept for backyard
-            gardeners, small growers and homesteaders who want to swap extra
-            produce, seedlings, eggs, honey, compost, tools and garden goods
-            with nearby people, without cash.
+            Local Trade Garden helps backyard gardeners, small growers and
+            homesteaders find nearby neighbors for cash-free garden trades:
+            extra tomatoes for basil starts, compost for seedlings, tools for
+            herbs, eggs or honey where local rules allow.
           </p>
           <p className="mt-4 font-black text-deep">
-            No checkout. No crypto. No cash sales. Just local trades.
+            Early access is open now. The trading app launches one community at a time.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#early-access">Join Early Access</ButtonLink>
@@ -188,10 +193,10 @@ function Hero() {
 
 function ProduceStrip() {
   const items = [
-    ["bg-warning", "tomatoes"],
-    ["bg-garden", "herbs"],
-    ["bg-sunflower", "sunflowers"],
-    ["bg-deep", "seedlings"],
+    ["bg-warning", "too many tomatoes"],
+    ["bg-garden", "basil starts"],
+    ["bg-sunflower", "seed packets"],
+    ["bg-deep", "compost bags"],
   ];
 
   return (
@@ -200,7 +205,7 @@ function ProduceStrip() {
         {items.map(([color, label]) => (
           <div key={label} className="flex min-h-16 items-center gap-3 rounded-2xl bg-white px-4">
             <span className={`size-8 rounded-full ${color}`} aria-hidden="true" />
-            <span className="text-sm font-black capitalize text-charcoal">{label}</span>
+            <span className="text-sm font-black text-charcoal">{label}</span>
           </div>
         ))}
       </div>
@@ -216,6 +221,9 @@ function ProblemSection() {
     >
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="rounded-[24px] border border-borderwarm bg-cream p-6 shadow-card">
+          <p className="mb-3 inline-flex rounded-full bg-softyellow px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
+            The familiar garden problem
+          </p>
           <p className="text-lg font-black leading-8 text-charcoal">
             Tomatoes ripen all at once. Zucchini gets ambitious. Seedlings
             outgrow their trays. Eggs stack up before the weekend.
@@ -228,8 +236,8 @@ function ProblemSection() {
           <div className="mt-5 rounded-2xl bg-deep p-4 text-white">
             <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">The launch idea</p>
             <p className="mt-2 leading-7">
-              A cash-free local food exchange for garden surplus, seedlings,
-              compost, tools and approved homestead goods.
+              A cash-free local exchange for garden surplus, seedlings,
+              compost, tools and approved homestead goods. No payment layer.
             </p>
           </div>
         </div>
@@ -248,7 +256,7 @@ function AppPreview() {
     <Section
       id="app-preview"
       eyebrow="Mock app preview"
-      title="A simple app built around real trades"
+      title="A simple app for neighbor-to-neighbor swaps"
       intro="These static previews show the intended early access experience. They are mockups only; the full app is not live yet."
       className="bg-white/70"
     >
@@ -278,12 +286,15 @@ function EarlyAccessCallout() {
   return (
     <div className="mb-8 grid gap-4 lg:grid-cols-3">
       {[
-        ["First community only", "The launch starts in one local area before expanding."],
+        ["First community first", "The launch starts in one local area before expanding."],
         ["Trade-first by design", "No ecommerce, checkout, crypto or payment flow is being built for v1."],
         ["Real rules matter", "Food, egg, honey and cottage-food laws vary by place."],
       ].map(([title, body]) => (
         <div key={title} className="rounded-2xl border border-garden/20 bg-white p-5 shadow-card">
-          <h3 className="font-black text-deep">{title}</h3>
+          <h3 className="flex items-center gap-2 font-black text-deep">
+            <MoveRight aria-hidden="true" size={18} />
+            {title}
+          </h3>
           <p className="mt-2 text-sm leading-6 text-muted">{body}</p>
         </div>
       ))}
@@ -327,7 +338,7 @@ export default function HomePage() {
           id="how-it-works"
           eyebrow="Five simple steps"
           title="How it works"
-          intro="The planned early app keeps trades simple: list surplus, make an offer, meet carefully and rate the exchange."
+          intro="The early app is designed to keep trades simple: list surplus, make an offer, meet carefully and rate the exchange."
         >
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => {

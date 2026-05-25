@@ -95,7 +95,7 @@ function MailtoForm({
       aria-label={title}
     >
       <div className="mb-5 rounded-2xl border border-garden/20 bg-garden/10 p-4 text-sm leading-6 text-deep">
-        <p className="font-black">What happens after you submit?</p>
+        <p className="font-black">Before you send</p>
         <p className="mt-1">{note}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -133,8 +133,8 @@ export function EarlyAccessForm() {
       title="Early access form"
       subject="Local Trade Garden Early Access"
       button="Join Early Access"
-      note="This opens a prefilled email to hotpublishers@gmail.com. Please send that email to complete your early access request."
-      success="Your email app should now be open with a prefilled early access message. Send it to finish joining the launch list."
+      note="This opens your email app with a drafted message to hotpublishers@gmail.com. Send that email to complete your request."
+      success="Your email app should now be open with a drafted early access message. Send it to finish joining the launch list."
       fields={[
         { name: "firstName", label: "First name", required: true },
         { name: "email", label: "Email", type: "email", required: true },
@@ -155,8 +155,8 @@ export function PartnerForm() {
       title="Local partner form"
       subject="Local Trade Garden Partner Interest"
       button="Become a Local Partner"
-      note="This opens a prefilled email to hotpublishers@gmail.com. Please send that email so we can follow up about local partner opportunities."
-      success="Your email app should now be open with a prefilled partner message. Send it and we will follow up."
+      note="This opens your email app with a drafted message to hotpublishers@gmail.com. Send that email so we can follow up."
+      success="Your email app should now be open with a drafted partner message. Send it and we will follow up."
       fields={[
         { name: "name", label: "Name", required: true },
         { name: "organization", label: "Business or organization", required: true },
@@ -176,7 +176,7 @@ export function ContactForm() {
       title="Contact form"
       subject="Local Trade Garden Contact"
       button="Send Message"
-      note="This opens a prefilled email to hotpublishers@gmail.com. Please send the email from your mail app."
+      note="This opens your email app with a drafted message to hotpublishers@gmail.com. Send it from there."
       success="Your message is ready in your email app. Send it from there so it reaches Local Trade Garden."
       fields={[
         { name: "name", label: "Name", required: true },
