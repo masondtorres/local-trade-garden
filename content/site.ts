@@ -4,7 +4,6 @@ import {
   Building2,
   Carrot,
   ClipboardList,
-  Egg,
   Flower2,
   Handshake,
   HeartHandshake,
@@ -20,12 +19,12 @@ import {
   Sprout,
   Star,
   Store,
-  Sun,
   Undo2,
   Wheat,
 } from "lucide-react";
 
-export const email = "hotpublishers@gmail.com";
+// TODO: Confirm this inbox is active before public launch.
+export const email = "hello@localtradegarden.com";
 
 export const navLinks = [
   { href: "#how-it-works", label: "How It Works" },
@@ -35,10 +34,10 @@ export const navLinks = [
 ];
 
 export const trustItems = [
-  "Email stays off public profiles",
-  "Meetup reminders, not delivery routes",
-  "Clear no-go item list",
-  "Ratings after real swaps",
+  "Private early access waitlist",
+  "Trading app is not open yet",
+  "Tighter v1 item rules",
+  "Local trades only",
 ];
 
 export const problemCards = [
@@ -54,12 +53,12 @@ export const problemCards = [
   },
   {
     title: "Trust matters",
-    body: "Profiles, trade history and reporting tools give careful people a way to say yes without guessing in the dark.",
+    body: "Local trades only work when people feel safe enough to show up. The first version keeps the rules tight on purpose.",
     icon: ShieldCheck,
   },
   {
     title: "Local is the point",
-    body: "This is for the person one neighborhood over with compost, extra eggs or the trowel you keep meaning to buy.",
+    body: "This is for the person one neighborhood over with compost, plant starts or the trowel you keep meaning to buy.",
     icon: MapPin,
   },
 ];
@@ -67,48 +66,50 @@ export const problemCards = [
 export const steps = [
   {
     title: "Create your profile",
-    body: "Use a display name, grower type and city. Your email and zip code are not meant for the public listing page.",
+    body: "Use a display name, grower type and city. The live trading app is not open yet.",
     icon: Home,
   },
   {
     title: "Post what you have",
-    body: "Add the extra basket, tray, bundle or bag. Say what would make it worth the handoff.",
+    body: "Add fresh produce, herbs, seeds, plant starts, compost, mulch, firewood, tools or garden supplies.",
     icon: ShoppingBasket,
   },
   {
     title: "Browse local listings",
-    body: "Look through nearby produce, starts, compost, tools and supplies without digging through cash marketplaces.",
+    body: "Look through nearby produce, starts, compost, tools and supplies without digging through marketplace clutter.",
     icon: Search,
   },
   {
     title: "Offer a trade",
-    body: "Offer something from your own garden pile. No checkout screen. No payment step.",
+    body: "Offer something from your own garden pile and keep the request simple.",
     icon: Undo2,
   },
   {
-    title: "Confirm and rate",
-    body: "Confirm the details, meet somewhere sensible, then leave a rating so the next trade starts with more trust.",
+    title: "Confirm and trade",
+    body: "Confirm the details, choose a sensible handoff and trade locally.",
     icon: Star,
   },
 ];
 
 export const tradeItems = [
-  { title: "Produce", icon: Carrot },
+  { title: "Fresh produce", icon: Carrot },
   { title: "Herbs", icon: Leaf },
   { title: "Seeds", icon: Sprout },
   { title: "Plant starts", icon: Flower2 },
-  { title: "Eggs where local rules allow", icon: Egg },
-  { title: "Honey where local rules allow", icon: Sun },
   { title: "Compost", icon: Wheat },
+  { title: "Mulch", icon: Leaf },
   { title: "Firewood", icon: PackageSearch },
   { title: "Garden tools", icon: ClipboardList },
-  { title: "Canned goods where local rules allow", icon: BadgeCheck },
+  { title: "Pots and trays", icon: BadgeCheck },
   { title: "Garden supplies", icon: ShoppingBasket },
-  { title: "Other approved local goods", icon: HeartHandshake },
+  {
+    title: "Other garden-adjacent goods approved by Local Trade Garden",
+    icon: HeartHandshake,
+  },
 ];
 
 export const restrictedItems =
-  "Alcohol, beer, homebrew, raw milk, meat, poultry, wild game, live animals, livestock, weapons, medicine, supplements, CBD, THC, marijuana or regulated goods.";
+  "Meat, poultry, wild game, raw milk, alcohol, homebrew, medicine, supplements, CBD, THC, marijuana, weapons, live animals, livestock, prepared meals, canned goods, eggs, honey or other regulated goods.";
 
 export const appScreens = [
   {
@@ -118,17 +119,17 @@ export const appScreens = [
   },
   {
     title: "Create Listing",
-    body: "A quick way to say: here is what I have, here is what I need.",
-    rows: ["Basket of peppers", "Porch or public meetup", "Wants: herbs"],
+    body: "A quick way to say what you have and what you need.",
+    rows: ["Basket of peppers", "Public meetup", "Wants: herbs"],
   },
   {
     title: "Trade Offer",
     body: "Swap from your own listings instead of reaching for a wallet.",
-    rows: ["Your basil starts", "For fresh eggs", "Awaiting reply"],
+    rows: ["Your basil starts", "For compost", "Awaiting reply"],
   },
   {
     title: "Messages",
-    body: "Work out the handoff without posting your personal contact info.",
+    body: "Work out the handoff without posting personal contact info.",
     rows: ["Public meetup", "Saturday morning", "Confirm trade"],
   },
   {
@@ -141,7 +142,7 @@ export const appScreens = [
 export const safetyCards = [
   {
     title: "No public exact addresses",
-    body: "Listings should point to a general area, not someone’s front door.",
+    body: "Listings should point to a general area, not someone's front door.",
     icon: MapPin,
   },
   {
@@ -150,33 +151,33 @@ export const safetyCards = [
     icon: Mail,
   },
   {
-    title: "In-app messaging",
-    body: "Messages keep the back-and-forth in one place.",
+    title: "In-app messaging planned",
+    body: "Messaging is planned so personal contact information does not have to be posted publicly.",
     icon: MessageCircle,
   },
   {
     title: "Public meetup reminders",
-    body: "The handoff flow nudges people toward public, sensible meeting spots.",
+    body: "Public meetup reminders are planned for trade confirmation.",
     icon: Handshake,
   },
   {
     title: "Restricted item filter",
-    body: "Obvious restricted terms can be flagged before they turn into a problem.",
+    body: "Restricted terms can be flagged for admin review before questionable listings go live.",
     icon: Ban,
   },
   {
-    title: "Ratings after trades",
-    body: "Ratings focus on the stuff that matters: item match, cleanliness, communication and showing up.",
+    title: "Ratings after completed trades",
+    body: "Ratings after completed swaps are planned for app launch.",
     icon: Star,
   },
   {
     title: "Report and block tools",
-    body: "Bad listings and bad behavior need a clear way out of the garden.",
+    body: "Report and block tools are planned so users have a clear safety path.",
     icon: ShieldCheck,
   },
   {
-    title: "Admin moderation",
-    body: "Reports and flagged listings can go to an actual review queue.",
+    title: "Admin moderation queue",
+    body: "An admin moderation queue is planned for reports and flagged listings.",
     icon: BadgeCheck,
   },
 ];
@@ -215,46 +216,22 @@ export const partnerCards = [
 export const faq = [
   {
     q: "Is Local Trade Garden for buying and selling?",
-    a: "No. Local Trade Garden is designed for cash-free local trades. There is no checkout, payment system or crypto.",
-  },
-  {
-    q: "Can users exchange money privately?",
-    a: "The platform is not built for money exchanges. The purpose is trade only.",
+    a: "No. Local Trade Garden is for cash-free local trades. There is no checkout, payment system or crypto.",
   },
   {
     q: "What can I trade?",
-    a: "Garden and homestead goods like produce, herbs, seeds, plant starts, compost, tools and approved local goods. Eggs, honey and preserved goods may depend on local rules.",
+    a: "The v1 list is fresh produce, herbs, seeds, plant starts, compost, mulch, firewood, garden tools, pots, trays and garden supplies. Some items may be added later after local rule review.",
   },
   {
     q: "What is not allowed?",
     a: restrictedItems,
   },
   {
-    q: "Does the app verify food safety?",
-    a: "No. Users are responsible for knowing and following local food safety laws. Local Trade Garden is a connection platform, not a food vendor.",
-  },
-  {
     q: "Will my address be shown?",
     a: "No. The app is designed around general location only. Users should meet in public places.",
   },
   {
-    q: "Will my email or zip code be shown?",
-    a: "No. Email and zip code should stay private.",
-  },
-  {
-    q: "How do ratings work?",
-    a: "After a completed trade, users rate each other on item match, cleanliness, reliability, communication and whether they would trade again.",
-  },
-  {
-    q: "When will the app launch?",
-    a: "Local Trade Garden is in early access. The first launch will focus on one local area before expanding.",
-  },
-  {
-    q: "Can my town or group be a launch partner?",
-    a: "Yes. Farmers markets, garden clubs, churches, nurseries and community groups can use the partner form to connect.",
-  },
-  {
-    q: "Is this legal advice?",
-    a: "No. The site and app are not legal advice. Users should check local rules before trading food or regulated goods.",
+    q: "Does the app verify food safety?",
+    a: "No. Local Trade Garden does not inspect goods, verify food safety or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
   },
 ];

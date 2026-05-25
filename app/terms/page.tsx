@@ -1,26 +1,26 @@
 import Link from "next/link";
-import { email } from "@/content/site";
+import { email, restrictedItems } from "@/content/site";
 
 const sections = [
   {
     title: "Platform purpose",
-    body: "Local Trade Garden is intended to help nearby gardeners, small growers and homesteaders connect for local garden and homestead trades.",
+    body: "Local Trade Garden is an early access waitlist and prototype for local garden-adjacent trades. The live trading app is not open yet.",
   },
   {
-    title: "No cash transactions",
-    body: "The platform is designed for cash-free barter and trade only. It does not provide checkout, payment processing, crypto payments or ecommerce tools.",
+    title: "Trade only",
+    body: "The platform is for cash-free local trades only. It does not provide checkout, payment processing, crypto payments, delivery routing or ecommerce tools.",
   },
   {
     title: "No regulated goods",
-    body: "Users may not list alcohol, beer, homebrew, raw milk, meat, poultry, wild game, live animals, livestock, weapons, medicine, supplements, CBD, THC, marijuana or regulated goods.",
+    body: `Users may not list prohibited or regulated goods. Not allowed: ${restrictedItems}`,
   },
   {
     title: "User responsibility",
-    body: "Users are responsible for the accuracy of their listings, their communications, their meetup choices and their compliance with applicable rules.",
+    body: "Users are responsible for listing accuracy, communications, meetup choices and compliance with local rules.",
   },
   {
     title: "Food safety and local law",
-    body: "Users are responsible for knowing and following local food safety, cottage food, egg, honey and garden trade laws before listing or trading any item.",
+    body: "Local Trade Garden does not inspect goods, verify food safety or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
   },
   {
     title: "Account suspension",
@@ -47,15 +47,15 @@ export default function TermsPage() {
         <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">
           Back to homepage
         </Link>
-        <h1 className="mt-6 text-4xl font-black text-charcoal">Terms of Service</h1>
+        <h1 className="font-display mt-6 text-4xl font-bold text-charcoal">Terms of Service</h1>
         <p className="mt-4 rounded-2xl border border-warning/30 bg-warning/10 p-4 font-bold leading-7 text-warning">
-          This is a working placeholder and must be reviewed by a qualified
-          attorney before public launch.
+          Draft notice: This page is a working draft for early access review. It
+          must be reviewed by a qualified attorney before public launch.
         </p>
         <div className="mt-8 grid gap-6">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-xl font-black text-deep">{section.title}</h2>
+              <h2 className="font-display text-xl font-bold text-deep">{section.title}</h2>
               <p className="mt-2 leading-7 text-muted">{section.body}</p>
             </section>
           ))}

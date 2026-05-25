@@ -30,6 +30,7 @@ import {
   trustItems,
 } from "@/content/site";
 
+// TODO: Confirm image usage rights and replace with owned/local launch photography before public launch.
 const imageCredits = [
   {
     src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1200",
@@ -48,6 +49,42 @@ const imageCredits = [
     alt: "A basket filled with ripe red tomatoes at a farmers market",
     label: "Peak week",
     caption: "When the tomatoes come in, they do not wait politely",
+  },
+];
+
+const howImages = [
+  {
+    src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=800",
+    alt: "Basket of fresh garden vegetables and sunflowers on a wooden table",
+    label: "List what you have",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=800",
+    alt: "Small plant starts ready for local garden trading",
+    label: "Find what you need",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=800",
+    alt: "Community garden table prepared for a safe local meetup",
+    label: "Meet safely",
+  },
+];
+
+const tradeImages = [
+  {
+    src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=800",
+    alt: "Fresh vegetables arranged for a neighborhood garden trade",
+    label: "Fresh produce",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=800",
+    alt: "Small plant starts ready for local garden trading",
+    label: "Plant starts",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=800",
+    alt: "Fresh herbs and garden supplies arranged for a local trade",
+    label: "Herbs and supplies",
   },
 ];
 
@@ -136,10 +173,10 @@ function HeroVisual() {
             </div>
           </div>
           <div className="absolute bottom-4 left-4 right-4 grid gap-3">
-            <ListingCard title="Heirloom Tomatoes" wants="Eggs or basil starts" place="East Nashville" />
+            <ListingCard title="Heirloom Tomatoes" wants="Basil starts or compost" place="Sample listing" />
             <div className="grid gap-3 sm:grid-cols-2">
-              <ListingCard title="Basil Starts" wants="Compost or garden tools" place="Madison" />
-              <ListingCard title="Fresh Eggs" wants="Tomatoes or herbs" place="Where local rules allow" />
+              <ListingCard title="Basil Starts" wants="Compost" place="Early access example" />
+              <ListingCard title="Seed Packets" wants="Pots or trays" place="Pilot example" />
             </div>
           </div>
         </div>
@@ -148,8 +185,8 @@ function HeroVisual() {
             <div className="flex items-center gap-3">
               <ShoppingBasket aria-hidden="true" />
               <div>
-                <p className="font-black">Garden basket, not shopping cart</p>
-                <p className="text-sm text-white/78">The signup list is open. The trading app is still in early access.</p>
+                <p className="font-black">No shopping cart. Just useful trades.</p>
+                <p className="text-sm text-white/78">Join the first local test group. The full trading app is not live yet.</p>
               </div>
             </div>
           </div>
@@ -164,7 +201,7 @@ function HeroVisual() {
       </div>
       <div className="absolute -bottom-5 left-4 flex max-w-[calc(100%-2rem)] gap-2 rounded-full border border-soil/15 bg-linen px-4 py-3 text-sm font-black text-deep shadow-card sm:left-8">
         <Leaf aria-hidden="true" size={18} />
-        Tomatoes, herbs, eggs, compost
+        Tomatoes, herbs, seeds, compost
       </div>
     </div>
   );
@@ -185,13 +222,14 @@ function Hero() {
           <p className="mt-5 text-lg leading-8 text-muted sm:text-xl">
             Got more tomatoes than you can eat? Too many basil starts? A shed
             full of tools you would rather trade than sell? Local Trade Garden
-            is for those small, practical swaps with people nearby.
+            is an early access waitlist for small, practical garden swaps with
+            people nearby.
           </p>
           <p className="mt-4 rounded-2xl border border-tomato/20 bg-tomato/10 p-4 font-black text-deep">
-            Join the list for the first local launch. No cash sales, no checkout, no crypto.
+            Local Trade Garden is currently an early access waitlist and prototype. The live trading app is not open yet.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="#early-access">Join Early Access</ButtonLink>
+            <ButtonLink href="#early-access">Join the First Local List</ButtonLink>
             <ButtonLink href="#how-it-works" variant="secondary">
               See How It Works
             </ButtonLink>
@@ -267,8 +305,8 @@ function PhotoBand() {
           <h2 className="font-display mt-3 text-3xl font-bold leading-tight">A table full of small, useful trades.</h2>
           <p className="mt-4 leading-7 text-white/82">
             Tomatoes for basil. Compost for seedlings. A borrowed broadfork.
-            A dozen eggs, where local rules allow. Nothing fancy, just the kind
-            of practical swap gardeners already make over a fence.
+            Seed packets, tools and trays. Nothing fancy, just the kind of
+            practical swap gardeners already make over a fence.
           </p>
         </div>
       </div>
@@ -289,7 +327,7 @@ function ProblemSection() {
           </p>
           <p className="text-lg font-black leading-8 text-charcoal">
             Tomatoes ripen all at once. Zucchini gets ambitious. Seedlings
-            outgrow their trays. Eggs stack up before the weekend.
+            outgrow their trays. Compost piles get ahead of the garden beds.
           </p>
           <p className="mt-4 leading-7 text-muted">
             Most gardeners already share. The hard part is timing. You have
@@ -299,8 +337,8 @@ function ProblemSection() {
           <div className="mt-5 rounded-2xl bg-soil p-4 text-white">
             <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">The launch idea</p>
             <p className="mt-2 leading-7">
-              A cash-free local exchange for garden surplus, seedlings,
-              compost, tools and approved homestead goods. No payment layer.
+              A controlled early access waitlist for garden surplus, seedlings,
+              compost, tools and approved garden-adjacent goods. No payment layer.
             </p>
           </div>
         </div>
@@ -320,7 +358,7 @@ function AppPreview() {
       id="app-preview"
       eyebrow="Mock app preview"
       title="A simple app for neighbor-to-neighbor swaps"
-      intro="These are mockups, not live app screenshots. They show the kind of plain, useful flow we are building for early access."
+      intro="These are mockups, not live app screenshots. The trading app is not open yet."
       className="bg-white/70"
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -345,13 +383,46 @@ function AppPreview() {
   );
 }
 
+function ImageTile({ image }: { image: { src: string; alt: string; label: string } }) {
+  return (
+    <figure className="overflow-hidden rounded-2xl border border-soil/15 bg-card shadow-card">
+      <div className="relative min-h-44">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(min-width: 1024px) 340px, 100vw"
+          className="object-cover"
+        />
+      </div>
+      <figcaption className="px-4 py-3 text-sm font-black text-deep">{image.label}</figcaption>
+    </figure>
+  );
+}
+
+function VisualGrid({
+  images,
+  columns = "lg:grid-cols-3",
+}: {
+  images: Array<{ src: string; alt: string; label: string }>;
+  columns?: string;
+}) {
+  return (
+    <div className={`mt-8 grid gap-4 sm:grid-cols-2 ${columns}`}>
+      {images.map((image) => (
+        <ImageTile key={image.label} image={image} />
+      ))}
+    </div>
+  );
+}
+
 function EarlyAccessCallout() {
   return (
     <div className="mb-8 grid gap-4 lg:grid-cols-3">
       {[
         ["First community first", "The launch starts in one local area before expanding."],
-        ["Trade-first by design", "No ecommerce, checkout, crypto or payment flow is being built for v1."],
-        ["Real rules matter", "Food, egg, honey and cottage-food laws vary by place."],
+        ["Prototype first", "The trading app is not open yet. Early signups help shape the first local test group."],
+        ["Real rules matter", "Food, garden goods and local trade rules vary by place."],
       ].map(([title, body]) => (
         <div key={title} className="rounded-2xl border border-garden/20 bg-white p-5 shadow-card">
           <h3 className="flex items-center gap-2 font-black text-deep">
@@ -402,7 +473,7 @@ export default function HomePage() {
           id="how-it-works"
           eyebrow="Five simple steps"
           title="How it works"
-          intro="No bidding, no cart, no shipping label. Just a few steps from extra garden goods to a real local swap."
+          intro="A few plain steps from extra garden goods to a real local swap."
         >
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => {
@@ -421,6 +492,7 @@ export default function HomePage() {
               );
             })}
           </div>
+          <VisualGrid images={howImages} />
         </Section>
 
         <Section
@@ -430,11 +502,15 @@ export default function HomePage() {
           intro="Keep it garden-adjacent, local and practical. If it belongs at a backyard grower's table or in a shed, it may fit."
           className="bg-white/70"
         >
+          <VisualGrid images={tradeImages} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tradeItems.map((item) => (
               <InfoCard key={item.title} title={item.title} icon={item.icon} />
             ))}
           </div>
+          <p className="mt-5 rounded-2xl border border-soil/15 bg-linen p-4 text-base font-bold leading-7 text-deep">
+            Some items may be added later after local rule review.
+          </p>
           <div className="mt-8 rounded-2xl border border-warning/35 bg-warning/10 p-5">
             <div className="flex gap-3">
               <AlertTriangle aria-hidden="true" className="mt-1 shrink-0 text-warning" />
@@ -443,7 +519,7 @@ export default function HomePage() {
                 <p className="mt-2 leading-7 text-charcoal">{restrictedItems}</p>
                 <p className="mt-3 text-sm font-bold leading-6 text-muted">
                   Users are responsible for knowing and following local food,
-                  cottage food, egg, honey and garden trade laws.
+                  garden goods and local trade laws.
                 </p>
               </div>
             </div>
@@ -457,6 +533,24 @@ export default function HomePage() {
           eyebrow="Safety and trust"
           title="Local trades need common sense baked in."
         >
+          <div className="mb-8 overflow-hidden rounded-[24px] border border-soil/15 bg-card shadow-card">
+            <div className="relative min-h-64">
+              <Image
+                src="https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1400"
+                alt="Community garden table prepared for a safe local meetup"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-soil/82 via-soil/45 to-transparent" />
+              <div className="absolute bottom-0 left-0 max-w-xl p-6 text-white">
+                <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">Trust note</p>
+                <p className="font-display mt-2 text-3xl font-bold leading-tight">
+                  Local trades only work when people feel safe enough to show up.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {safetyCards.map((card) => (
               <InfoCard key={card.title} {...card} />
@@ -472,6 +566,20 @@ export default function HomePage() {
           className="bg-softyellow/30"
         >
           <EarlyAccessCallout />
+          <div className="mb-8 rounded-2xl border border-soil/15 bg-card p-5 shadow-card">
+            <h3 className="font-display text-2xl font-bold text-deep">Built for one local launch first</h3>
+            <p className="mt-3 text-base leading-7 text-muted">
+              Local Trade Garden is starting small on purpose. The first goal
+              is not to become a national marketplace. The first goal is to help
+              one local community test safe, useful garden trades between real
+              people nearby.
+            </p>
+            <p className="mt-4 rounded-xl bg-linen p-3 text-sm font-black text-deep">
+              First focus: gardeners, homesteaders, garden clubs, churches,
+              nurseries and local food groups.
+            </p>
+            <p className="mt-3 text-sm font-bold text-muted">Founder note coming soon.</p>
+          </div>
           <EarlyAccessForm />
         </Section>
 
@@ -483,6 +591,17 @@ export default function HomePage() {
           className="bg-white/70"
         >
           <PartnerIntroCard />
+          <div className="mb-8 overflow-hidden rounded-[24px] border border-soil/15 bg-card shadow-card">
+            <div className="relative min-h-56">
+              <Image
+                src="https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=1200"
+                alt="Small plant starts ready for a nursery, garden club or community group"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {partnerCards.map((card) => (
               <InfoCard key={card.title} title={card.title} icon={card.icon} />
@@ -574,6 +693,13 @@ function Footer() {
             Local Trade Garden
           </div>
           <p className="mt-3 font-bold text-charcoal">Trade what you grow. Get what you need.</p>
+          <p className="mt-3 text-sm font-black text-deep">Status: Private early access</p>
+          <p className="mt-2 text-sm font-bold text-charcoal">
+            Contact:{" "}
+            <a className="focus-ring rounded-md text-deep underline decoration-soil/30 underline-offset-4" href={`mailto:${email}`}>
+              {email}
+            </a>
+          </p>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
             Local Trade Garden is a connection platform for local trades. It is
             not a food vendor, legal advisor or guarantor of any trade.

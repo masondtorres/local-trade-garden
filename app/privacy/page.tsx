@@ -12,7 +12,7 @@ const sections = [
   },
   {
     title: "Location privacy",
-    body: "The product concept is designed around general city or neighborhood information. Exact addresses should not be displayed publicly.",
+    body: "The product is designed around general city or neighborhood information. Exact addresses should not be displayed publicly.",
   },
   {
     title: "Public profile information",
@@ -20,11 +20,11 @@ const sections = [
   },
   {
     title: "Form submissions",
-    body: "This website currently uses a mailto fallback for form submissions. A production form backend may be added before public launch.",
+    body: "This website currently shows a local form success state for early access review. A production form backend must be connected before public launch.",
   },
   {
     title: "Data sharing",
-    body: "Local Trade Garden should not sell personal information. Limited sharing may be required for service providers, legal compliance, safety and moderation.",
+    body: "We do not sell personal information. Limited sharing may be required for service providers, legal compliance, safety and moderation. TODO: Confirm final data practices before public launch.",
   },
   {
     title: "Contact",
@@ -39,15 +39,15 @@ export default function PrivacyPage() {
         <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">
           Back to homepage
         </Link>
-        <h1 className="mt-6 text-4xl font-black text-charcoal">Privacy Policy</h1>
+        <h1 className="font-display mt-6 text-4xl font-bold text-charcoal">Privacy Policy</h1>
         <p className="mt-4 rounded-2xl border border-warning/30 bg-warning/10 p-4 font-bold leading-7 text-warning">
-          This is a working placeholder and must be reviewed by a qualified
-          attorney before public launch.
+          Draft notice: This page is a working draft for early access review. It
+          must be reviewed by a qualified attorney before public launch.
         </p>
         <div className="mt-8 grid gap-6">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-xl font-black text-deep">{section.title}</h2>
+              <h2 className="font-display text-xl font-bold text-deep">{section.title}</h2>
               <p className="mt-2 leading-7 text-muted">{section.body}</p>
             </section>
           ))}
