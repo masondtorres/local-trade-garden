@@ -30,6 +30,27 @@ import {
   trustItems,
 } from "@/content/site";
 
+const imageCredits = [
+  {
+    src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1200",
+    alt: "Wooden baskets of tomatoes and eggplants at an outdoor farmers market",
+    label: "Market baskets",
+    caption: "The feeling: warm, useful, local",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=1200",
+    alt: "Young tomato seedlings growing in small nursery pots",
+    label: "Plant starts",
+    caption: "Seedlings, starts and extra trays",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200",
+    alt: "A basket filled with ripe red tomatoes at a farmers market",
+    label: "Garden surplus",
+    caption: "Too many tomatoes should find a home",
+  },
+];
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-borderwarm/80 bg-cream/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
@@ -213,6 +234,46 @@ function ProduceStrip() {
   );
 }
 
+function PhotoBand() {
+  return (
+    <section className="px-4 py-10 sm:px-6 lg:px-8" aria-label="Garden trade photo examples">
+      <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+        {imageCredits.map((image, index) => (
+          <figure
+            key={image.src}
+            className={`group overflow-hidden rounded-[24px] border border-borderwarm bg-card shadow-soft ${index === 0 ? "lg:row-span-2" : ""}`}
+          >
+            <div className={index === 0 ? "relative min-h-[360px]" : "relative min-h-[220px]"}>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes={index === 0 ? "(min-width: 1024px) 520px, 100vw" : "(min-width: 1024px) 320px, 100vw"}
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/78 via-charcoal/12 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <p className="inline-flex rounded-full bg-softyellow px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-deep">
+                  {image.label}
+                </p>
+                <p className="mt-3 text-xl font-black leading-tight">{image.caption}</p>
+              </figcaption>
+            </div>
+          </figure>
+        ))}
+        <div className="rounded-[24px] border border-garden/20 bg-deep p-6 text-white shadow-soft">
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-softyellow">Color direction</p>
+          <h2 className="mt-3 text-3xl font-black leading-tight">Cream, leaf green, tomato red and sunflower yellow.</h2>
+          <p className="mt-4 leading-7 text-white/82">
+            The site should feel like a clean farmers market table: bright produce,
+            practical labels, friendly cards and enough warmth to remember it.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProblemSection() {
   return (
     <Section
@@ -332,6 +393,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <ProduceStrip />
+        <PhotoBand />
         <ProblemSection />
 
         <Section
@@ -454,7 +516,15 @@ export default function HomePage() {
 
         <section className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-deep shadow-soft">
-            <div className="relative p-8 text-white sm:p-12">
+            <div className="relative min-h-[360px] p-8 text-white sm:p-12">
+              <Image
+                src="https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1600"
+                alt="Outdoor market table with baskets of fresh vegetables"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep/84 to-deep/24" />
               <div className="absolute right-6 top-6 text-softyellow/80">
                 <Flower2 aria-hidden="true" size={72} />
               </div>
