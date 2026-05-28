@@ -66,7 +66,7 @@ export function Footer() {
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
             Local Trade Garden is a connection platform for local trades. It is not
-            a seller, food vendor, inspector, legal advisor or guarantor of any trade.
+            a seller, broker, food vendor, inspector, legal advisor or guarantor of any trade.
           </p>
           <p className="mt-4 text-sm text-muted">&copy; 2026 Local Trade Garden. All rights reserved.</p>
         </div>

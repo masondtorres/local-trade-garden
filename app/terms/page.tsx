@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Platform purpose",
-    body: "Local Trade Garden is an early access connection platform for local trades involving things people made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor. The live trading app is not open yet.",
+    body: "Local Trade Garden is an early access local pilot and connection platform for local trades involving things people made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor. The live trading app is not open yet.",
   },
   {
     title: "Trade only",
@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Food safety and local law",
-    body: "Local Trade Garden does not inspect goods, verify food safety, verify licensing or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
+    body: "Local Trade Garden does not inspect goods, verify food safety, verify licensing, broker trades or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
   },
   {
     title: "Account suspension",
@@ -40,7 +40,7 @@ const sections = [
   },
   {
     title: "No guarantee of trades",
-    body: "Local Trade Garden does not guarantee that any listing will receive offers, that any trade will be completed or that any item or service will meet expectations.",
+    body: "Local Trade Garden does not guarantee that any listing will receive offers, that any trade will be completed or that any item or service will meet expectations. Local Trade Garden does not become a party to trades between users.",
   },
   {
     title: "Contact",

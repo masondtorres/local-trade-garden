@@ -202,7 +202,7 @@ export default function HomePage() {
             <Flower2 aria-hidden="true" className="absolute right-6 top-6 text-softyellow/70" size={72} />
             <div className="relative max-w-3xl">
               <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
-                The first local test group starts small on purpose.
+                The first local pilot group starts small on purpose.
               </h2>
               <p className="mt-4 text-lg leading-8 text-white/82">
                 Join early access if you want to help shape a trade site rooted

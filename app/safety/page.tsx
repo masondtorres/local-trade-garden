@@ -38,7 +38,7 @@ export default function SafetyPage() {
       />
       <AnswerBlock
         question="Who is responsible for legal compliance?"
-        answer="Users are responsible for knowing and following local, state and federal laws. Local Trade Garden does not approve, inspect, guarantee or become a party to any trade."
+        answer="Users are responsible for knowing and following local, state and federal laws. Local Trade Garden does not approve, inspect, guarantee, broker or become a party to any trade."
       />
       <Section
         title="Simple safety guide"

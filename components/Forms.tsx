@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { growerTypes, interestTypes } from "@/content/site";
+import { email, growerTypes, interestTypes } from "@/content/site";
 
 type Field =
   | { name: string; label: string; type?: "text" | "email"; required?: boolean }
@@ -59,40 +59,64 @@ function FormField({ field }: { field: Field }) {
 
 function LocalStateForm({
   title,
+  formType,
   fields,
   button,
   success,
   note,
 }: {
   title: string;
+  formType: "early-access" | "partner" | "contact";
   fields: Field[];
   button: string;
   success: string;
   note: string;
 }) {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("idle");
+    setMessage("");
 
     try {
-      const data = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      const data = new FormData(form);
       const requiredMissing = fields.some(
         (field) => field.required && !String(data.get(field.name) || "").trim(),
       );
 
       if (requiredMissing) {
+        setMessage("Please fill in the required fields and try again.");
         setStatus("error");
         return;
       }
 
-      // TODO: Connect this form to a real backend before public launch.
-      // Good options: a Next.js API route, server action, Netlify Forms,
-      // Formspree or Resend. Do not treat this local success state as storage.
+      setStatus("submitting");
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType,
+          fields: Object.fromEntries(data.entries()),
+        }),
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        setMessage(result.error || `The form could not be delivered. Please email ${email} directly.`);
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
-      event.currentTarget.reset();
+      form.reset();
     } catch {
+      setMessage(`The form could not be delivered. Please email ${email} directly.`);
       setStatus("error");
     }
   }
@@ -117,11 +141,13 @@ function LocalStateForm({
           </div>
         ))}
       </div>
+      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button
         type="submit"
+        disabled={status === "submitting"}
         className="focus-ring mt-5 min-h-12 w-full rounded-lg border-2 border-deep bg-garden px-7 py-3 text-base font-bold text-white shadow-card transition hover:bg-deep sm:w-auto"
       >
-        {button}
+        {status === "submitting" ? "Sending..." : button}
       </button>
       {status === "success" ? (
         <p aria-live="polite" className="mt-4 rounded-xl border border-garden/25 bg-garden/10 p-3 text-base font-bold text-deep">
@@ -130,7 +156,7 @@ function LocalStateForm({
       ) : null}
       {status === "error" ? (
         <p aria-live="polite" className="mt-4 rounded-xl border border-warning/25 bg-warning/10 p-3 text-base font-bold text-warning">
-          Something went wrong. Please check the required fields and try again.
+          {message || "Something went wrong. Please check the required fields and try again."}
         </p>
       ) : null}
       <p className="mt-4 text-sm font-semibold leading-6 text-muted">
@@ -145,9 +171,10 @@ export function EarlyAccessForm() {
   return (
     <LocalStateForm
       title="Early access form"
+      formType="early-access"
       button="Join Early Access"
-      note="Join the first local test list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
-      success="Request received. We will follow up when the first local test group is ready."
+      note="Join the first local pilot list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
+      success="Request delivered. We will follow up when the first local pilot group is ready."
       fields={[
         { name: "firstName", label: "First name", required: true },
         { name: "email", label: "Email", type: "email", required: true },
@@ -166,6 +193,7 @@ export function PartnerForm() {
   return (
     <LocalStateForm
       title="Local partner form"
+      formType="partner"
       button="Become a Local Partner"
       note="Submit the form to share local partner interest."
       success="Partner request received. We will follow up as the first local launch takes shape."
@@ -186,6 +214,7 @@ export function ContactForm() {
   return (
     <LocalStateForm
       title="Contact form"
+      formType="contact"
       button="Send Message"
       note="Ask a simple question, report a concern or reach out about local partner interest."
       success="Message received. We will follow up by email."

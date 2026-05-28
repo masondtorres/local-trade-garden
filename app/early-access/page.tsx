@@ -35,11 +35,11 @@ export default function EarlyAccessPage() {
       <PageHero
         eyebrow="Early access"
         title="Join the first local trade list."
-        intro="Join the first local test list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
+        intro="Join the first local pilot list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
       />
       <Section
         title="What happens after you join"
-        intro="The full trading app is not open yet. Early signups help shape the first local test group."
+        intro="The full trading app is not open yet. Early signups help shape the first local pilot group."
         className="bg-white/70"
       >
         <div className="grid gap-5 md:grid-cols-3">

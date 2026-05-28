@@ -32,7 +32,7 @@ const sections = [
   },
   {
     title: "Form submissions",
-    body: "This website currently shows a local form success state for early access review. A production form backend must be connected before public launch.",
+    body: "This website can deliver form submissions through a configured email provider. If the provider is not configured, the form asks users to email Local Trade Garden directly. Production delivery settings must be confirmed before public launch.",
   },
   {
     title: "Data sharing",

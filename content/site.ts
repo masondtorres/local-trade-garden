@@ -25,10 +25,10 @@ export const serviceArea = "Local early-access area to be announced";
 export const email = "masondtorres@duck.com";
 
 export const complianceStatement =
-  "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, age restrictions, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. This site does not approve, inspect, guarantee or become a party to any trade.";
+  "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, age restrictions, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. This site does not approve, inspect, guarantee, broker or become a party to any trade.";
 
 export const safetyStatement =
-  "Meet safely. Use common sense. Do not post exact public addresses. Regulated goods must follow applicable laws. Alcohol, wine and brews are only allowed where legal and only for users of legal age. This platform is a connection tool, not a seller, inspector, guarantor or legal advisor.";
+  "Meet safely. Use common sense. Do not post exact public addresses. Regulated goods must follow applicable laws. Alcohol, wine and brews are only allowed where legal and only for users of legal age. This platform is a connection tool, not a seller, broker, inspector, guarantor or legal advisor.";
 
 export const navLinks = [
   { href: "/", label: "Home" },
@@ -146,7 +146,7 @@ export const safetyGuidelines = [
   { title: "Know the rules", body: "Regulated goods must follow local, state and federal laws.", icon: BookOpen },
   { title: "Alcohol has extra limits", body: "Alcohol, wine and brews are only allowed where legal and only for users of legal age.", icon: ShieldCheck },
   { title: "Food safety is on users", body: "The platform does not inspect kitchens, farms, labels, handling or storage.", icon: Wheat },
-  { title: "Connection tool only", body: "Local Trade Garden is not a seller, inspector, guarantor or legal advisor.", icon: Handshake },
+  { title: "Connection tool only", body: "Local Trade Garden is not a seller, broker, inspector, guarantor or legal advisor.", icon: Handshake },
 ];
 
 export const growerTypes = [
@@ -212,7 +212,7 @@ export const faq = [
   },
   {
     q: "What rules apply to trades?",
-    a: "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. Local Trade Garden does not approve, inspect, guarantee or become a party to any trade.",
+    a: "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. Local Trade Garden does not approve, inspect, guarantee, broker or become a party to any trade.",
   },
   {
     q: "Does the site verify food safety?",
@@ -220,7 +220,7 @@ export const faq = [
   },
   {
     q: "Who is responsible for following the law?",
-    a: "Users are. All trades must follow local, state and federal laws. This site is a connection tool, not a legal advisor or party to any trade.",
+    a: "Users are. All trades must follow local, state and federal laws. This site is a connection tool, not a broker, legal advisor or party to any trade.",
   },
   {
     q: "Will my address be shown?",
@@ -228,7 +228,7 @@ export const faq = [
   },
   {
     q: "Is this a live app yet?",
-    a: "Not yet. Local Trade Garden is still in early access. The site is collecting interest and shaping the first local test group.",
+    a: "Not yet. Local Trade Garden is an early access local pilot. The site is collecting interest and shaping the first local pilot group.",
   },
   {
     q: "How is Local Trade Garden different from Facebook Marketplace?",
@@ -251,4 +251,4 @@ export const photoSet = [
   },
 ];
 
-export const appStatus = "Private early access";
+export const appStatus = "Private early access pilot";
