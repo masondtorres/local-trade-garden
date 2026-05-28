@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Flower2, Menu } from "lucide-react";
 import { ButtonLink } from "@/components/Buttons";
-import { appStatus, email, footerLinks, navLinks } from "@/content/site";
+import { appStatus, email, footerLinks, navLinks, serviceArea } from "@/content/site";
 
 export function Header() {
   return (
@@ -57,6 +57,7 @@ export function Footer() {
           </div>
           <p className="mt-3 font-bold text-charcoal">If you made it, you can trade it.</p>
           <p className="mt-3 text-sm font-black text-deep">Status: {appStatus}</p>
+          <p className="mt-2 text-sm font-bold text-charcoal">Area: {serviceArea}</p>
           <p className="mt-2 text-sm font-bold text-charcoal">
             Contact:{" "}
             <a className="focus-ring rounded-md text-deep underline decoration-soil/30 underline-offset-4" href={`mailto:${email}`}>

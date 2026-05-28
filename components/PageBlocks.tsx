@@ -61,3 +61,34 @@ export function ComplianceNote({ short = false }: { short?: boolean }) {
     </div>
   );
 }
+
+export function AnswerBlock({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <section className="px-4 py-10 sm:px-6 lg:px-8" aria-labelledby={question.toLowerCase().replace(/[^a-z0-9]+/g, "-")}>
+      <div className="mx-auto max-w-6xl rounded-2xl border border-garden/25 bg-card p-5 shadow-card sm:p-6">
+        <p className="mb-2 text-sm font-bold uppercase tracking-[0.12em] text-garden">Plain answer</p>
+        <h2 id={question.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="font-display text-2xl font-bold text-deep">
+          {question}
+        </h2>
+        <p className="mt-3 max-w-3xl text-lg leading-8 text-charcoal">{answer}</p>
+      </div>
+    </section>
+  );
+}
+
+export function JsonLd({ data }: { data: Record<string, unknown> | Array<Record<string, unknown>> }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}

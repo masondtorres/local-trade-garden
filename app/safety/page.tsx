@@ -1,22 +1,44 @@
 import type { Metadata } from "next";
-import { ComplianceNote, PageHero } from "@/components/PageBlocks";
+import { AnswerBlock, ComplianceNote, JsonLd, PageHero } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { safetyGuidelines, safetyStatement } from "@/content/site";
+import { safetyGuidelines, safetyStatement, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Safety and Rules | Local Trade Garden",
+  title: "Safety and Trade Rules | Local Trade Garden",
   description:
-    "Simple safety and compliance guidance for Local Trade Garden trades, regulated goods, address privacy and user responsibility.",
+    "Simple safety and compliance rules for local trades. Users are responsible for following local, state and federal laws.",
+  alternates: {
+    canonical: "/safety",
+  },
+  openGraph: {
+    title: "Safety and Trade Rules | Local Trade Garden",
+    description:
+      "Simple safety and compliance rules for local trades. Users are responsible for following local, state and federal laws.",
+    url: "/safety",
+  },
 };
 
 export default function SafetyPage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Safety and Trade Rules | Local Trade Garden",
+    url: `${siteUrl}/safety`,
+    description: metadata.description,
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Safety and rules"
         title="Trade with common sense and clear responsibility."
         intro={safetyStatement}
+      />
+      <AnswerBlock
+        question="Who is responsible for legal compliance?"
+        answer="Users are responsible for knowing and following local, state and federal laws. Local Trade Garden does not approve, inspect, guarantee or become a party to any trade."
       />
       <Section
         title="Simple safety guide"

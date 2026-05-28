@@ -1,12 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/PageBlocks";
 import { SiteShell } from "@/components/SiteShell";
-import { email } from "@/content/site";
+import { email, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Local Trade Garden",
   description:
     "Draft Local Trade Garden privacy policy for early access review, form submissions, location privacy and data use.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 const sections = [
@@ -41,8 +45,17 @@ const sections = [
 ];
 
 export default function PrivacyPage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy | Local Trade Garden",
+    url: `${siteUrl}/privacy`,
+    description: metadata.description,
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl rounded-[24px] border border-borderwarm bg-card p-6 shadow-soft sm:p-10">
           <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">

@@ -1,16 +1,26 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { CheckCircle2, Flower2, Leaf, Sprout } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, Flower2, Hammer, Leaf, Sprout } from "lucide-react";
 import { ButtonLink } from "@/components/Buttons";
-import { ComplianceNote } from "@/components/PageBlocks";
+import { AnswerBlock, ComplianceNote, JsonLd } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { homeCategoryPreview, photoSet } from "@/content/site";
+import { homeCategoryPreview, photoSet, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Local Trade Garden | If You Made It, You Can Trade It",
+  title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
   description:
-    "A local trade site for handmade, homegrown, locally raised, repaired, taught and honestly earned goods or services.",
+    "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
+    description:
+      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+    url: "/",
+  },
 };
 
 function Hero() {
@@ -43,7 +53,12 @@ function Hero() {
             </ButtonLink>
           </div>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            {["Trade only", "Local value", "Early access", "User responsibility"].map((item) => (
+            {[
+              "Private early access",
+              "Local trades only",
+              "No checkout or payment layer",
+              "Users follow the law",
+            ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm font-bold text-charcoal">
                 <CheckCircle2 aria-hidden="true" className="shrink-0 text-garden" size={18} />
                 {item}
@@ -85,9 +100,28 @@ function Hero() {
 }
 
 export default function HomePage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Local Trade Garden",
+    url: siteUrl,
+    description:
+      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Local Trade Garden",
+      url: siteUrl,
+    },
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <Hero />
+      <AnswerBlock
+        question="What is Local Trade Garden?"
+        answer="Local Trade Garden is an early-access local trade platform for things people made, grew, raised, repaired, taught or earned through honest work. It is built for cash-free local trades, not random resale listings."
+      />
       <Section
         eyebrow="What belongs here"
         title="Trades with real work behind them."
@@ -98,6 +132,34 @@ export default function HomePage() {
           {homeCategoryPreview.map((item) => (
             <InfoCard key={item.title} {...item} />
           ))}
+        </div>
+      </Section>
+      <Section
+        eyebrow="Major feature"
+        title="Will Work for Food"
+        intro="Trade honest work for food, goods or useful local items. Clear brush. Stack firewood. Haul feed. Plant rows. Fix a fence. Load a truck. Clean up a property. Useful work still has value."
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className="rounded-[24px] border border-soil/15 bg-soil p-6 text-white shadow-card">
+            <Hammer aria-hidden="true" className="text-softyellow" size={34} />
+            <h2 className="font-display mt-4 text-3xl font-bold">A jar of honey, a stack of firewood, a repaired tool, a morning of honest work.</h2>
+            <p className="mt-4 leading-7 text-white/82">
+              Some trades do not need a checkout button. They need clear words,
+              useful work and two people who follow the rules.
+            </p>
+            <div className="mt-6">
+              <ButtonLink href="/will-work-for-food" variant="light">
+                See Will Work for Food
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {["clearing brush", "stacking firewood", "hauling feed", "fixing a fence"].map((item) => (
+              <div key={item} className="rounded-2xl border border-borderwarm bg-card p-5 font-black text-deep shadow-card">
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
       <section className="px-4 py-14 sm:px-6 lg:px-8">
@@ -116,6 +178,24 @@ export default function HomePage() {
           <ComplianceNote short />
         </div>
       </section>
+      <Section
+        eyebrow="Not random resale"
+        title="How is Local Trade Garden different from Facebook Marketplace?"
+        intro="Local Trade Garden is not built for random resale listings or cash-first selling. It is focused on cash-free local trades for things made, grown, raised, repaired, taught or earned through honest work."
+        className="bg-white/70"
+      >
+        <div className="flex flex-wrap gap-3">
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/what-you-can-trade">
+            What You Can Trade
+          </Link>
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/safety">
+            Safety and Rules
+          </Link>
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/early-access">
+            Join Early Access
+          </Link>
+        </div>
+      </Section>
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-deep shadow-soft">
           <div className="relative p-8 text-white sm:p-12">

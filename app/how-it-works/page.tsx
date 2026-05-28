@@ -1,18 +1,37 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageBlocks";
+import Link from "next/link";
+import { JsonLd, PageHero } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { steps } from "@/content/site";
+import { siteUrl, steps } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "How It Works | Local Trade Garden",
+  title: "How Local Trade Garden Works",
   description:
-    "How Local Trade Garden helps people post what they made, grew, raised, repaired or can do, then offer local trades safely.",
+    "See how Local Trade Garden helps people post useful local trades, offer goods or labor and connect without a checkout or payment layer.",
+  alternates: {
+    canonical: "/how-it-works",
+  },
+  openGraph: {
+    title: "How Local Trade Garden Works",
+    description:
+      "See how Local Trade Garden helps people post useful local trades, offer goods or labor and connect without a checkout or payment layer.",
+    url: "/how-it-works",
+  },
 };
 
 export default function HowItWorksPage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "How Local Trade Garden Works",
+    url: `${siteUrl}/how-it-works`,
+    description: metadata.description,
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="How it works"
         title="A plain way to trade local value."
@@ -46,6 +65,17 @@ export default function HowItWorksPage() {
           <InfoCard title="Be specific" body="Use plain details, useful photos and honest quantities." />
           <InfoCard title="Agree first" body="Make sure both sides understand the trade before meeting." />
           <InfoCard title="Respect the rules" body="Regulated goods and services must follow the laws that apply." />
+        </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/what-you-can-trade">
+            What You Can Trade
+          </Link>
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/safety">
+            Safety and Rules
+          </Link>
+          <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/early-access">
+            Join Early Access
+          </Link>
         </div>
       </Section>
     </SiteShell>

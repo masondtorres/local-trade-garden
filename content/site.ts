@@ -20,8 +20,9 @@ import {
   Wrench,
 } from "lucide-react";
 
-// TODO: Confirm this inbox is active before public launch.
-export const email = "hello@localtradegarden.com";
+export const siteUrl = "https://www.coalbucketwhiskey.com";
+export const serviceArea = "Local early-access area to be announced";
+export const email = "masondtorres@duck.com";
 
 export const complianceStatement =
   "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, age restrictions, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. This site does not approve, inspect, guarantee or become a party to any trade.";
@@ -52,10 +53,10 @@ export const footerLinks = [
 ];
 
 export const homeCategoryPreview = [
-  { title: "Made by hand", body: "Crafts, useful goods, home projects and things built with care.", icon: Hammer },
-  { title: "Grown or raised", body: "Produce, food, farm goods, eggs, honey and meat where the law allows.", icon: Wheat },
+  { title: "Made by hand", body: "Crafts, useful goods, home projects and hand-built items with real work behind them.", icon: Hammer },
+  { title: "Grown or raised", body: "Homegrown food, garden goods, farm goods, eggs, honey and meat where legal.", icon: Wheat },
   { title: "Repaired or restored", body: "Tools, equipment, small fixes and practical work that gives things another life.", icon: Wrench },
-  { title: "Taught or worked", body: "Lessons, local labor, useful skills and honest help from one neighbor to another.", icon: BookOpen },
+  { title: "Taught or worked", body: "Useful skills, lessons, local labor and honest help from one neighbor to another.", icon: BookOpen },
 ];
 
 export const steps = [
@@ -104,7 +105,7 @@ export const tradeCategories = [
   },
   {
     title: "Homegrown Food",
-    body: "Produce, herbs, seeds, starts, baked goods, farm goods and food from a local kitchen or garden where rules allow.",
+    body: "Produce, herbs, seeds, starts, baked goods, farm goods and homegrown food where legal.",
     icon: Carrot,
   },
   {
@@ -129,12 +130,12 @@ export const tradeCategories = [
   },
   {
     title: "Will Work for Food",
-    body: "A dedicated area for trading honest labor for food, goods or useful local items.",
+    body: "Manual labor traded for food, goods or useful local items.",
     icon: Handshake,
   },
   {
     title: "Earth-Friendly Trades",
-    body: "Compost, mulch, seed saving, reused supplies, repaired items and goods that help the land instead of wasting it.",
+    body: "Trades that reuse, repair, grow, restore or reduce waste.",
     icon: Leaf,
   },
 ];
@@ -184,20 +185,34 @@ export const partnerCards = [
   { title: "Garden clubs", icon: HeartHandshake },
   { title: "Local food nonprofits", icon: Building2 },
   { title: "Homesteading groups", icon: Users },
+  { title: "Beekeepers and honey groups where appropriate and legal", icon: Wheat },
+  { title: "Butchers or meat processors where appropriate and legal", icon: PackageSearch },
 ];
 
 export const faq = [
   {
     q: "Is this for buying and selling?",
-    a: "No. Local Trade Garden is built around trade. It is not a checkout store, crypto project or random resale marketplace.",
+    a: "No. Local Trade Garden is built for cash-free local trades. There is no checkout, payment layer or crypto.",
+  },
+  {
+    q: "What does 'If you made it, you trade it' mean?",
+    a: "It means this site is for things that came from your hands, work, land, skill or care. Made, grown, raised, repaired, taught, cooked, built or earned through honest labor.",
   },
   {
     q: "What can I trade?",
-    a: "Things you made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor. That can include food, handmade goods, tools, skills, lessons, local labor and earth-friendly goods.",
+    a: "You can trade handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, lessons, local labor and earth-friendly goods where legal and properly handled.",
   },
   {
-    q: "Can I trade meat, eggs, honey, wine or brews?",
-    a: "Only where legal and only when the people involved follow the rules that apply. Alcohol, wine and brews are only allowed where legal and only for users of legal age.",
+    q: "Can I trade meat, eggs or honey?",
+    a: "Only where legal and only when properly handled. The person posting and trading the item is responsible for knowing and following the rules that apply.",
+  },
+  {
+    q: "Can I trade wine or brews?",
+    a: "Only where legal and only for users of legal age. Users are responsible for following all applicable laws.",
+  },
+  {
+    q: "What rules apply to trades?",
+    a: "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. Local Trade Garden does not approve, inspect, guarantee or become a party to any trade.",
   },
   {
     q: "Does the site verify food safety?",
@@ -214,6 +229,10 @@ export const faq = [
   {
     q: "Is this a live app yet?",
     a: "Not yet. Local Trade Garden is still in early access. The site is collecting interest and shaping the first local test group.",
+  },
+  {
+    q: "How is Local Trade Garden different from Facebook Marketplace?",
+    a: "Local Trade Garden is not built for random resale listings or cash-first selling. It is focused on cash-free local trades for things made, grown, raised, repaired, taught or earned through honest work.",
   },
 ];
 

@@ -146,7 +146,7 @@ export function EarlyAccessForm() {
     <LocalStateForm
       title="Early access form"
       button="Join Early Access"
-      note="Submit the form to join the early access list."
+      note="Join the first local test list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
       success="Request received. We will follow up when the first local test group is ready."
       fields={[
         { name: "firstName", label: "First name", required: true },
@@ -187,7 +187,7 @@ export function ContactForm() {
     <LocalStateForm
       title="Contact form"
       button="Send Message"
-      note="Submit the form and we will follow up by email."
+      note="Ask a simple question, report a concern or reach out about local partner interest."
       success="Message received. We will follow up by email."
       fields={[
         { name: "name", label: "Name", required: true },

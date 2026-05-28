@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/PageBlocks";
 import { SiteShell } from "@/components/SiteShell";
-import { complianceStatement, email } from "@/content/site";
+import { complianceStatement, email, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Local Trade Garden",
   description:
     "Draft Local Trade Garden terms for early access review, including trade-only purpose, user responsibility and compliance requirements.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 const sections = [
@@ -45,8 +49,17 @@ const sections = [
 ];
 
 export default function TermsPage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms of Service | Local Trade Garden",
+    url: `${siteUrl}/terms`,
+    description: metadata.description,
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl rounded-[24px] border border-borderwarm bg-card p-6 shadow-soft sm:p-10">
           <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">

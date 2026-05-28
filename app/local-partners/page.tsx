@@ -1,23 +1,41 @@
 import type { Metadata } from "next";
 import { PartnerForm } from "@/components/Forms";
-import { PageHero } from "@/components/PageBlocks";
+import { JsonLd, PageHero } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { partnerCards } from "@/content/site";
+import { partnerCards, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Local Partners | Local Trade Garden",
   description:
     "Local partner information for nurseries, feed stores, markets, garden centers, churches, garden clubs and homesteading groups.",
+  alternates: {
+    canonical: "/local-partners",
+  },
+  openGraph: {
+    title: "Local Partners | Local Trade Garden",
+    description:
+      "Local partner information for nurseries, feed stores, markets, garden centers, churches, garden clubs and homesteading groups.",
+    url: "/local-partners",
+  },
 };
 
 export default function LocalPartnersPage() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Local Partners | Local Trade Garden",
+    url: `${siteUrl}/local-partners`,
+    description: metadata.description,
+  };
+
   return (
     <SiteShell>
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Local partners"
         title="Good local partners are already part of the trade."
-        intro="Nurseries, feed stores, markets, churches, garden clubs, local food groups and homesteading groups can help the first community feel grounded and useful."
+        intro="The best partners are already part of local life: nurseries, feed stores, farmers markets, garden centers, seed companies, churches, garden clubs, local food groups, homestead groups and people who help neighbors trade useful things safely."
       />
       <Section
         title="Partner fits"
@@ -32,7 +50,7 @@ export default function LocalPartnersPage() {
       </Section>
       <Section
         title="Partner interest"
-        intro="Use this form if your local business, church, club, nonprofit or homesteading group wants to help with the first launch."
+        intro="Use this form if your local business, church, club, nonprofit, beekeeping group, meat processor or homesteading group wants to help with the first launch where appropriate and legal."
       >
         <PartnerForm />
       </Section>
