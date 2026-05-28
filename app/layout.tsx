@@ -15,21 +15,21 @@ const body = Atkinson_Hyperlegible({
 });
 
 export const metadata: Metadata = {
-  title: "Local Trade Garden | Cash-Free Garden Trading for Local Growers",
+  title: "Local Trade Garden | If You Made It, You Can Trade It",
   description:
-    "Local Trade Garden is an early access waitlist and prototype for cash-free local trades between backyard gardeners, small growers and homesteaders.",
+    "Local Trade Garden is an early access local trade site for things made by hand, grown from the ground, raised with care, repaired with skill or earned through honest work.",
   keywords: [
     "local garden trade",
-    "garden barter app",
+    "local trade",
+    "handmade trade",
     "trade produce locally",
-    "backyard gardener app",
+    "will work for food",
     "homestead trading",
     "local food exchange",
-    "trade vegetables",
-    "seedling swap",
-    "garden surplus",
-    "cash-free barter",
-    "farmers market alternative",
+    "trade skills locally",
+    "neighbor trade",
+    "local labor trade",
+    "handmade goods",
     "community garden exchange",
   ],
 };

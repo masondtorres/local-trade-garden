@@ -1,191 +1,162 @@
 import {
-  BadgeCheck,
-  Ban,
+  BookOpen,
   Building2,
   Carrot,
-  ClipboardList,
   Flower2,
+  Hammer,
   Handshake,
   HeartHandshake,
   Home,
   Leaf,
-  Mail,
   MapPin,
-  MessageCircle,
   PackageSearch,
   Search,
   ShieldCheck,
   ShoppingBasket,
   Sprout,
-  Star,
   Store,
-  Undo2,
+  Users,
   Wheat,
+  Wrench,
 } from "lucide-react";
 
 // TODO: Confirm this inbox is active before public launch.
 export const email = "hello@localtradegarden.com";
 
+export const complianceStatement =
+  "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, age restrictions, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. This site does not approve, inspect, guarantee or become a party to any trade.";
+
+export const safetyStatement =
+  "Meet safely. Use common sense. Do not post exact public addresses. Regulated goods must follow applicable laws. Alcohol, wine and brews are only allowed where legal and only for users of legal age. This platform is a connection tool, not a seller, inspector, guarantor or legal advisor.";
+
 export const navLinks = [
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#what-you-can-trade", label: "What You Can Trade" },
-  { href: "#safety", label: "Safety" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/", label: "Home" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/what-you-can-trade", label: "What You Can Trade" },
+  { href: "/will-work-for-food", label: "Will Work for Food" },
+  { href: "/safety", label: "Safety" },
+  { href: "/faq", label: "FAQ" },
 ];
 
-export const trustItems = [
-  "Private early access waitlist",
-  "Trading app is not open yet",
-  "Tighter v1 item rules",
-  "Local trades only",
+export const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/what-you-can-trade", label: "What You Can Trade" },
+  { href: "/will-work-for-food", label: "Will Work for Food" },
+  { href: "/safety", label: "Safety" },
+  { href: "/local-partners", label: "Local Partners" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
+  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy" },
 ];
 
-export const problemCards = [
-  {
-    title: "Too much at once",
-    body: "The good stuff shows up all at once. A neighbor with an empty basket can save it from the compost pile.",
-    icon: ShoppingBasket,
-  },
-  {
-    title: "Cash-first platforms do not fit",
-    body: "Three tomato starts and a bag of basil should not need a price tag, a checkout page or awkward haggling.",
-    icon: Ban,
-  },
-  {
-    title: "Trust matters",
-    body: "Local trades only work when people feel safe enough to show up. The first version keeps the rules tight on purpose.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Local is the point",
-    body: "This is for the person one neighborhood over with compost, plant starts or the trowel you keep meaning to buy.",
-    icon: MapPin,
-  },
+export const homeCategoryPreview = [
+  { title: "Made by hand", body: "Crafts, useful goods, home projects and things built with care.", icon: Hammer },
+  { title: "Grown or raised", body: "Produce, food, farm goods, eggs, honey and meat where the law allows.", icon: Wheat },
+  { title: "Repaired or restored", body: "Tools, equipment, small fixes and practical work that gives things another life.", icon: Wrench },
+  { title: "Taught or worked", body: "Lessons, local labor, useful skills and honest help from one neighbor to another.", icon: BookOpen },
 ];
 
 export const steps = [
   {
-    title: "Create your profile",
-    body: "Use a display name, grower type and city. The live trading app is not open yet.",
+    title: "Create a profile",
+    body: "Use a display name, general area and a short note about what you make, grow, repair, teach or can do.",
     icon: Home,
   },
   {
-    title: "Post what you have",
-    body: "Add fresh produce, herbs, seeds, plant starts, compost, mulch, firewood, tools or garden supplies.",
+    title: "Post what comes from your hands",
+    body: "List what you made, grew, raised, repaired or can offer through honest work.",
     icon: ShoppingBasket,
   },
   {
-    title: "Browse local listings",
-    body: "Look through nearby produce, starts, compost, tools and supplies without digging through marketplace clutter.",
+    title: "Browse local trades",
+    body: "Look for food, goods, tools, lessons, labor and other useful local value nearby.",
     icon: Search,
   },
   {
     title: "Offer a trade",
-    body: "Offer something from your own garden pile and keep the request simple.",
-    icon: Undo2,
+    body: "Offer something of your own instead of turning the exchange into a checkout cart.",
+    icon: Handshake,
   },
   {
-    title: "Confirm and trade",
-    body: "Confirm the details, choose a sensible handoff and trade locally.",
-    icon: Star,
+    title: "Agree on details",
+    body: "Work out the item, service, timing, general area and what each person is responsible for.",
+    icon: PackageSearch,
   },
-];
-
-export const tradeItems = [
-  { title: "Fresh produce", icon: Carrot },
-  { title: "Herbs", icon: Leaf },
-  { title: "Seeds", icon: Sprout },
-  { title: "Plant starts", icon: Flower2 },
-  { title: "Compost", icon: Wheat },
-  { title: "Mulch", icon: Leaf },
-  { title: "Firewood", icon: PackageSearch },
-  { title: "Garden tools", icon: ClipboardList },
-  { title: "Pots and trays", icon: BadgeCheck },
-  { title: "Garden supplies", icon: ShoppingBasket },
   {
-    title: "Other garden-adjacent goods approved by Local Trade Garden",
+    title: "Meet safely",
+    body: "Use common sense, avoid posting exact public addresses and choose a sensible handoff.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Complete the trade",
+    body: "Trade directly. The platform helps people connect, but it does not become part of the trade.",
     icon: HeartHandshake,
   },
 ];
 
-export const restrictedItems =
-  "Meat, poultry, wild game, raw milk, alcohol, homebrew, medicine, supplements, CBD, THC, marijuana, weapons, live animals, livestock, prepared meals, canned goods, eggs, honey or other regulated goods.";
-
-export const appScreens = [
+export const tradeCategories = [
   {
-    title: "Home Feed",
-    body: "Nearby garden goods without the flea-market noise.",
-    rows: ["East Nashville tomatoes", "Madison basil starts", "Compost for trade"],
+    title: "Handmade Goods",
+    body: "Soap, candles, crafts, sewn goods, woodwork, useful home items and things made with your own hands.",
+    icon: Hammer,
   },
   {
-    title: "Create Listing",
-    body: "A quick way to say what you have and what you need.",
-    rows: ["Basket of peppers", "Public meetup", "Wants: herbs"],
+    title: "Homegrown Food",
+    body: "Produce, herbs, seeds, starts, baked goods, farm goods and food from a local kitchen or garden where rules allow.",
+    icon: Carrot,
   },
   {
-    title: "Trade Offer",
-    body: "Swap from your own listings instead of reaching for a wallet.",
-    rows: ["Your basil starts", "For compost", "Awaiting reply"],
+    title: "Meat, Eggs and Honey",
+    body: "Allowed where legal, properly handled and traded by people responsible for following the rules.",
+    icon: Wheat,
   },
   {
-    title: "Messages",
-    body: "Work out the handoff without posting personal contact info.",
-    rows: ["Public meetup", "Saturday morning", "Confirm trade"],
+    title: "Tools and Repairs",
+    body: "Hand-built tools, repaired gear, sharpened blades, mended equipment and practical fixes.",
+    icon: Wrench,
   },
   {
-    title: "Ratings",
-    body: "Leave a little trail of reliability after each completed trade.",
-    rows: ["Item match", "Cleanliness", "Trade again"],
-  },
-];
-
-export const safetyCards = [
-  {
-    title: "No public exact addresses",
-    body: "Listings should point to a general area, not someone's front door.",
-    icon: MapPin,
+    title: "Skills and Lessons",
+    body: "Music lessons, garden help, canning know-how, repair lessons, tutoring and useful teaching.",
+    icon: BookOpen,
   },
   {
-    title: "Private contact information",
-    body: "Email addresses and zip codes stay behind the scenes.",
-    icon: Mail,
+    title: "Local Labor",
+    body: "Stacking wood, clearing brush, hauling feed, planting rows, loading trucks and neighborly work.",
+    icon: Users,
   },
   {
-    title: "In-app messaging planned",
-    body: "Messaging is planned so personal contact information does not have to be posted publicly.",
-    icon: MessageCircle,
-  },
-  {
-    title: "Public meetup reminders",
-    body: "Public meetup reminders are planned for trade confirmation.",
+    title: "Will Work for Food",
+    body: "A dedicated area for trading honest labor for food, goods or useful local items.",
     icon: Handshake,
   },
   {
-    title: "Restricted item filter",
-    body: "Restricted terms can be flagged for admin review before questionable listings go live.",
-    icon: Ban,
+    title: "Earth-Friendly Trades",
+    body: "Compost, mulch, seed saving, reused supplies, repaired items and goods that help the land instead of wasting it.",
+    icon: Leaf,
   },
-  {
-    title: "Ratings after completed trades",
-    body: "Ratings after completed swaps are planned for app launch.",
-    icon: Star,
-  },
-  {
-    title: "Report and block tools",
-    body: "Report and block tools are planned so users have a clear safety path.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Admin moderation queue",
-    body: "An admin moderation queue is planned for reports and flagged listings.",
-    icon: BadgeCheck,
-  },
+];
+
+export const safetyGuidelines = [
+  { title: "Meet safely", body: "Choose sensible public or familiar places and trust your judgment.", icon: ShieldCheck },
+  { title: "Keep exact addresses private", body: "Use a general area first. Do not post exact public addresses.", icon: MapPin },
+  { title: "Know the rules", body: "Regulated goods must follow local, state and federal laws.", icon: BookOpen },
+  { title: "Alcohol has extra limits", body: "Alcohol, wine and brews are only allowed where legal and only for users of legal age.", icon: ShieldCheck },
+  { title: "Food safety is on users", body: "The platform does not inspect kitchens, farms, labels, handling or storage.", icon: Wheat },
+  { title: "Connection tool only", body: "Local Trade Garden is not a seller, inspector, guarantor or legal advisor.", icon: Handshake },
 ];
 
 export const growerTypes = [
   "Backyard gardener",
-  "Small grower",
   "Homesteader",
+  "Small grower",
+  "Maker / crafter",
+  "Cook / baker",
+  "Repair person",
+  "Teacher / skill sharer",
+  "Local worker",
   "Farmers market vendor",
   "Garden club member",
   "Local food supporter",
@@ -195,10 +166,11 @@ export const growerTypes = [
 ];
 
 export const interestTypes = [
-  "I want to trade garden goods",
-  "I want to help test the app",
+  "I want to trade goods",
+  "I want to trade services",
+  "I want to help test the site",
   "I want to be notified when it launches",
-  "I am interested in sponsoring",
+  "I am interested in partnering",
   "I represent a local group or organization",
 ];
 
@@ -211,27 +183,53 @@ export const partnerCards = [
   { title: "Churches and community groups", icon: Home },
   { title: "Garden clubs", icon: HeartHandshake },
   { title: "Local food nonprofits", icon: Building2 },
+  { title: "Homesteading groups", icon: Users },
 ];
 
 export const faq = [
   {
-    q: "Is Local Trade Garden for buying and selling?",
-    a: "No. Local Trade Garden is for cash-free local trades. There is no checkout, payment system or crypto.",
+    q: "Is this for buying and selling?",
+    a: "No. Local Trade Garden is built around trade. It is not a checkout store, crypto project or random resale marketplace.",
   },
   {
     q: "What can I trade?",
-    a: "The v1 list is fresh produce, herbs, seeds, plant starts, compost, mulch, firewood, garden tools, pots, trays and garden supplies. Some items may be added later after local rule review.",
+    a: "Things you made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor. That can include food, handmade goods, tools, skills, lessons, local labor and earth-friendly goods.",
   },
   {
-    q: "What is not allowed?",
-    a: restrictedItems,
+    q: "Can I trade meat, eggs, honey, wine or brews?",
+    a: "Only where legal and only when the people involved follow the rules that apply. Alcohol, wine and brews are only allowed where legal and only for users of legal age.",
+  },
+  {
+    q: "Does the site verify food safety?",
+    a: "No. Local Trade Garden does not inspect goods, verify food safety or guarantee any trade. Users are responsible for food handling, labeling, storage and local rules.",
+  },
+  {
+    q: "Who is responsible for following the law?",
+    a: "Users are. All trades must follow local, state and federal laws. This site is a connection tool, not a legal advisor or party to any trade.",
   },
   {
     q: "Will my address be shown?",
-    a: "No. The app is designed around general location only. Users should meet in public places.",
+    a: "The product is designed around general location. Do not post exact public addresses. Meet safely and use common sense.",
   },
   {
-    q: "Does the app verify food safety?",
-    a: "No. Local Trade Garden does not inspect goods, verify food safety or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
+    q: "Is this a live app yet?",
+    a: "Not yet. Local Trade Garden is still in early access. The site is collecting interest and shaping the first local test group.",
   },
 ];
+
+export const photoSet = [
+  {
+    src: "https://images.unsplash.com/photo-1765480953875-a7338f896e91?auto=format&fit=crop&q=80&w=1200",
+    alt: "Wooden baskets of vegetables at an outdoor farmers market",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1720105447193-583011440aaa?auto=format&fit=crop&q=80&w=1200",
+    alt: "Young tomato seedlings growing in small nursery pots",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1760905066161-ed10663cee32?auto=format&fit=crop&q=80&w=1200",
+    alt: "A basket filled with ripe red tomatoes at a farmers market",
+  },
+];
+
+export const appStatus = "Private early access";

@@ -1,5 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { SiteShell } from "@/components/SiteShell";
 import { email } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Local Trade Garden",
+  description:
+    "Draft Local Trade Garden privacy policy for early access review, form submissions, location privacy and data use.",
+};
 
 const sections = [
   {
@@ -34,25 +42,27 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-cream px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl rounded-[24px] border border-borderwarm bg-card p-6 shadow-soft sm:p-10">
-        <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">
-          Back to homepage
-        </Link>
-        <h1 className="font-display mt-6 text-4xl font-bold text-charcoal">Privacy Policy</h1>
-        <p className="mt-4 rounded-2xl border border-warning/30 bg-warning/10 p-4 font-bold leading-7 text-warning">
-          Draft notice: This page is a working draft for early access review. It
-          must be reviewed by a qualified attorney before public launch.
-        </p>
-        <div className="mt-8 grid gap-6">
-          {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="font-display text-xl font-bold text-deep">{section.title}</h2>
-              <p className="mt-2 leading-7 text-muted">{section.body}</p>
-            </section>
-          ))}
+    <SiteShell>
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl rounded-[24px] border border-borderwarm bg-card p-6 shadow-soft sm:p-10">
+          <Link href="/" className="focus-ring rounded-full text-sm font-bold text-deep">
+            Back to homepage
+          </Link>
+          <h1 className="font-display mt-6 text-4xl font-bold text-charcoal">Privacy Policy</h1>
+          <p className="mt-4 rounded-2xl border border-warning/30 bg-warning/10 p-4 font-bold leading-7 text-warning">
+            Draft notice: This page is a working draft for early access review. It
+            must be reviewed by a qualified attorney before public launch.
+          </p>
+          <div className="mt-8 grid gap-6">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="font-display text-xl font-bold text-deep">{section.title}</h2>
+                <p className="mt-2 leading-7 text-muted">{section.body}</p>
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
-    </main>
+      </section>
+    </SiteShell>
   );
 }

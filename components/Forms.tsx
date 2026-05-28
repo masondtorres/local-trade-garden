@@ -145,8 +145,8 @@ export function EarlyAccessForm() {
   return (
     <LocalStateForm
       title="Early access form"
-      button="Join the First Local List"
-      note="Submit the form to join the first local list."
+      button="Join Early Access"
+      note="Submit the form to join the early access list."
       success="Request received. We will follow up when the first local test group is ready."
       fields={[
         { name: "firstName", label: "First name", required: true },
