@@ -97,7 +97,7 @@ const homeNavLinks = [
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
-  { href: "/early-access", label: "My Trades" },
+  { href: "/early-access", label: "Early Access" },
 ];
 
 export function HomeHeader() {
