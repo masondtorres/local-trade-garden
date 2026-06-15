@@ -91,3 +91,83 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+
+const homeNavLinks = [
+  { href: "/what-you-can-trade", label: "Trade" },
+  { href: "/will-work-for-food", label: "Work" },
+  { href: "/local-partners", label: "Partners" },
+  { href: "/safety", label: "Safety" },
+  { href: "/early-access", label: "My Trades" },
+];
+
+export function HomeHeader() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-borderwarm bg-cream/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+        <Link href="/" className="focus-ring min-h-11 rounded-lg py-2 font-display text-lg font-bold text-deep sm:text-xl">
+          Local Trade Garden
+        </Link>
+        <nav className="hidden items-center gap-5 text-sm font-bold text-charcoal md:flex" aria-label="Homepage navigation">
+          {homeNavLinks.map((link) => (
+            <Link key={link.label} href={link.href} className="focus-ring rounded-lg px-1 py-2 hover:text-deep">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <details className="relative md:hidden">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-xl border border-borderwarm bg-card px-4 text-sm font-bold text-deep">
+            <Menu aria-hidden="true" size={18} />
+            Menu
+          </summary>
+          <nav className="absolute right-0 mt-3 grid w-[min(18rem,calc(100vw-2rem))] gap-1 rounded-2xl border border-borderwarm bg-card p-3 shadow-soft" aria-label="Homepage mobile navigation">
+            {homeNavLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </details>
+      </div>
+    </header>
+  );
+}
+
+export function HomeFooter() {
+  const links = [
+    { href: "/how-it-works", label: "About" },
+    { href: "/contact", label: "Contact" },
+    { href: "/terms", label: "Terms" },
+    { href: "/privacy", label: "Privacy" },
+    { href: "/safety", label: "Safety" },
+  ];
+
+  return (
+    <footer className="border-t border-borderwarm bg-card px-4 py-9 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="font-display text-xl font-bold text-deep">Local Trade Garden</p>
+          <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
+            A simple local trading utility for handmade, homegrown and useful work.
+          </p>
+        </div>
+        <nav className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-charcoal" aria-label="Homepage footer navigation">
+          {links.map((link) => (
+            <Link key={link.label} href={link.href} className="focus-ring min-h-11 rounded-lg py-3 hover:text-deep">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </footer>
+  );
+}
+
+export function HomeSiteShell({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <HomeHeader />
+      <main>{children}</main>
+      <HomeFooter />
+    </>
+  );
+}
