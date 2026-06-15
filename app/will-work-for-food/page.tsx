@@ -1,87 +1,36 @@
 import type { Metadata } from "next";
-import { Hammer, HeartHandshake, Wheat } from "lucide-react";
-import { ButtonLink } from "@/components/Buttons";
-import { AnswerBlock, ComplianceNote, JsonLd, PageHero } from "@/components/PageBlocks";
-import { InfoCard, Section } from "@/components/Section";
-import { SiteShell } from "@/components/SiteShell";
-import { siteUrl } from "@/content/site";
+import Link from "next/link";
+import { HomeSiteShell } from "@/components/SiteShell";
+import { UtilityHero, UtilityList, UtilitySection } from "@/components/UtilityPage";
 
 export const metadata: Metadata = {
   title: "Will Work for Food | Local Trade Garden",
-  description:
-    "Trade honest manual labor for food, goods or useful local items. Clear brush, stack firewood, fix fences, plant rows and help neighbors where legal.",
-  alternates: {
-    canonical: "/will-work-for-food",
-  },
-  openGraph: {
-    title: "Will Work for Food | Local Trade Garden",
-    description:
-      "Trade honest manual labor for food, goods or useful local items. Clear brush, stack firewood, fix fences, plant rows and help neighbors where legal.",
-    url: "/will-work-for-food",
-  },
+  description: "Offer useful local work in exchange for food, supplies or goods.",
+  alternates: { canonical: "/will-work-for-food" },
 };
 
 export default function WillWorkForFoodPage() {
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Will Work for Food | Local Trade Garden",
-    url: `${siteUrl}/will-work-for-food`,
-    description: metadata.description,
-  };
-
   return (
-    <SiteShell>
-      <JsonLd data={webPageSchema} />
-      <PageHero
-        eyebrow="Major feature"
+    <HomeSiteShell>
+      <UtilityHero
         title="Will Work for Food"
-        intro="Need help clearing brush, stacking firewood, hauling feed, planting rows, fixing a fence, loading a truck or cleaning up a property? Post the work. Offer food, goods or a fair local trade. This area is for honest work, useful help and neighbor-to-neighbor exchange."
+        intro="Offer useful local work in exchange for food, supplies or goods."
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/early-access">Join Early Access</ButtonLink>
-          <ButtonLink href="/safety" variant="secondary">Read Safety Rules</ButtonLink>
+          <Link className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl bg-garden px-6 py-3 font-bold text-white hover:bg-deep" href="/early-access">
+            Join Early Access
+          </Link>
+          <Link className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl border border-borderwarm bg-card px-6 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/safety">
+            Read Safety Rules
+          </Link>
         </div>
-      </PageHero>
-      <AnswerBlock
-        question="What is Will Work for Food?"
-        answer="Will Work for Food is a trade area where people can exchange honest manual labor for food, goods or useful local items."
-      />
-      <Section
-        title="The kind of work that fits"
-        intro="This page is for practical help with real local value on both sides."
-        className="bg-white/70"
-      >
-        <div className="grid gap-5 md:grid-cols-3">
-          <InfoCard title="Property help" body="Brush clearing, cleanup, stacking, moving, hauling, planting and seasonal work." icon={Hammer} />
-          <InfoCard title="Food and goods" body="Trade labor for produce, farm goods, handmade items, tools or useful supplies." icon={Wheat} />
-          <InfoCard title="Neighbor exchange" body="A clear agreement between people nearby, not a staffing agency or delivery platform." icon={HeartHandshake} />
-        </div>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            "clearing brush",
-            "stacking firewood",
-            "hauling feed",
-            "planting rows",
-            "fixing a fence",
-            "loading a truck",
-            "cleaning up a property",
-            "helping in a garden",
-            "moving supplies",
-            "basic repair help",
-            "cleanup work",
-          ].map((item) => (
-            <div key={item} className="rounded-2xl border border-borderwarm bg-card p-4 font-bold text-deep shadow-card">
-              {item}
-            </div>
-          ))}
-        </div>
-      </Section>
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <ComplianceNote short />
-        </div>
-      </section>
-    </SiteShell>
+      </UtilityHero>
+      <UtilitySection title="Work you can offer">
+        <UtilityList items={["Stack firewood", "Weed a garden", "Help with harvest", "Move mulch", "Clean a chicken coop", "Help set up a market booth", "Trade basic labor for eggs, produce, pantry goods or supplies"]} />
+      </UtilitySection>
+      <UtilitySection title="Safety rules" muted>
+        <UtilityList items={["Meet in safe public places when possible", "Do not go alone to unfamiliar private property", "Agree on the work and trade before starting", "Do not accept unsafe work", "Users are responsible for their own agreements"]} />
+      </UtilitySection>
+    </HomeSiteShell>
   );
 }

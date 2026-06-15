@@ -3,6 +3,11 @@ import { siteUrl } from "@/content/site";
 
 const publicRoutes = [
   "",
+  "/trade",
+  "/food-and-garden",
+  "/handmade-goods",
+  "/repairs-and-tools",
+  "/skills-and-lessons",
   "/how-it-works",
   "/what-you-can-trade",
   "/will-work-for-food",
@@ -11,6 +16,7 @@ const publicRoutes = [
   "/faq",
   "/contact",
   "/early-access",
+  "/pilot-area",
   "/terms",
   "/privacy",
 ];

@@ -31,25 +31,25 @@ const utilities = [
   {
     title: "Food & Garden",
     body: "Trade produce, plants, eggs, honey and garden goods.",
-    href: "/what-you-can-trade",
+    href: "/food-and-garden",
     icon: Carrot,
   },
   {
     title: "Handmade Goods",
     body: "Trade soaps, crafts, sewn goods, baked goods and useful handmade items.",
-    href: "/what-you-can-trade",
+    href: "/handmade-goods",
     icon: Package,
   },
   {
     title: "Repairs & Tools",
     body: "Trade tool help, sharpening, repairs, equipment use or fix-it skills.",
-    href: "/what-you-can-trade",
+    href: "/repairs-and-tools",
     icon: Hammer,
   },
   {
     title: "Skills & Lessons",
     body: "Trade tutoring, music, canning, gardening, sewing or practical lessons.",
-    href: "/what-you-can-trade",
+    href: "/skills-and-lessons",
     icon: BookOpen,
   },
   {
@@ -95,7 +95,7 @@ export default function HomePage() {
           </p>
           <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <Link
-              href="/what-you-can-trade"
+              href="/trade"
               className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl bg-garden px-6 py-3 font-bold text-white transition hover:bg-deep"
             >
               Start Trading
@@ -139,10 +139,10 @@ export default function HomePage() {
             <Link className="focus-ring min-h-11 rounded-xl border border-borderwarm bg-card px-4 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/safety">
               Safety rules
             </Link>
-            <Link className="focus-ring min-h-11 rounded-xl border border-borderwarm bg-card px-4 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/what-you-can-trade">
+            <Link className="focus-ring min-h-11 rounded-xl border border-borderwarm bg-card px-4 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/trade">
               What you can trade
             </Link>
-            <Link className="focus-ring min-h-11 rounded-xl border border-borderwarm bg-card px-4 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/early-access">
+            <Link className="focus-ring min-h-11 rounded-xl border border-borderwarm bg-card px-4 py-3 font-bold text-deep hover:border-garden hover:bg-white" href="/pilot-area">
               Pilot area
             </Link>
           </nav>

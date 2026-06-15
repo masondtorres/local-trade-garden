@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { email, growerTypes, interestTypes } from "@/content/site";
+import { email } from "@/content/site";
 
 type Field =
   | { name: string; label: string; type?: "text" | "email"; required?: boolean }
@@ -176,13 +176,18 @@ export function EarlyAccessForm() {
       note="Join the first local pilot list. Help shape a trade site for things made, grown, raised, repaired or earned through honest work."
       success="Request delivered. We will follow up when the first local pilot group is ready."
       fields={[
-        { name: "firstName", label: "First name", required: true },
+        { name: "name", label: "Name", required: true },
         { name: "email", label: "Email", type: "email", required: true },
         { name: "city", label: "City", required: true },
         { name: "state", label: "State", required: true },
-        { name: "growerType", label: "Grower type", type: "select", options: growerTypes, required: true },
-        { name: "firstTrade", label: "What would you trade first?", required: true },
-        { name: "interestType", label: "Interest type", type: "select", options: interestTypes },
+        { name: "firstTrade", label: "What may you trade?", required: true },
+        {
+          name: "role",
+          label: "How would you take part?",
+          type: "select",
+          options: ["Trader", "Worker", "Local partner", "Just interested"],
+          required: true,
+        },
         { name: "message", label: "Message", type: "textarea" },
       ]}
     />

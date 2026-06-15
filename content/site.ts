@@ -31,12 +31,11 @@ export const safetyStatement =
   "Meet safely. Use common sense. Do not post exact public addresses. Regulated goods must follow applicable laws. Alcohol, wine and brews are only allowed where legal and only for users of legal age. This platform is a connection tool, not a seller, broker, inspector, guarantor or legal advisor.";
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/what-you-can-trade", label: "What You Can Trade" },
-  { href: "/will-work-for-food", label: "Will Work for Food" },
+  { href: "/trade", label: "Trade" },
+  { href: "/will-work-for-food", label: "Work" },
+  { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/early-access", label: "My Trades" },
 ];
 
 export const footerLinks = [

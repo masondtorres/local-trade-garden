@@ -8,14 +8,14 @@ import { faq, siteUrl } from "@/content/site";
 export const metadata: Metadata = {
   title: "FAQ | Local Trade Garden",
   description:
-    "Answers about local trades, meat, eggs, honey, wine, brews, legal responsibility, early access and how Local Trade Garden works.",
+    "Answers about local trades, food, useful goods, legal responsibility, early access and how Local Trade Garden works.",
   alternates: {
     canonical: "/faq",
   },
   openGraph: {
     title: "FAQ | Local Trade Garden",
     description:
-      "Answers about local trades, meat, eggs, honey, wine, brews, legal responsibility, early access and how Local Trade Garden works.",
+      "Answers about local trades, food, useful goods, legal responsibility, early access and how Local Trade Garden works.",
     url: "/faq",
   },
 };

@@ -93,7 +93,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 }
 
 const homeNavLinks = [
-  { href: "/what-you-can-trade", label: "Trade" },
+  { href: "/trade", label: "Trade" },
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
