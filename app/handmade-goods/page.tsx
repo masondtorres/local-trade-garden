@@ -11,10 +11,12 @@ export const metadata: Metadata = {
 export default function HandmadeGoodsPage() {
   return (
     <HomeSiteShell>
-      <UtilityHero title="Handmade Goods" intro="Trade useful goods made by hand for home and daily life." />
-      <UtilitySection title="What fits here">
-        <UtilityList items={["Soap", "Candles", "Sewn goods", "Crafts", "Baked goods where allowed", "Woodworking", "Simple household items"]} />
-      </UtilitySection>
+      <div className="category-handmade">
+        <UtilityHero title="Handmade Goods" intro="Trade useful goods made by hand for home and daily life." />
+        <UtilitySection title="What fits here">
+          <UtilityList items={["Soap", "Candles", "Sewn goods", "Crafts", "Baked goods where allowed", "Woodworking", "Simple household items"]} />
+        </UtilitySection>
+      </div>
     </HomeSiteShell>
   );
 }

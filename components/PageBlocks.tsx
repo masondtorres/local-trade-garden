@@ -11,9 +11,9 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, intro, children }: PageHeroProps) {
   return (
-    <section className="px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+    <section className="page-hero px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pt-16">
       <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1fr_0.8fr]">
-        <div>
+        <div className="page-hero-panel rounded-2xl p-6 sm:p-8">
           {eyebrow ? (
             <p className="inline-flex rounded-full border border-borderwarm bg-card px-4 py-2 text-sm font-black text-deep shadow-card">
               {eyebrow}

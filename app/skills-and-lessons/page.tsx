@@ -11,10 +11,12 @@ export const metadata: Metadata = {
 export default function SkillsAndLessonsPage() {
   return (
     <HomeSiteShell>
-      <UtilityHero title="Skills & Lessons" intro="Trade useful knowledge, lessons and practical help." />
-      <UtilitySection title="What fits here">
-        <UtilityList items={["Tutoring", "Music lessons", "Canning lessons", "Gardening help", "Sewing help", "Homestead skills", "Practical training"]} />
-      </UtilitySection>
+      <div className="category-skills">
+        <UtilityHero title="Skills & Lessons" intro="Trade useful knowledge, lessons and practical help." />
+        <UtilitySection title="What fits here">
+          <UtilityList items={["Tutoring", "Music lessons", "Canning lessons", "Gardening help", "Sewing help", "Homestead skills", "Practical training"]} />
+        </UtilitySection>
+      </div>
     </HomeSiteShell>
   );
 }

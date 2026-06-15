@@ -12,14 +12,16 @@ export const metadata: Metadata = {
 export default function EarlyAccessPage() {
   return (
     <HomeSiteShell>
-      <UtilityHero
-        eyebrow="Early access"
-        title="Join the first local trade list."
-        intro="Share where you are and what you may trade or offer."
-      />
-      <UtilitySection title="Early access form" intro="The form is used only to plan the first local pilot.">
-        <EarlyAccessForm />
-      </UtilitySection>
+      <div className="category-early">
+        <UtilityHero
+          eyebrow="Early access"
+          title="Join the first local trade list."
+          intro="Share where you are and what you may trade or offer."
+        />
+        <UtilitySection title="Early access form" intro="The form is used only to plan the first local pilot.">
+          <EarlyAccessForm />
+        </UtilitySection>
+      </div>
     </HomeSiteShell>
   );
 }

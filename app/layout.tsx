@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Atkinson_Hyperlegible, Libre_Baskerville } from "next/font/google";
 import { JsonLd } from "@/components/PageBlocks";
 import { email, serviceArea, siteUrl } from "@/content/site";
@@ -55,6 +55,11 @@ export const metadata: Metadata = {
     "handmade goods",
     "community garden exchange",
   ],
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

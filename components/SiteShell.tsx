@@ -5,19 +5,19 @@ import { appStatus, email, footerLinks, navLinks, serviceArea } from "@/content/
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-soil/15 bg-linen/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
+    <header className="site-header sticky top-0 z-50 border-b border-borderwarm px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="focus-ring flex min-h-11 items-center gap-2 rounded-full">
-          <span className="flex size-10 items-center justify-center rounded-full bg-sunflower text-deep shadow-card">
+          <span className="flex size-10 items-center justify-center rounded-full bg-garden text-white shadow-card">
             <Flower2 aria-hidden="true" size={22} />
           </span>
-          <span className="font-display text-base font-bold text-deep sm:text-lg">
+          <span className="font-display text-base font-bold text-garden sm:text-lg">
             Local Trade Garden
           </span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-bold text-charcoal xl:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="focus-ring rounded-full hover:text-deep">
+            <Link key={link.href} href={link.href} className="focus-ring rounded-full px-1 py-2 hover:text-garden">
               {link.label}
             </Link>
           ))}
@@ -26,13 +26,13 @@ export function Header() {
           <ButtonLink href="/early-access">Join Early Access</ButtonLink>
         </div>
         <details className="relative xl:hidden">
-          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-soil/15 bg-card px-4 text-sm font-bold text-deep shadow-card">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-full border border-borderwarm bg-card px-4 text-sm font-bold text-garden shadow-card">
             <Menu aria-hidden="true" size={18} />
             Menu
           </summary>
           <nav className="absolute right-0 mt-3 grid w-[min(20rem,calc(100vw-2rem))] gap-2 rounded-2xl border border-borderwarm bg-card p-3 shadow-soft" aria-label="Mobile navigation">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream">
+              <Link key={link.href} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream hover:text-garden">
                 {link.label}
               </Link>
             ))}
@@ -102,26 +102,26 @@ const homeNavLinks = [
 
 export function HomeHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-borderwarm bg-cream/95 px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
+    <header className="site-header sticky top-0 z-50 border-b border-borderwarm px-4 py-3 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-        <Link href="/" className="focus-ring min-h-11 rounded-lg py-2 font-display text-lg font-bold text-deep sm:text-xl">
+        <Link href="/" className="focus-ring min-h-11 rounded-lg py-2 font-display text-lg font-bold text-garden sm:text-xl">
           Local Trade Garden
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-bold text-charcoal md:flex" aria-label="Homepage navigation">
           {homeNavLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="focus-ring rounded-lg px-1 py-2 hover:text-deep">
+            <Link key={link.label} href={link.href} className="focus-ring rounded-lg px-1 py-2 hover:text-garden">
               {link.label}
             </Link>
           ))}
         </nav>
         <details className="relative md:hidden">
-          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-xl border border-borderwarm bg-card px-4 text-sm font-bold text-deep">
+          <summary className="focus-ring flex min-h-11 list-none items-center gap-2 rounded-xl border border-borderwarm bg-card px-4 text-sm font-bold text-garden">
             <Menu aria-hidden="true" size={18} />
             Menu
           </summary>
           <nav className="absolute right-0 mt-3 grid w-[min(18rem,calc(100vw-2rem))] gap-1 rounded-2xl border border-borderwarm bg-card p-3 shadow-soft" aria-label="Homepage mobile navigation">
             {homeNavLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream">
+              <Link key={link.label} href={link.href} className="focus-ring min-h-11 rounded-xl px-3 py-3 font-bold hover:bg-cream hover:text-garden">
                 {link.label}
               </Link>
             ))}

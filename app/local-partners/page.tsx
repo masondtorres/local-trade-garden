@@ -31,29 +31,31 @@ export default function LocalPartnersPage() {
 
   return (
     <SiteShell>
-      <JsonLd data={webPageSchema} />
-      <PageHero
-        eyebrow="Local partners"
-        title="Good local partners are already part of the trade."
-        intro="The best partners are already part of local life: nurseries, feed stores, farmers markets, garden centers, seed companies, churches, garden clubs, local food groups, homestead groups and people who help neighbors trade useful things safely."
-      />
-      <Section
-        title="Partner fits"
-        intro="Local Trade Garden works best when trusted local groups help people understand what belongs here."
-        className="bg-white/70"
-      >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {partnerCards.map((card) => (
-            <InfoCard key={card.title} title={card.title} icon={card.icon} />
-          ))}
-        </div>
-      </Section>
-      <Section
-        title="Partner interest"
-        intro="Use this form if your local business, church, club, nonprofit, beekeeping group, meat processor or homesteading group wants to help with the first launch where appropriate and legal."
-      >
-        <PartnerForm />
-      </Section>
+      <div className="category-partners">
+        <JsonLd data={webPageSchema} />
+        <PageHero
+          eyebrow="Local partners"
+          title="Good local partners are already part of the trade."
+          intro="The best partners are already part of local life: nurseries, feed stores, farmers markets, garden centers, seed companies, churches, garden clubs, local food groups, homestead groups and people who help neighbors trade useful things safely."
+        />
+        <Section
+          title="Partner fits"
+          intro="Local Trade Garden works best when trusted local groups help people understand what belongs here."
+          className="bg-white/70"
+        >
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {partnerCards.map((card) => (
+              <InfoCard key={card.title} title={card.title} icon={card.icon} />
+            ))}
+          </div>
+        </Section>
+        <Section
+          title="Partner interest"
+          intro="Use this form if your local business, church, club, nonprofit, beekeeping group, meat processor or homesteading group wants to help with the first launch where appropriate and legal."
+        >
+          <PartnerForm />
+        </Section>
+      </div>
     </SiteShell>
   );
 }

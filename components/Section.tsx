@@ -47,9 +47,9 @@ export function InfoCard({
   icon?: React.ComponentType<{ size?: number; className?: string }>;
 }) {
   return (
-    <article className="rounded-2xl border border-borderwarm bg-card p-5 shadow-card">
+    <article className="info-card rounded-2xl border border-borderwarm bg-card p-5 shadow-card">
       {Icon ? (
-        <div className="mb-4 flex size-11 items-center justify-center rounded-full bg-softyellow/45 text-deep">
+        <div className="info-card-icon mb-4 flex size-11 items-center justify-center rounded-full bg-softyellow/45 text-deep">
           <Icon aria-hidden="true" size={22} />
         </div>
       ) : null}

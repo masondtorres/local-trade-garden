@@ -11,13 +11,15 @@ export const metadata: Metadata = {
 export default function FoodAndGardenPage() {
   return (
     <HomeSiteShell>
-      <UtilityHero title="Food & Garden" intro="Trade useful food and garden goods with people nearby." />
-      <UtilitySection title="What fits here">
-        <UtilityList items={["Produce", "Plants and seedlings", "Eggs", "Honey", "Garden supplies", "Compost and mulch", "Canned or baked goods only where allowed by local rules"]} />
-      </UtilitySection>
-      <UtilitySection title="Know your local rules" muted>
-        <UtilityNote>Food rules can vary by state and county. Users are responsible for knowing and following their local laws.</UtilityNote>
-      </UtilitySection>
+      <div className="category-food">
+        <UtilityHero title="Food & Garden" intro="Trade useful food and garden goods with people nearby." />
+        <UtilitySection title="What fits here">
+          <UtilityList items={["Produce", "Plants and seedlings", "Eggs", "Honey", "Garden supplies", "Compost and mulch", "Canned or baked goods only where allowed by local rules"]} />
+        </UtilitySection>
+        <UtilitySection title="Know your local rules" muted>
+          <UtilityNote>Food rules can vary by state and county. Users are responsible for knowing and following their local laws.</UtilityNote>
+        </UtilitySection>
+      </div>
     </HomeSiteShell>
   );
 }
