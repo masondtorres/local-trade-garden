@@ -2,9 +2,15 @@
 
 Local Trade Garden is an early access local pilot for cash-free local trades involving things people made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor.
 
-Current temporary domain:
+Primary canonical domain:
 
-- https://www.coalbucketwhiskey.com
+- https://localtradegarden.com
+
+Redirect domains:
+
+- https://www.localtradegarden.com
+- https://localtradegarden.org
+- https://www.localtradegarden.org
 
 Public contact email:
 
@@ -71,11 +77,13 @@ Expected result without email environment variables: HTTP `503` with the direct 
 3. Add or confirm the form delivery environment variables in Vercel.
 4. Redeploy after environment variables are set.
 5. Confirm the deployment is ready in Vercel.
-6. Visit the temporary domain with a cache-busting query string, for example:
+6. Visit the canonical domain with a cache-busting query string, for example:
 
 ```text
-https://www.coalbucketwhiskey.com/?v=<commit>
+https://localtradegarden.com/?v=<commit>
 ```
+
+7. Confirm that both `localtradegarden.org` variants and `www.localtradegarden.com` permanently redirect to `https://localtradegarden.com` while preserving the path.
 
 ## Smoke Test Routes
 

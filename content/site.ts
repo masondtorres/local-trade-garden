@@ -20,7 +20,7 @@ import {
   Wrench,
 } from "lucide-react";
 
-export const siteUrl = "https://www.coalbucketwhiskey.com";
+export const siteUrl = "https://localtradegarden.com";
 export const serviceArea = "Local early-access area to be announced";
 export const email = "masondtorres@duck.com";
 
