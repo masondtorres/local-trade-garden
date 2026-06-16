@@ -15,14 +15,14 @@ import { siteUrl } from "@/content/site";
 export const metadata: Metadata = {
   title: "Local Trade Garden | Trade Local Goods and Useful Work",
   description:
-    "Find people near you who grow, make, fix, teach or trade useful things.",
+    "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Local Trade Garden | Trade Local Goods and Useful Work",
     description:
-      "Find people near you who grow, make, fix, teach or trade useful things.",
+      "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
     url: "/",
   },
 };
@@ -79,7 +79,7 @@ export default function HomePage() {
     name: "Local Trade Garden",
     url: siteUrl,
     description:
-      "Find people near you who grow, make, fix, teach or trade useful things.",
+      "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
     isPartOf: {
       "@type": "WebSite",
       name: "Local Trade Garden",
@@ -94,10 +94,10 @@ export default function HomePage() {
       <section className="home-hero border-b border-borderwarm px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="home-hero-panel mx-auto max-w-5xl rounded-2xl p-6 text-center sm:p-10">
           <h1 className="font-display text-4xl font-bold leading-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Trade local goods and useful work without the marketplace mess.
+            Trade local goods and useful work in Sevier County and nearby East Tennessee.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-            Find people near you who grow, make, fix, teach or trade useful things.
+            A simple early-access pilot for Sevier County, Knox County and nearby East TN neighbors who grow, make, fix, teach or trade useful things.
           </p>
           <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <Link

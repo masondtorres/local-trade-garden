@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const siteUrl = "https://localtradegarden.com";
-export const serviceArea = "Local early-access area to be announced";
+export const serviceArea = "Sevier County, nearby Knox County and surrounding East TN";
 export const email = "masondtorres@duck.com";
 
 export const complianceStatement =
@@ -35,7 +35,7 @@ export const navLinks = [
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
-  { href: "/early-access", label: "My Trades" },
+  { href: "/early-access", label: "Early Access" },
 ];
 
 export const footerLinks = [
