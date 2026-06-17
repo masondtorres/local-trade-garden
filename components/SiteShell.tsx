@@ -97,6 +97,7 @@ const homeNavLinks = [
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/early-access", label: "Early Access" },
 ];
 
@@ -136,6 +137,7 @@ export function HomeFooter() {
   const links = [
     { href: "/how-it-works", label: "About" },
     { href: "/contact", label: "Contact" },
+    { href: "/pricing", label: "Pricing" },
     { href: "/terms", label: "Terms" },
     { href: "/privacy", label: "Privacy" },
     { href: "/safety", label: "Safety" },

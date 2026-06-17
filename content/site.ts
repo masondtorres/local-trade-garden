@@ -137,6 +137,7 @@ export const navLinks = [
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/early-access", label: "Early Access" },
 ];
 
@@ -147,6 +148,7 @@ export const footerLinks = [
   { href: "/will-work-for-food", label: "Will Work for Food" },
   { href: "/safety", label: "Safety" },
   { href: "/local-partners", label: "Local Partners" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
   { href: "/terms", label: "Terms" },
