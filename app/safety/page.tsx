@@ -4,7 +4,7 @@ import { UtilityHero, UtilityList, UtilityNote, UtilitySection } from "@/compone
 
 export const metadata: Metadata = {
   title: "Safety Rules | Local Trade Garden",
-  description: "Simple safety rules for using Local Trade Garden.",
+  description: "Simple safety rules and user responsibility notes for using Local Trade Garden.",
   alternates: { canonical: "/safety" },
 };
 
@@ -12,15 +12,25 @@ export default function SafetyPage() {
   return (
     <HomeSiteShell>
       <div className="category-safety">
-        <UtilityHero title="Safety rules" intro="Keep trades clear, local and sensible." />
+        <UtilityHero
+          title="Safety rules"
+          intro="Local Trade Garden connects neighbors. You handle the deal, the judgment and the rules that apply."
+        />
         <UtilitySection title="Before you trade">
-          <UtilityList items={["Meet safely", "Keep personal information private", "Follow food laws", "Agree clearly before trading", "Use common sense", "The platform does not guarantee trades"]} />
+          <UtilityList items={["Meet safely", "Keep exact addresses private", "Inspect goods yourself", "Agree clearly before trading", "Follow local, Tennessee and federal law", "Use common sense", "Walk away if something feels wrong", "The platform does not guarantee trades"]} />
         </UtilitySection>
-        <UtilitySection title="Not allowed in the MVP" muted>
-          <UtilityList items={["Drugs, CBD, hemp or nicotine", "Weapons", "Stolen items", "Unsafe items", "Medical claims", "Adult items", "Anything illegal in the user's area", "Live animal sales", "Raw milk", "Meat unless legally processed and documented"]} />
+        <UtilitySection title="Not for public listings" muted>
+          <UtilityList items={["Firearms or ammunition", "Alcohol, wine or homebrew", "Illegal goods", "Stolen items", "Unsafe items", "Medical claims", "Adult items", "Raw milk promotion or loophole claims", "Anything restricted where the user lives"]} />
         </UtilitySection>
-        <UtilitySection title="Your responsibility">
-          <UtilityNote>Know the rules that apply where you live and agree on the trade before meeting or starting work.</UtilityNote>
+        <UtilitySection title="Food, farm goods and animals">
+          <UtilityNote>
+            Food, plants, farm goods, animals and livestock can carry rules for handling, labeling, permits, health papers, transfer and inspection. Users are fully responsible for knowing and following the rules before posting, offering or completing a trade.
+          </UtilityNote>
+        </UtilitySection>
+        <UtilitySection title="Platform role" muted>
+          <UtilityNote>
+            Local Trade Garden is a connection board. It does not inspect, approve, broker, sell, ship, store, guarantee or participate in any trade. It is not a legal advisor.
+          </UtilityNote>
         </UtilitySection>
       </div>
     </HomeSiteShell>
