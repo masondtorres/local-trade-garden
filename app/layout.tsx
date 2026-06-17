@@ -19,27 +19,27 @@ const body = Atkinson_Hyperlegible({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Local Trade Garden | Trade What You Grow, Make, Fix or Can Do",
+    default: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
     template: "%s",
   },
   description:
-    "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors trading lawful goods, skills and useful work.",
+    "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Local Trade Garden | Trade What You Grow, Make, Fix or Can Do",
+    title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
     description:
-      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors trading lawful goods, skills and useful work.",
+      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
     url: siteUrl,
     siteName: "Local Trade Garden",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Local Trade Garden | Trade What You Grow, Make, Fix or Can Do",
+    title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
     description:
-      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors trading lawful goods, skills and useful work.",
+      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
   },
   keywords: [
     "local garden trade",
@@ -75,7 +75,7 @@ export default function RootLayout({
     email,
     areaServed: serviceArea,
     description:
-      "Local Trade Garden is an early-access peer-to-peer barter board for lawful local trades involving things people grow, make, fix, teach or can do.",
+      "Local Trade Garden is an early-access local trade platform for cash-free local trades involving things people made, grew, raised, repaired, taught or earned through honest work.",
   };
 
   const websiteSchema = {
@@ -84,7 +84,7 @@ export default function RootLayout({
     name: "Local Trade Garden",
     url: siteUrl,
     description:
-      "A local barter board for lawful goods, food, plants, tools, repairs, skills, local labor and neighbor-to-neighbor exchange.",
+      "A local trade site for handmade goods, homegrown food, tools, repairs, skills, local labor and neighbor-to-neighbor exchange where legal.",
     publisher: {
       "@type": "Organization",
       name: "Local Trade Garden",
