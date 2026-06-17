@@ -55,7 +55,7 @@ export function Footer() {
             <Flower2 aria-hidden="true" className="text-sunflower" />
             Local Trade Garden
           </div>
-          <p className="mt-3 font-bold text-charcoal">Trade what you grow, make, fix or can do.</p>
+          <p className="mt-3 font-bold text-charcoal">If you made it, you can trade it.</p>
           <p className="mt-3 text-sm font-black text-deep">Status: {appStatus}</p>
           <p className="mt-2 text-sm font-bold text-charcoal">Area: {serviceArea}</p>
           <p className="mt-2 text-sm font-bold text-charcoal">
@@ -65,8 +65,8 @@ export function Footer() {
             </a>
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
-            Local Trade Garden is a connection board for lawful local trades. It is not
-            a seller, broker, food vendor, inspector, shipper, legal advisor or guarantor of any trade.
+            Local Trade Garden is a connection platform for local trades. It is not
+            a seller, broker, food vendor, inspector, legal advisor or guarantor of any trade.
           </p>
           <p className="mt-4 text-sm text-muted">&copy; 2026 Local Trade Garden. All rights reserved.</p>
         </div>
@@ -94,7 +94,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
 const homeNavLinks = [
   { href: "/trade", label: "Trade" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/will-work-for-food", label: "Work" },
   { href: "/local-partners", label: "Partners" },
   { href: "/safety", label: "Safety" },
@@ -136,7 +135,6 @@ export function HomeHeader() {
 export function HomeFooter() {
   const links = [
     { href: "/how-it-works", label: "About" },
-    { href: "/pricing", label: "Pricing" },
     { href: "/contact", label: "Contact" },
     { href: "/terms", label: "Terms" },
     { href: "/privacy", label: "Privacy" },
@@ -149,7 +147,7 @@ export function HomeFooter() {
         <div>
           <p className="font-display text-xl font-bold text-deep">Local Trade Garden</p>
           <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
-            No checkout. No middleman. Users are responsible for lawful, safe trades.
+            A simple local trading utility for handmade, homegrown and useful work.
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-charcoal" aria-label="Homepage footer navigation">
