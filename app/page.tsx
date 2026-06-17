@@ -6,34 +6,55 @@ import {
   Hammer,
   Handshake,
   Package,
-  Store,
+  Wheat,
 } from "lucide-react";
 import { JsonLd } from "@/components/PageBlocks";
 import { HomeSiteShell } from "@/components/SiteShell";
 import { siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Local Trade Garden | Trade Local Goods and Useful Work",
+  title: "Local Trade Garden | Trade What You Grow, Make, Fix or Can Do",
   description:
-    "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
+    "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Local Trade Garden | Trade Local Goods and Useful Work",
+    title: "Local Trade Garden | Trade What You Grow, Make, Fix or Can Do",
     description:
-      "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
+      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors.",
     url: "/",
   },
 };
 
 const utilities = [
   {
-    title: "Food & Garden",
-    body: "Trade produce, plants, eggs, honey and garden goods.",
+    title: "Garden & Plants",
+    body: "Trade produce, seeds, starts, plants and garden extras.",
     href: "/food-and-garden",
     icon: Carrot,
     accentClass: "category-food",
+  },
+  {
+    title: "Fresh Eggs & Honey",
+    body: "Connect over lawful local food and farm goods where rules allow.",
+    href: "/what-you-can-trade",
+    icon: Wheat,
+    accentClass: "category-food",
+  },
+  {
+    title: "Tools & Repairs",
+    body: "Trade tool help, sharpening, repairs, equipment use or fix-it skills.",
+    href: "/repairs-and-tools",
+    icon: Hammer,
+    accentClass: "category-repairs",
+  },
+  {
+    title: "Skills & Labor",
+    body: "Trade lessons, local help, yard work, tutoring or practical know-how.",
+    href: "/skills-and-lessons",
+    icon: BookOpen,
+    accentClass: "category-skills",
   },
   {
     title: "Handmade Goods",
@@ -43,31 +64,10 @@ const utilities = [
     accentClass: "category-handmade",
   },
   {
-    title: "Repairs & Tools",
-    body: "Trade tool help, sharpening, repairs, equipment use or fix-it skills.",
-    href: "/repairs-and-tools",
-    icon: Hammer,
-    accentClass: "category-repairs",
-  },
-  {
-    title: "Skills & Lessons",
-    body: "Trade tutoring, music, canning, gardening, sewing or practical lessons.",
-    href: "/skills-and-lessons",
-    icon: BookOpen,
-    accentClass: "category-skills",
-  },
-  {
-    title: "Will Work for Food",
-    body: "Offer useful local work in exchange for food, supplies or goods.",
-    href: "/will-work-for-food",
+    title: "Lawful Farm Goods",
+    body: "Post farm and homestead goods only where lawful and properly handled.",
+    href: "/what-you-can-trade",
     icon: Handshake,
-    accentClass: "category-work",
-  },
-  {
-    title: "Local Partners",
-    body: "For feed stores, nurseries, markets, churches and local groups.",
-    href: "/local-partners",
-    icon: Store,
     accentClass: "category-partners",
   },
 ];
@@ -79,7 +79,7 @@ export default function HomePage() {
     name: "Local Trade Garden",
     url: siteUrl,
     description:
-      "Find Sevier County and nearby East Tennessee people who grow, make, fix, teach or trade useful things.",
+      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee neighbors.",
     isPartOf: {
       "@type": "WebSite",
       name: "Local Trade Garden",
@@ -94,25 +94,28 @@ export default function HomePage() {
       <section className="home-hero border-b border-borderwarm px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="home-hero-panel mx-auto max-w-5xl rounded-2xl p-6 text-center sm:p-10">
           <h1 className="font-display text-4xl font-bold leading-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Trade local goods and useful work in Sevier County and nearby East Tennessee.
+            Trade what you grow, make, fix or can do.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-            A simple early-access pilot for Sevier County, Knox County and nearby East TN neighbors who grow, make, fix, teach or trade useful things.
+            Local Trade Garden is a peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee. Post a trade, find neighbors nearby and handle your own deal.
           </p>
           <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <Link
-              href="/trade"
-              className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl bg-garden px-6 py-3 font-bold text-white transition hover:bg-deep"
-            >
-              Start Trading
-            </Link>
-            <Link
               href="/early-access"
-              className="secondary-copper focus-ring inline-flex min-h-12 items-center justify-center rounded-xl border-2 bg-card px-6 py-3 font-bold transition"
+              className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl bg-garden px-6 py-3 font-bold text-white transition hover:bg-deep"
             >
               Join Early Access
             </Link>
+            <Link
+              href="/what-you-can-trade"
+              className="secondary-copper focus-ring inline-flex min-h-12 items-center justify-center rounded-xl border-2 bg-card px-6 py-3 font-bold transition"
+            >
+              See What You Can Trade
+            </Link>
           </div>
+          <p className="mx-auto mt-6 max-w-2xl text-sm font-bold leading-6 text-charcoal">
+            No checkout. No middleman. No guarantee. Users are responsible for lawful, safe trades.
+          </p>
         </div>
       </section>
 
@@ -146,11 +149,11 @@ export default function HomePage() {
             <Link className="before-trade-link before-trade-safety focus-ring min-h-11 rounded-xl border px-4 py-3 font-bold" href="/safety">
               Safety rules
             </Link>
-            <Link className="before-trade-link before-trade-trade focus-ring min-h-11 rounded-xl border px-4 py-3 font-bold" href="/trade">
+            <Link className="before-trade-link before-trade-trade focus-ring min-h-11 rounded-xl border px-4 py-3 font-bold" href="/what-you-can-trade">
               What you can trade
             </Link>
-            <Link className="before-trade-link before-trade-pilot focus-ring min-h-11 rounded-xl border px-4 py-3 font-bold" href="/pilot-area">
-              Pilot area
+            <Link className="before-trade-link before-trade-pilot focus-ring min-h-11 rounded-xl border px-4 py-3 font-bold" href="/pricing">
+              Pricing
             </Link>
           </nav>
         </div>
