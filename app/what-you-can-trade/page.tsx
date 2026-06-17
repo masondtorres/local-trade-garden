@@ -8,25 +8,17 @@ import { siteUrl, tradeCategories } from "@/content/site";
 export const metadata: Metadata = {
   title: "What You Can Trade | Local Trade Garden",
   description:
-    "Explore garden plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods.",
+    "Explore handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, local labor, Will Work for Food and earth-friendly trades where legal.",
   alternates: {
     canonical: "/what-you-can-trade",
   },
   openGraph: {
     title: "What You Can Trade | Local Trade Garden",
     description:
-      "Explore garden plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods.",
+      "Explore handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, local labor, Will Work for Food and earth-friendly trades where legal.",
     url: "/what-you-can-trade",
   },
 };
-
-const notPublic = [
-  "Firearms or ammunition",
-  "Alcohol, wine or homebrew",
-  "Illegal goods or restricted trades",
-  "Raw milk promotion or loophole claims",
-  "Anything the user cannot lawfully trade where they live",
-];
 
 export default function WhatYouCanTradePage() {
   const webPageSchema = {
@@ -42,16 +34,16 @@ export default function WhatYouCanTradePage() {
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="What you can trade"
-        title="Trade useful things from your hands, land, tools and skills."
-        intro="Local Trade Garden is for neighbor-to-neighbor barter, not random resale piles. Keep it useful, local and lawful."
+        title="If it came from your hands, it belongs in the conversation."
+        intro="This is not a place for random resale piles. It is for made, grown, raised, cooked, built, repaired, taught, created and honestly earned value."
       />
       <AnswerBlock
         question="What can you trade on Local Trade Garden?"
-        answer="You can trade garden plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods where legal and properly handled."
+        answer="You can trade handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, lessons, local labor and earth-friendly goods where legal and properly handled."
       />
       <Section
         title="Trade categories"
-        intro="These categories help people understand what kind of local value belongs here. Users handle the details, the safety and the law."
+        intro="These categories help people understand what kind of local value belongs here."
         className="bg-white/70"
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -66,15 +58,6 @@ export default function WhatYouCanTradePage() {
           <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/safety">
             Safety and Rules
           </Link>
-        </div>
-      </Section>
-      <Section title="Not for public listings" intro="Some trades create too much legal, safety or platform risk for public promotion here.">
-        <div className="grid gap-3 md:grid-cols-2">
-          {notPublic.map((item) => (
-            <div key={item} className="rounded-xl border border-borderwarm bg-card p-4 font-bold text-charcoal shadow-card">
-              {item}
-            </div>
-          ))}
         </div>
       </Section>
       <section className="px-4 py-14 sm:px-6 lg:px-8">
