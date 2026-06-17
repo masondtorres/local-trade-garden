@@ -17,6 +17,7 @@ const publicRoutes = [
   "/contact",
   "/early-access",
   "/pilot-area",
+  "/pricing",
   "/terms",
   "/privacy",
 ];

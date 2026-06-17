@@ -99,6 +99,7 @@ Check these routes after deployment:
 /faq
 /contact
 /early-access
+/pricing
 /terms
 /privacy
 /robots.txt
@@ -112,8 +113,8 @@ These areas need review by a qualified attorney before public launch:
 - Terms of Service
 - Privacy Policy
 - Food handling and labeling language
-- Meat, eggs and honey trade language
-- Alcohol, wine and brews age/legal language
+- Eggs, honey and lawful farm goods language
+- Restricted items language
 - Livestock and regulated goods language
 - User responsibility and platform liability language
 - Form data handling and retention practices

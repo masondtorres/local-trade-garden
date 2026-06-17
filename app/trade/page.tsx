@@ -9,12 +9,11 @@ export const metadata: Metadata = {
 };
 
 const categories = [
-  { href: "/food-and-garden", title: "Food & Garden", body: "Produce, plants, eggs, honey and garden goods.", accentClass: "category-food" },
-  { href: "/handmade-goods", title: "Handmade Goods", body: "Useful goods made by hand for home and daily life.", accentClass: "category-handmade" },
-  { href: "/repairs-and-tools", title: "Repairs & Tools", body: "Repair help, sharpening, equipment use and practical fixes.", accentClass: "category-repairs" },
-  { href: "/skills-and-lessons", title: "Skills & Lessons", body: "Tutoring, lessons and practical skills shared locally.", accentClass: "category-skills" },
-  { href: "/will-work-for-food", title: "Will Work for Food", body: "Useful local work exchanged for food, supplies or goods.", accentClass: "category-work" },
-  { href: "/local-partners", title: "Local Partners", body: "Information for stores, markets, churches and local groups.", accentClass: "category-partners" },
+  { href: "/food-and-garden", title: "Garden & Plants", body: "Plants, seeds, produce and garden starts.", accentClass: "category-food" },
+  { href: "/food-and-garden", title: "Eggs & Honey", body: "Fresh eggs and local honey.", accentClass: "category-handmade" },
+  { href: "/repairs-and-tools", title: "Tools & Repairs", body: "Tools, sharpening, fix-it help and equipment.", accentClass: "category-repairs" },
+  { href: "/skills-and-lessons", title: "Handmade & Skills", body: "Crafts, baked goods, sewing, canning and practical skills.", accentClass: "category-skills" },
+  { href: "/what-you-can-trade", title: "Lawful Farm Goods", body: "Livestock and farm items where fully legal - users handle rules.", accentClass: "category-work" },
 ];
 
 export default function TradePage() {
@@ -23,7 +22,7 @@ export default function TradePage() {
       <UtilityHero
         eyebrow="Trade"
         title="What can you trade?"
-        intro="Local Trade Garden is for useful things people grow, make, repair, teach or earn through honest work."
+        intro="Local Trade Garden is for useful things people grow, make, fix or can do."
       />
       <UtilitySection title="Choose a category">
         <UtilityLinks links={categories} />

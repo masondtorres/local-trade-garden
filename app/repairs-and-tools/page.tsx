@@ -12,12 +12,12 @@ export default function RepairsAndToolsPage() {
   return (
     <HomeSiteShell>
       <div className="category-repairs">
-        <UtilityHero title="Repairs & Tools" intro="Trade practical repair help, tool use and fix-it skills." />
+        <UtilityHero title="Tools & Repairs" intro="Trade tools, sharpening, fix-it help and equipment." />
         <UtilitySection title="What fits here">
           <UtilityList items={["Tool sharpening", "Small repairs", "Equipment use", "Garden tool help", "Mower or small engine help", "Fix-it skills"]} />
         </UtilitySection>
         <UtilitySection title="Keep it safe" muted>
-          <UtilityNote>Do not trade unsafe, stolen or restricted items.</UtilityNote>
+          <UtilityNote>Do not trade unsafe, stolen or restricted items. Users handle their own safe, lawful trades. Local Trade Garden does not inspect, approve, broker, sell, ship, store, guarantee or participate.</UtilityNote>
         </UtilitySection>
       </div>
     </HomeSiteShell>

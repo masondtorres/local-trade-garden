@@ -12,12 +12,12 @@ export default function FoodAndGardenPage() {
   return (
     <HomeSiteShell>
       <div className="category-food">
-        <UtilityHero title="Food & Garden" intro="Trade useful food and garden goods with people nearby." />
+        <UtilityHero title="Garden & Plants" intro="Trade plants, seeds, produce and garden starts with people nearby." />
         <UtilitySection title="What fits here">
-          <UtilityList items={["Produce", "Plants and seedlings", "Eggs", "Honey", "Garden supplies", "Compost and mulch", "Canned or baked goods only where allowed by local rules"]} />
+          <UtilityList items={["Plants and seedlings", "Seeds", "Produce", "Garden starts", "Eggs", "Honey", "Garden supplies", "Baked goods only where allowed by local rules"]} />
         </UtilitySection>
         <UtilitySection title="Know your local rules" muted>
-          <UtilityNote>Food rules can vary by state and county. Users are responsible for knowing and following their local laws.</UtilityNote>
+          <UtilityNote>Food, farm, plant and seed rules can vary. Users are responsible for local, Tennessee and federal law. Raw milk, alcohol, firearms, ammunition and illegal items are not allowed in public listings.</UtilityNote>
         </UtilitySection>
       </div>
     </HomeSiteShell>

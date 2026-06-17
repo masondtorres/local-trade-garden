@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+    "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
     description:
-      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee.",
     url: siteUrl,
     siteName: "Local Trade Garden",
     type: "website",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Local Trade Garden | Trade What You Made, Grew, Raised or Repaired",
     description:
-      "A local early-access trade platform for handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, labor and useful neighbor-to-neighbor exchange where legal.",
+      "A peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee.",
   },
   keywords: [
     "local garden trade",
@@ -75,7 +75,7 @@ export default function RootLayout({
     email,
     areaServed: serviceArea,
     description:
-      "Local Trade Garden is an early-access local trade platform for cash-free local trades involving things people made, grew, raised, repaired, taught or earned through honest work.",
+      "Local Trade Garden is a peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee.",
   };
 
   const websiteSchema = {
@@ -84,7 +84,7 @@ export default function RootLayout({
     name: "Local Trade Garden",
     url: siteUrl,
     description:
-      "A local trade site for handmade goods, homegrown food, tools, repairs, skills, local labor and neighbor-to-neighbor exchange where legal.",
+      "A local trade site for plants, seeds, produce, eggs, honey, handmade goods, tools, repairs, skills, local labor and lawful farm goods.",
     publisher: {
       "@type": "Organization",
       name: "Local Trade Garden",

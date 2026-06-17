@@ -3,7 +3,7 @@ import { PartnerForm } from "@/components/Forms";
 import { JsonLd, PageHero } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { partnerCards, siteUrl } from "@/content/site";
+import { farmersMarketContacts, partnerCards, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Local Partners | Local Trade Garden",
@@ -51,9 +51,24 @@ export default function LocalPartnersPage() {
         </Section>
         <Section
           title="Partner interest"
-          intro="Use this form if your local business, church, club, nonprofit, beekeeping group, meat processor or homesteading group wants to help with the first launch where appropriate and legal."
+          intro="Use this form if your local business, church, club, nonprofit, beekeeping group or homesteading group wants to help with the first launch where appropriate and legal."
         >
           <PartnerForm />
+        </Section>
+        <Section
+          title="Verified market contacts"
+          intro="These contacts are useful for local feedback. They do not imply partnership."
+          className="bg-white/70"
+        >
+          <div className="grid gap-5 md:grid-cols-2">
+            {farmersMarketContacts.map((contact) => (
+              <InfoCard
+                key={contact.market}
+                title={contact.market}
+                body={`${contact.status}. ${contact.phone}. ${contact.email}.`}
+              />
+            ))}
+          </div>
         </Section>
       </div>
     </SiteShell>

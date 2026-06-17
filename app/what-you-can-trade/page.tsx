@@ -3,19 +3,25 @@ import Link from "next/link";
 import { AnswerBlock, ComplianceNote, JsonLd, PageHero } from "@/components/PageBlocks";
 import { InfoCard, Section } from "@/components/Section";
 import { SiteShell } from "@/components/SiteShell";
-import { siteUrl, tradeCategories } from "@/content/site";
+import {
+  executiveVerdict,
+  publicPositioning,
+  regulatedCategoryRisks,
+  siteUrl,
+  tradeCategories,
+} from "@/content/site";
 
 export const metadata: Metadata = {
   title: "What You Can Trade | Local Trade Garden",
   description:
-    "Explore handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, local labor, Will Work for Food and earth-friendly trades where legal.",
+    "Plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods.",
   alternates: {
     canonical: "/what-you-can-trade",
   },
   openGraph: {
     title: "What You Can Trade | Local Trade Garden",
     description:
-      "Explore handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, local labor, Will Work for Food and earth-friendly trades where legal.",
+      "Plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods.",
     url: "/what-you-can-trade",
   },
 };
@@ -34,13 +40,14 @@ export default function WhatYouCanTradePage() {
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="What you can trade"
-        title="If it came from your hands, it belongs in the conversation."
-        intro="This is not a place for random resale piles. It is for made, grown, raised, cooked, built, repaired, taught, created and honestly earned value."
+        title="Useful local trades belong here."
+        intro={publicPositioning}
       />
       <AnswerBlock
         question="What can you trade on Local Trade Garden?"
-        answer="You can trade handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, lessons, local labor and earth-friendly goods where legal and properly handled."
+        answer="You can trade plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods. Firearms, ammunition, alcohol, wine, homebrew, raw milk and illegal items are not allowed in public listings. Users handle all legal rules."
       />
+      <AnswerBlock question="Research verdict" answer={executiveVerdict} />
       <Section
         title="Trade categories"
         intro="These categories help people understand what kind of local value belongs here."
@@ -58,6 +65,13 @@ export default function WhatYouCanTradePage() {
           <Link className="focus-ring rounded-full border border-soil/20 bg-card px-4 py-3 font-bold text-deep shadow-card" href="/safety">
             Safety and Rules
           </Link>
+        </div>
+      </Section>
+      <Section title="Regulated category risk" intro="These are the clear public rules for the MVP. Users still handle their own compliance.">
+        <div className="grid gap-5 md:grid-cols-2">
+          {regulatedCategoryRisks.map((item) => (
+            <InfoCard key={item} title={item.split(":")[0]} body={item} />
+          ))}
         </div>
       </Section>
       <section className="px-4 py-14 sm:px-6 lg:px-8">

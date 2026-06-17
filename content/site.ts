@@ -25,10 +25,112 @@ export const serviceArea = "Sevier County, nearby Knox County and surrounding Ea
 export const email = "masondtorres@duck.com";
 
 export const complianceStatement =
-  "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, age restrictions, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. This site does not approve, inspect, guarantee, broker or become a party to any trade.";
+  "Users are fully responsible for their own trades. All trades must follow local, Tennessee and federal law. Local Trade Garden does not inspect, approve, broker, sell, ship, store, guarantee or participate in any trade.";
 
 export const safetyStatement =
-  "Meet safely. Use common sense. Do not post exact public addresses. Regulated goods must follow applicable laws. Alcohol, wine and brews are only allowed where legal and only for users of legal age. This platform is a connection tool, not a seller, broker, inspector, guarantor or legal advisor.";
+  "Meet safely. Use common sense. Do not post exact public addresses. Inspect goods before trading. Firearms, ammunition, alcohol, wine, homebrew, raw milk and illegal items are not allowed in public listings.";
+
+export const executiveVerdict =
+  "Local Trade Garden has solid neighbor-to-neighbor potential in East Tennessee, but raw milk, meat, live animals, firearms, alcohol and certain plants carry real legal risk. Barter does not dodge the rules. It is still a transaction. Keep the site simple, local and blunt about user responsibility.";
+
+export const publicPositioning =
+  "Local Trade Garden helps local neighbors trade lawful goods, skills, plants, food, tools, handmade items, farm goods and useful work.";
+
+export const farmersMarketContacts = [
+  {
+    market: "Gatlinburg Farmers Market",
+    status: "Verified",
+    phone: "(865) 640-7190",
+    email: "thegatlinburgfarmersmarket@gmail.com",
+  },
+  {
+    market: "Sevierville Farmers Market / Sevierville Commons",
+    status: "Verified",
+    phone: "(865) 453-5504",
+    email: "seviervillecommons@gmail.com",
+  },
+  {
+    market: "Dandridge Farmers Market",
+    status: "Partially verified",
+    phone: "(865) 397-7420",
+    email: "mrudder@dandridgetn.gov or cshockley@dandridgetn.gov",
+  },
+  {
+    market: "Nourish Knoxville",
+    status: "Verified",
+    phone: "(865) 805-8687",
+    email: "markets@nourishknoxville.org",
+  },
+  {
+    market: "Johnson City Farmers Market",
+    status: "Verified",
+    phone: "(423) 467-5327",
+    email: "managerjcfm@gmail.com",
+  },
+  {
+    market: "Kingsport Farmers Market",
+    status: "Verified",
+    phone: "(423) 224-2821",
+    email: "Kristieleonard@KingsportTN.gov",
+  },
+  {
+    market: "Bristol State Street Farmers Market",
+    status: "Verified",
+    phone: "(423) 989-5199",
+    email: "statestreetfarmersmarket@bristoltn.org",
+  },
+];
+
+export const regulatedCategoryRisks = [
+  "Raw milk: High-risk / restricted. Sale for human consumption prohibited. Do not allow public listings.",
+  "Eggs: Generally allowed under TFFA. Users handle labeling, handling and local rules.",
+  "Honey: Allowed. Users handle labeling, handling and local rules.",
+  "Meat / poultry: Restricted. Do not promote on public listings.",
+  "Baked goods / cottage food: Allowed under TFFA. Users handle labeling and food rules.",
+  "Live animals / livestock: Allowed by private treaty only where legal. Users handle paperwork.",
+  "Plants / nursery stock / seeds: Restricted for commercial sale. A license is often needed.",
+  "Alcohol, wine or homebrew: High-risk / banned. Do not allow public listings.",
+  "Firearms / ammunition: Private sales may be legal, but liability is high. Ban public listings.",
+  "Tools, repairs, services and local labor: Generally allowed. Users still check safety and law.",
+];
+
+export const platformRiskSummary = [
+  "Payments create risk. Keep checkout off the MVP.",
+  "Complaints can pull the platform into enforcement. Use clear no lines.",
+  "Hosting and payment providers may restrict regulated goods.",
+  "The site should act like a bulletin board, not a broker.",
+  "Users handle messages, meetings, goods, services and legal duties.",
+];
+
+export const policyDisclaimers = [
+  "User responsibility: Users are fully responsible for their own listings, trades, meetings and legal compliance.",
+  "Regulated goods: Regulated goods must follow every local, Tennessee and federal rule.",
+  "Food and farm: Local Trade Garden does not inspect kitchens, farms, labels, storage or handling.",
+  "Live animals: Livestock and live animal trades are only allowed where fully legal. Users handle paperwork.",
+  "Weapons policy: Firearms and ammunition are not allowed in public listings.",
+  "Alcohol policy: Alcohol, wine and homebrew are not allowed in public listings.",
+  "Platform role: Local Trade Garden does not inspect, approve, broker, sell, ship, store, guarantee or participate in any trade.",
+];
+
+export const redFlags = [
+  "Someone asks to list a banned item.",
+  "Someone tries to use payment, escrow or shipping through the site.",
+  "Someone asks the platform to approve a trade.",
+  "Someone offers raw milk, alcohol, firearms or ammunition.",
+  "Someone offers meat or poultry without clear legal handling.",
+  "Someone posts exact home addresses in public.",
+  "Someone makes medical, safety or legal claims.",
+];
+
+export const nextActions = [
+  "Keep the homepage simple.",
+  "Keep checkout out of the MVP.",
+  "Use blunt public rules.",
+  "Review food, farm and livestock copy with a qualified attorney.",
+  "Ask local market contacts for feedback before opening wider access.",
+  "Moderate public listings for banned and restricted items.",
+  "Keep early access focused on Sevier County, Knox County and nearby East Tennessee.",
+];
 
 export const navLinks = [
   { href: "/trade", label: "Trade" },
@@ -53,7 +155,7 @@ export const footerLinks = [
 
 export const homeCategoryPreview = [
   { title: "Made by hand", body: "Crafts, useful goods, home projects and hand-built items with real work behind them.", icon: Hammer },
-  { title: "Grown or raised", body: "Homegrown food, garden goods, farm goods, eggs, honey and meat where legal.", icon: Wheat },
+  { title: "Grown or raised", body: "Plants, seeds, produce, eggs, honey and lawful farm goods where legal.", icon: Wheat },
   { title: "Repaired or restored", body: "Tools, equipment, small fixes and practical work that gives things another life.", icon: Wrench },
   { title: "Taught or worked", body: "Useful skills, lessons, local labor and honest help from one neighbor to another.", icon: BookOpen },
 ];
@@ -98,19 +200,19 @@ export const steps = [
 
 export const tradeCategories = [
   {
-    title: "Handmade Goods",
-    body: "Soap, candles, crafts, sewn goods, woodwork, useful home items and things made with your own hands.",
-    icon: Hammer,
-  },
-  {
-    title: "Homegrown Food",
-    body: "Produce, herbs, seeds, starts, baked goods, farm goods and homegrown food where legal.",
+    title: "Plants, Seeds and Produce",
+    body: "Garden plants, seeds, produce, herbs and starts from neighbors nearby.",
     icon: Carrot,
   },
   {
-    title: "Meat, Eggs and Honey",
-    body: "Allowed where legal, properly handled and traded by people responsible for following the rules.",
+    title: "Eggs and Honey",
+    body: "Fresh eggs and local honey where legal, properly handled and clearly described.",
     icon: Wheat,
+  },
+  {
+    title: "Baked and Handmade Goods",
+    body: "Baked goods where allowed, crafts, sewn goods, woodwork and useful home items.",
+    icon: Hammer,
   },
   {
     title: "Tools and Repairs",
@@ -124,12 +226,12 @@ export const tradeCategories = [
   },
   {
     title: "Local Labor",
-    body: "Stacking wood, clearing brush, hauling feed, planting rows, loading trucks and neighborly work.",
+    body: "Stacking wood, clearing brush, planting rows, loading trucks and neighborly work.",
     icon: Users,
   },
   {
-    title: "Will Work for Food",
-    body: "Manual labor traded for food, goods or useful local items.",
+    title: "Lawful Farm Goods",
+    body: "Livestock and farm items only where fully legal. Users handle all rules.",
     icon: Handshake,
   },
   {
@@ -143,8 +245,8 @@ export const safetyGuidelines = [
   { title: "Meet safely", body: "Choose sensible public or familiar places and trust your judgment.", icon: ShieldCheck },
   { title: "Keep exact addresses private", body: "Use a general area first. Do not post exact public addresses.", icon: MapPin },
   { title: "Know the rules", body: "Regulated goods must follow local, state and federal laws.", icon: BookOpen },
-  { title: "Alcohol has extra limits", body: "Alcohol, wine and brews are only allowed where legal and only for users of legal age.", icon: ShieldCheck },
-  { title: "Food safety is on users", body: "The platform does not inspect kitchens, farms, labels, handling or storage.", icon: Wheat },
+  { title: "Restricted items are not promoted", body: "Do not use the site to promote firearms, ammunition, alcohol, wine, homebrew, raw milk or illegal items.", icon: ShieldCheck },
+  { title: "Food safety is on users", body: "The platform does not inspect kitchens, gardens, farms, labels, handling or storage.", icon: Wheat },
   { title: "Connection tool only", body: "Local Trade Garden is not a seller, broker, inspector, guarantor or legal advisor.", icon: Handshake },
 ];
 
@@ -185,41 +287,48 @@ export const partnerCards = [
   { title: "Local food nonprofits", icon: Building2 },
   { title: "Homesteading groups", icon: Users },
   { title: "Beekeepers and honey groups where appropriate and legal", icon: Wheat },
-  { title: "Butchers or meat processors where appropriate and legal", icon: PackageSearch },
 ];
 
 export const faq = [
   {
-    q: "Is this for buying and selling?",
-    a: "No. Local Trade Garden is built for cash-free local trades. There is no checkout, payment layer or crypto.",
+    q: "What is Local Trade Garden?",
+    a: "It is a peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee. Neighbors post trades and handle their own deals.",
   },
   {
-    q: "What does 'If you made it, you trade it' mean?",
-    a: "It means this site is for things that came from your hands, work, land, skill or care. Made, grown, raised, repaired, taught, cooked, built or earned through honest labor.",
+    q: "Is this for buying and selling?",
+    a: "No. Local Trade Garden is for local barter. There is no checkout, payment layer or middleman.",
   },
   {
     q: "What can I trade?",
-    a: "You can trade handmade goods, homegrown food, meat, eggs, honey, tools, repairs, skills, lessons, local labor and earth-friendly goods where legal and properly handled.",
+    a: "Plants, seeds, produce, eggs, honey, baked goods, handmade goods, tools, repairs, skills, local labor and lawful farm goods where fully legal.",
   },
   {
-    q: "Can I trade meat, eggs or honey?",
-    a: "Only where legal and only when properly handled. The person posting and trading the item is responsible for knowing and following the rules that apply.",
+    q: "What area is this for?",
+    a: "The first focus is Sevier County, Knox County and nearby East Tennessee.",
   },
   {
-    q: "Can I trade wine or brews?",
-    a: "Only where legal and only for users of legal age. Users are responsible for following all applicable laws.",
+    q: "Are restricted items allowed?",
+    a: "No. Firearms, ammunition, alcohol, wine, homebrew, raw milk and illegal items are not allowed in public listings.",
   },
   {
     q: "What rules apply to trades?",
-    a: "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules that apply to their goods, services, food handling, labeling, alcohol, livestock, meat, honey, eggs and any other regulated item. Local Trade Garden does not approve, inspect, guarantee, broker or become a party to any trade.",
+    a: "All trades must follow local, state and federal laws. Users are responsible for knowing and following the rules for their goods, services and handoffs.",
   },
   {
     q: "Does the site verify food safety?",
     a: "No. Local Trade Garden does not inspect goods, verify food safety or guarantee any trade. Users are responsible for food handling, labeling, storage and local rules.",
   },
   {
-    q: "Who is responsible for following the law?",
-    a: "Users are. All trades must follow local, state and federal laws. This site is a connection tool, not a broker, legal advisor or party to any trade.",
+    q: "Who is responsible for a trade?",
+    a: "Users are. Local Trade Garden does not inspect, approve, broker, sell, ship, store, guarantee or participate in trades.",
+  },
+  {
+    q: "Does barter avoid legal rules?",
+    a: "No. Barter is still a transaction. Users must follow local, Tennessee and federal law.",
+  },
+  {
+    q: "Does Local Trade Garden handle payment or delivery?",
+    a: "No. There is no checkout, payment processing, escrow, shipping or delivery service.",
   },
   {
     q: "Will my address be shown?",
@@ -230,8 +339,8 @@ export const faq = [
     a: "Not yet. Local Trade Garden is an early access local pilot. The site is collecting interest and shaping the first local pilot group.",
   },
   {
-    q: "How is Local Trade Garden different from Facebook Marketplace?",
-    a: "Local Trade Garden is not built for random resale listings or cash-first selling. It is focused on cash-free local trades for things made, grown, raised, repaired, taught or earned through honest work.",
+    q: "How is this different from a resale site?",
+    a: "It is not for random resale piles. It is for useful local trades between neighbors.",
   },
 ];
 

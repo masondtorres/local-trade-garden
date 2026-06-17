@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/PageBlocks";
 import { SiteShell } from "@/components/SiteShell";
-import { complianceStatement, email, siteUrl } from "@/content/site";
+import { complianceStatement, email, platformRiskSummary, policyDisclaimers, redFlags, siteUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Local Trade Garden",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Platform purpose",
-    body: "Local Trade Garden is an early access local pilot and connection platform for local trades involving things people made, grew, raised, cooked, built, repaired, taught, created or earned through honest labor. The live trading app is not open yet.",
+    body: "Local Trade Garden is an early access peer-to-peer barter board for Sevier County, Knox County and nearby East Tennessee. The live trading app is not open yet.",
   },
   {
     title: "Trade only",
@@ -27,8 +27,24 @@ const sections = [
     body: complianceStatement,
   },
   {
+    title: "Policy disclaimers",
+    body: policyDisclaimers.join(" "),
+  },
+  {
+    title: "Platform risk summary",
+    body: platformRiskSummary.join(" "),
+  },
+  {
+    title: "No platform participation",
+    body: "Local Trade Garden does not inspect, approve, broker, sell, ship, store, guarantee or participate in any trade. Users handle their own messages, meetings, goods, services, agreements and legal duties.",
+  },
+  {
+    title: "Restricted items",
+    body: "Firearms, ammunition, alcohol, wine, homebrew and raw milk are not promoted. Users must not use the site for illegal, unsafe or restricted trades.",
+  },
+  {
     title: "Food safety and local law",
-    body: "Local Trade Garden does not inspect goods, verify food safety, verify licensing, broker trades or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
+    body: "Local Trade Garden does not inspect goods, verify food safety, verify licensing or guarantee any trade. Users are responsible for following local laws and using common sense before meeting or trading. This is not legal advice.",
   },
   {
     title: "Account suspension",
@@ -39,8 +55,12 @@ const sections = [
     body: "The platform may review reported users, reported listings and flagged content, and may remove content that appears to violate rules.",
   },
   {
+    title: "Red flags",
+    body: redFlags.join(" "),
+  },
+  {
     title: "No guarantee of trades",
-    body: "Local Trade Garden does not guarantee that any listing will receive offers, that any trade will be completed or that any item or service will meet expectations. Local Trade Garden does not become a party to trades between users.",
+    body: "Local Trade Garden does not guarantee that any listing will receive offers, that any trade will be completed or that any item or service will meet expectations.",
   },
   {
     title: "Contact",

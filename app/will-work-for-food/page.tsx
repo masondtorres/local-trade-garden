@@ -30,7 +30,7 @@ export default function WillWorkForFoodPage() {
           <UtilityList items={["Stack firewood", "Weed a garden", "Help with harvest", "Move mulch", "Clean a chicken coop", "Help set up a market booth", "Trade basic labor for eggs, produce, pantry goods or supplies"]} />
         </UtilitySection>
         <UtilitySection title="Safety rules" muted>
-          <UtilityList items={["Meet in safe public places when possible", "Do not go alone to unfamiliar private property", "Agree on the work and trade before starting", "Do not accept unsafe work", "Users are responsible for their own agreements"]} />
+          <UtilityList items={["Meet in safe public places when possible", "Do not go alone to unfamiliar private property", "Agree on the work and trade before starting", "Do not accept unsafe work", "Users are responsible for their own safe, lawful agreements", "Local Trade Garden does not broker or guarantee work"]} />
         </UtilitySection>
       </div>
     </HomeSiteShell>
