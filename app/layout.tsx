@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "Local Trade Garden | Grow Local. Trade Local. Eat Local.", template: "%s" },
   description: "Find, sell, trade or give away garden goods near you.",
+  icons: { icon: "/icon.png" },
   openGraph: { title: "Local Trade Garden", description: "Find, sell, trade or give away garden goods near you.", url: siteUrl, siteName: "Local Trade Garden", type: "website" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
@@ -16,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="font-sans antialiased">
-        <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: "Local Trade Garden", url: siteUrl, email, areaServed: serviceArea }} />
+        <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: "Local Trade Garden", url: siteUrl, logo: `${siteUrl}/icon.png`, email, areaServed: serviceArea }} />
         {children}
       </body>
     </html>

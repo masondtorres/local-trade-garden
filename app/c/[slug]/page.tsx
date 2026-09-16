@@ -5,14 +5,28 @@ import { SiteShell } from "@/components/SiteShell";
 import { CATEGORIES } from "@/lib/catalog";
 import { isPublicListing } from "@/lib/listings";
 import { loadStore } from "@/lib/store";
+
 export function generateStaticParams() { return CATEGORIES.map((c) => ({ slug: c.slug })); }
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params; const cat = CATEGORIES.find((c) => c.slug === slug);
-  if (!cat) return { title: "Category" };
-  return { title: `${cat.label} near you | Local Trade Garden`, alternates: { canonical: `/c/${slug}` } };
+  const { slug } = await params;
+  const cat = CATEGORIES.find((c) => c.slug === slug);
+  if (!cat) return { title: "Category | Local Trade Garden", robots: { index: false, follow: true } };
+  const store = await loadStore();
+  const hasListings = store.listings.some((listing) => listing.category === slug && isPublicListing(listing));
+  return {
+    title: `${cat.label} near you | Local Trade Garden`,
+    description: `Browse local ${cat.label.toLowerCase()} listings on Local Trade Garden.`,
+    alternates: { canonical: `/c/${slug}` },
+    robots: hasListings ? { index: true, follow: true } : { index: false, follow: true },
+  };
 }
+
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; const cat = CATEGORIES.find((c) => c.slug === slug); if (!cat) notFound();
-  const store = await loadStore(); const listings = store.listings.filter((l) => l.category === slug && isPublicListing(l));
+  const { slug } = await params;
+  const cat = CATEGORIES.find((c) => c.slug === slug);
+  if (!cat) notFound();
+  const store = await loadStore();
+  const listings = store.listings.filter((l) => l.category === slug && isPublicListing(l));
   return (<SiteShell><section className="mx-auto max-w-6xl px-4 py-8 sm:px-6"><h1 className="font-display text-3xl font-bold">{cat.label}</h1><p className="mt-2 text-muted">Listings appear when someone posts one.</p><div className="mt-6">{listings.length ? <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{listings.map((listing) => <ListingCard key={listing.id} listing={listing} />)}</div> : <EmptyListings />}</div></section></SiteShell>);
 }

@@ -9,6 +9,7 @@ const routes = ["", "/browse", "/how-it-works", "/guidelines", "/safety", "/faq"
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const store = await loadStore();
   const listings = store.listings.filter(isPublicListing);
+  const activeCategories = new Set(listings.map((listing) => listing.category));
   const sellerIds = [...new Set(listings.map((listing) => listing.sellerId))];
 
   return [
@@ -17,7 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: route === "" ? 1 : 0.7,
     })),
-    ...CATEGORIES.map((category) => ({
+    ...CATEGORIES.filter((category) => activeCategories.has(category.slug)).map((category) => ({
       url: `${siteUrl}/c/${category.slug}`,
       changeFrequency: "daily" as const,
       priority: 0.6,
