@@ -26,9 +26,9 @@ export default async function HomePage() {
           <p className="text-sm font-bold uppercase tracking-wide text-deep">{promiseLine}</p>
           <h1 className="font-display mt-3 text-4xl font-bold leading-tight sm:text-5xl">Find garden goods near you.</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted">Sell, buy, trade, or give away produce, plants, seeds, eggs, honey, flowers, herbs, tools and supplies. Local pickup. No checkout.</p>
-          <div className="mt-8 text-left"><SearchPanel /></div>
+          <div className="mt-8 text-left"><SearchPanel compact /></div>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/browse" className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-garden px-5 font-bold">Browse nearby</Link>
+            <Link href="/browse" className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-garden px-5 font-bold">Browse all listings</Link>
             <Link href="/sell" className="focus-ring inline-flex min-h-12 items-center justify-center rounded-xl bg-garden px-5 font-bold text-white">Post something</Link>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Flower2, Menu } from "lucide-react";
 import { email, footerLinks, navLinks, promiseLine } from "@/content/site";
 
 export function Header() {
+  const desktopLinks = navLinks.filter((link) => link.href !== "/sell");
   return (
     <header className="site-header sticky top-0 z-50 border-b border-borderwarm px-4 py-3 backdrop-blur sm:px-6">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
@@ -13,7 +14,7 @@ export function Header() {
           <span className="font-display text-base font-bold text-garden sm:text-lg">Local Trade Garden</span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-bold md:flex" aria-label="Primary">
-          {navLinks.map((link) => (
+          {desktopLinks.map((link) => (
             <Link key={link.href} href={link.href} className="focus-ring rounded-full py-2 hover:text-garden">{link.label}</Link>
           ))}
           <Link href="/account" className="focus-ring rounded-full py-2 hover:text-garden">Account</Link>

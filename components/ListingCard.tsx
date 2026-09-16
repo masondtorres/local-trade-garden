@@ -5,8 +5,10 @@ import { formatPrice } from "@/lib/utils";
 import type { Listing } from "@/lib/types";
 
 export function ListingCard({ listing }: { listing: Listing }) {
+  const photo = listing.photos?.[0];
   return (
-    <Link href={`/l/${listing.slug}`} className="category-card focus-ring block rounded-2xl border border-borderwarm p-4">
+    <Link href={`/l/${listing.slug}`} className="category-card focus-ring block overflow-hidden rounded-2xl border border-borderwarm p-4">
+      {photo ? <img src={photo} alt={listing.title} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="mb-4 aspect-[4/3] w-full rounded-xl object-cover" /> : null}
       <div className="flex items-start justify-between gap-3">
         <p className="text-xs font-bold uppercase tracking-wide text-deep">{offerLabel(listing.offerType)}</p>
         <p className="text-sm font-bold">{formatPrice(listing.offerType, listing.price)}</p>
