@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: { default: "Local Trade Garden | Grow Local. Trade Local. Eat Local.", template: "%s" },
   description: "Find, sell, trade or give away garden goods near you.",
   icons: { icon: "/icon.png" },
-  openGraph: { title: "Local Trade Garden", description: "Find, sell, trade or give away garden goods near you.", url: siteUrl, siteName: "Local Trade Garden", type: "website" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {

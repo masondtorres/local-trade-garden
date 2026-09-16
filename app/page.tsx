@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   title: "Local Trade Garden | Grow Local. Trade Local. Eat Local.",
   description: "Find, sell, trade, or give away garden goods near you.",
   alternates: { canonical: "/" },
+  openGraph: { title: "Local Trade Garden", description: "Find, sell, trade or give away garden goods near you.", url: siteUrl, siteName: "Local Trade Garden", type: "website" },
+  twitter: { card: "summary", title: "Local Trade Garden", description: "Find, sell, trade or give away garden goods near you." },
 };
 
 export default async function HomePage() {

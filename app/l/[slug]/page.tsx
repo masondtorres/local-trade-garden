@@ -15,8 +15,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const store = await loadStore();
   const listing = store.listings.find((item) => item.slug === slug || item.id === slug);
-  if (!listing) return { title: "Listing not found" };
-  return { title: `${listing.title} | Local Trade Garden`, description: listing.description.slice(0, 150), alternates: { canonical: `/l/${listing.slug}` }, robots: publicListingStatus(listing) === "active" ? { index: true } : { index: false } };
+  if (!listing) return { title: "Listing not found", robots: { index: false, follow: true } };
+  const description = listing.description.slice(0, 150);
+  const url = `${siteUrl}/l/${listing.slug}`;
+  const active = publicListingStatus(listing) === "active";
+  const image = listing.photos?.[0];
+  return {
+    title: `${listing.title} | Local Trade Garden`,
+    description,
+    alternates: { canonical: `/l/${listing.slug}` },
+    robots: active ? { index: true, follow: true } : { index: false, follow: true },
+    openGraph: { title: listing.title, description, url, siteName: "Local Trade Garden", type: "website", ...(image ? { images: [{ url: image, alt: listing.title }] } : {}) },
+    twitter: { card: image ? "summary_large_image" : "summary", title: listing.title, description, ...(image ? { images: [image] } : {}) },
+  };
 }
 
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
