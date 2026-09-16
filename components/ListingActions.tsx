@@ -57,7 +57,7 @@ export function ListingActions({ listingId, slug, title, sellerId }: { listingId
       <div className="flex flex-wrap gap-2"><button className="focus-ring min-h-11 rounded-xl border px-4 font-bold" onClick={save} type="button">Save</button><button className="focus-ring min-h-11 rounded-xl border px-4 font-bold" onClick={share} type="button">Share</button></div>
       <form onSubmit={contact} className="grid gap-3 rounded-2xl border border-borderwarm bg-card p-4">
         <h2 className="font-bold">Contact seller</h2>
-        <p className="text-sm text-muted">Your message is saved in the seller's Local Trade Garden inbox. Meet in public and do not send money to strangers.</p>
+        <p className="text-sm text-muted">Your message is saved in the seller&apos;s Local Trade Garden inbox. Meet in public and do not send money to strangers.</p>
         <label className="grid gap-1 text-sm font-bold">Your name<input className="min-h-12 rounded-xl border px-3 font-normal" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" required /></label>
         <label className="grid gap-1 text-sm font-bold">Your email<input className="min-h-12 rounded-xl border px-3 font-normal" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required /></label>
         <label className="grid gap-1 text-sm font-bold">Message<textarea className="min-h-28 rounded-xl border px-3 py-2 font-normal" placeholder="When can you pick this up?" value={message} onChange={(e) => setMessage(e.target.value)} required /></label>
