@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "Local Trade Garden | Grow Local. Trade Local. Eat Local.", template: "%s" },
   description: "Find, sell, trade or give away garden goods near you.",
-  alternates: { canonical: "/" },
   openGraph: { title: "Local Trade Garden", description: "Find, sell, trade or give away garden goods near you.", url: siteUrl, siteName: "Local Trade Garden", type: "website" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };

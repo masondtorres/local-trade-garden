@@ -61,12 +61,15 @@ export function ListingForm({ user }: { user: PublicUser }) {
         <p className="text-sm text-muted">Use a general area only. Do not post your street address.</p>
         <div className="grid gap-3 sm:grid-cols-3">
           <label className="grid gap-1 text-sm font-bold sm:col-span-1">City<input name="city" required defaultValue={user.city} autoComplete="address-level2" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" /></label>
-          <label className="grid gap-1 text-sm font-bold">State<input name="region" required defaultValue={user.region} autoComplete="address-level1" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" /></label>
+          <label className="grid gap-1 text-sm font-bold">State / region<input name="region" required defaultValue={user.region} autoComplete="address-level1" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" /></label>
           <label className="grid gap-1 text-sm font-bold">ZIP <span className="font-normal text-muted">(optional)</span><input name="postalCode" defaultValue={user.postalCode} autoComplete="postal-code" inputMode="numeric" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" /></label>
         </div>
         <label className="grid gap-1 text-sm font-bold">Pickup note <span className="font-normal text-muted">(optional)</span><input name="pickupArea" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" placeholder="Near downtown, west side, public meetup preferred" /></label>
       </fieldset>
-      <label className="grid gap-1 text-sm font-bold">Photo link <span className="font-normal text-muted">(optional)</span><input name="photo" type="url" inputMode="url" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" placeholder="https://…" /><span className="text-xs font-normal text-muted">Use a direct HTTPS image link. Uploaded photos can be added when durable image storage is connected.</span></label>
+      <details className="rounded-2xl border border-borderwarm p-4">
+        <summary className="focus-ring cursor-pointer rounded-lg font-bold">Already have a hosted photo link?</summary>
+        <label className="mt-3 grid gap-1 text-sm font-bold">Photo URL <span className="font-normal text-muted">(optional)</span><input name="photo" type="url" inputMode="url" className="min-h-12 rounded-xl border border-borderwarm px-3 font-normal" placeholder="https://…" /><span className="text-xs font-normal text-muted">Use a direct HTTPS image link. Normal photo uploads require durable image storage and are not enabled yet.</span></label>
+      </details>
       <button className="focus-ring min-h-12 rounded-xl bg-garden font-bold text-white disabled:opacity-60" type="submit" disabled={busy}>{busy ? "Publishing…" : "Publish listing"}</button>
     </form>
   );
