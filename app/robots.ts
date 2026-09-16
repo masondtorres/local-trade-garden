@@ -1,15 +1,5 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/content/site";
-
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/private/"],
-      },
-    ],
-    sitemap: `${siteUrl}/sitemap.xml`,
-  };
+  return { rules: [{ userAgent: "*", allow: "/", disallow: ["/account", "/login", "/sell", "/api/"] }], sitemap: `${siteUrl}/sitemap.xml`, host: siteUrl };
 }
